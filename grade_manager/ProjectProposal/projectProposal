@@ -14,6 +14,13 @@ but she wants a separate application that will let her add assignments herself t
 plan for future assignments and hypothetical situations.
 
 
+Chris, age 19, is a sophomore in university and has a tendency to slack off during the semester. 
+Because of this, he frequently tries to calculate his grade in the middle and end of the semester
+to see how to make up for a bad start. He needs a tool that can store his grades and how they change,
+as well as predict his final grades. Chris will use the grade manager on a need by need basis instead of 
+as a consistent tracker.
+
+
 Persona - Returning Student
 Chris Hemsworth, age 20, a resident of Philadelphia, is a returning college student to Alekhine University. 
 He joined Temple University when he was 18, majoring in Electrical Engineering alongside playing varsity football for the university. 
@@ -23,3 +30,4 @@ Now fully fit, Chris has enrolled himself back in the university and has taken 5
 Being aware that all of his courses require him to take multiple quizzes, homework, assignments, and midterms maybe extra-credit, curves, the lowest grade being dropped, 
 he starts looking for an effective way of managing his grades and opts to use the Grade Manager as a realiable form of grade manager application.  
 He finds the interface easy to use and is easily able to view the actual and potential grades for all of his courses. 
+

@@ -8,6 +8,7 @@ function App() {
           <p>Hello World</p>
           {/* add names here to make sure that you can push to github and make a pull from helloWorld to main */}
           <p>Varsha Vattappally</p>
+          <p>Anjeza Beca</p>
 
         </div>
        

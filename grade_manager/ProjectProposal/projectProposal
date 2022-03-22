@@ -1,7 +1,9 @@
-Vision Statement:
-This application will allow users, including students and teachers to see their grades.
+Project Proposal:
+Instead of using Java we will be using React and SpringBoot to create the web application. We are considering 
+using bootstrap to implement the CSS.
 
-For students who want to examine their grades and plan ahead for study schedules. The grade manager
+Vision Statement:
+This application will allow users, including students and teachers to see their grades.For students who want to examine their grades and plan ahead for study schedules. The grade manager
 is a web application that will allow students to put all their courses and assignments in place to better keep 
 track of their grades. Unlike other applications Grade Manager will allow students to independently keep track of their grades.
 

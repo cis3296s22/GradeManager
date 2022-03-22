@@ -25,6 +25,14 @@ he starts looking for an effective way of managing his grades and opts to use th
 He finds the interface easy to use and is easily able to view the actual and potential grades for all of his courses. 
 
 
+Persona-Slacker
+Chris, age 19, is a sophomore in university and has a tendency to slack off during the semester. 
+Because of this, he frequently tries to calculate his grade in the middle and end of the semester
+to see how to make up for a bad start. He needs a tool that can store his grades and how they change,
+as well as predict his final grades. Chris will use the grade manager on a need by need basis instead of 
+as a consistent tracker.
+
+
 Persona - Teacher
 
 Edward, a college Lecturer
@@ -40,3 +48,4 @@ He enjoys tracking all his students progress as much as he enjoy tracking his pa
 With such, he rewards his students with extra credit for going the extra mile and sometimes making him laugh. 
 With the current update and viewing of his student’s grades, he can best advise them on best practices or certain changes that can be done to save or help boost their performances. 
 He would love to use a medium in which he can constantly update at live view his students grades, the weights/percentages, and  extra credit assignments.
+

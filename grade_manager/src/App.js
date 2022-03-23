@@ -10,11 +10,12 @@ function App() {
           <p>Varsha Vattappally</p>
           <p>Anjeza Beca</p>
           <p>Keshav Saraogi</p>
+          <p>Jerrell Lewis</p>
         </div>
        
       </header>
     </div>
   );
-}
+}  
 
 export default App;

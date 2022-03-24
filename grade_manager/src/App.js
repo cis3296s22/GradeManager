@@ -9,12 +9,13 @@ function App() {
           {/* add names here to make sure that you can push to github and make a pull from helloWorld to main */}
           <p>Varsha Vattappally</p>
           <p>Anjeza Beca</p>
-
+          <p>Keshav Saraogi</p>
+          <p>Jerrell Lewis</p>
         </div>
        
       </header>
     </div>
   );
-}
+}  
 
 export default App;

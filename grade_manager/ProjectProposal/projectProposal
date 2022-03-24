@@ -1,7 +1,9 @@
-Vision Statement:
-This application will allow users, including students and teachers to see their grades.
+Project Proposal:
+Instead of using Java we will be using React and SpringBoot to create the web application. We are considering 
+using bootstrap to implement the CSS.
 
-For students who want to examine their grades and plan ahead for study schedules. The grade manager
+Vision Statement:
+This application will allow users, including students and teachers to see their grades.For students who want to examine their grades and plan ahead for study schedules. The grade manager
 is a web application that will allow students to put all their courses and assignments in place to better keep 
 track of their grades. Unlike other applications Grade Manager will allow students to independently keep track of their grades.
 
@@ -12,13 +14,6 @@ She is really anxious about getting good grades for her first semester.
 She's been using her university's application to keep track of her grades, 
 but she wants a separate application that will let her add assignments herself to 
 plan for future assignments and hypothetical situations.
-
-
-Chris, age 19, is a sophomore in university and has a tendency to slack off during the semester. 
-Because of this, he frequently tries to calculate his grade in the middle and end of the semester
-to see how to make up for a bad start. He needs a tool that can store his grades and how they change,
-as well as predict his final grades. Chris will use the grade manager on a need by need basis instead of 
-as a consistent tracker.
 
 
 Persona - Returning Student
@@ -32,6 +27,32 @@ he starts looking for an effective way of managing his grades and opts to use th
 He finds the interface easy to use and is easily able to view the actual and potential grades for all of his courses. 
 
 
+
 Persona - Busy Student
 Marie Rotman just moved in to the United States and she just enrolled at Temple University as a full time student.  On the other side
 she also works full time so her schedule is very busy.
+
+Persona-Slacker
+Chris, age 19, is a sophomore in university and has a tendency to slack off during the semester. 
+Because of this, he frequently tries to calculate his grade in the middle and end of the semester
+to see how to make up for a bad start. He needs a tool that can store his grades and how they change,
+as well as predict his final grades. Chris will use the grade manager on a need by need basis instead of 
+as a consistent tracker.
+
+
+Persona - Teacher
+
+Edward, a college Lecturer
+
+As a lecturer of 12 years at the Uptah University of Elites, Edward surely enjoys bringing knowledge to every upcoming generation that passes through him. 
+Growing up in the east coast of Nebrowskai, he has an ever loving passion for the ocean and sea creatures. 
+With age comes wisdom as he, at 35 years, released many books about his life experiences and forming paths for the children of tomorrow. 
+Although widowed, he is the father of 7 kids, 4 boys and 3 girls. 
+Ed is a triple threat having his PhD in Physiology, Music Theory and Geology as he perform many musical numbers, when he is not infant a classroom.
+
+Ed loves to keep up to date with the times, as he wears the latest designer clothes, owns the latest cars and technological devices. 
+He enjoys tracking all his students progress as much as he enjoy tracking his packages from Comizon. Ed gets super excited when his students do well. 
+With such, he rewards his students with extra credit for going the extra mile and sometimes making him laugh. 
+With the current update and viewing of his student’s grades, he can best advise them on best practices or certain changes that can be done to save or help boost their performances. 
+He would love to use a medium in which he can constantly update at live view his students grades, the weights/percentages, and  extra credit assignments.
+

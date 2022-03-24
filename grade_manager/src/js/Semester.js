@@ -14,21 +14,22 @@ function Semester() {
     function alertClicked() {
         alert('You clicked the third ListGroupItem');
     }
-
     return(
-         <div>ch3ejbmbj</div>
-    /*    <ListGroup defaultActiveKey="#link1">
+        <ListGroup defaultActiveKey="#link1">
             <ListGroup.Item action href="#link1">
-                Semester 1
+                Link 1
             </ListGroup.Item>
             <ListGroup.Item action href="#link2" disabled>
-                Semester 2
+                Link 2
             </ListGroup.Item>
             <ListGroup.Item action onClick={alertClicked}>
                 This one is a button
             </ListGroup.Item>
-         </ListGroup>
-         */
+        </ListGroup>
     );
+
+
+
+
 }
 export default Semester;

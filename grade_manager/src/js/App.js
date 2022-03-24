@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="helloWorld">
-          {/*<Course></Course>*/}
-          <Semester></Semester>
+          {<Course></Course>}
+          {<Semester></Semester>}
 
           {/* add names here to make sure that you can push to github and make a pull from helloWorld to main */}
         </div>

@@ -5,14 +5,10 @@ import Course from "./Course";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div className="helloWorld">
-          {<Course></Course>}
-          {<Semester></Semester>}
-
-          {/* add names here to make sure that you can push to github and make a pull from helloWorld to main */}
-        </div>
-      </header>
+      {/*add router when adding new pages (login/signup)  */}
+      <h1>Grade Manager</h1>
+      {<Course></Course>}
+      {/* {<Semester></Semester>} */}
     </div>
   );
 }

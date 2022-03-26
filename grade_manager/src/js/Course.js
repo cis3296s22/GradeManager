@@ -7,8 +7,14 @@ import InputGroup from "react-bootstrap/InputGroup";
 // import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+// import DropdownButton from "react-bootstrap/DropdownButton";
 import { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Semester from "./Semester";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+
+// import "../Style/Course.css";
 {
   /* stored as a variable and added to the mapping?
  display course card that takes in input values to send data*/
@@ -33,7 +39,7 @@ function Course() {
   }
 
   // ********************************************************
-//   NOT WORKING on dropdown below
+  //   NOT WORKING on dropdown below
   const [show, setShow] = useState(false);
 
   const showDropdown = () => {
@@ -47,46 +53,85 @@ function Course() {
 
   // ********************************************************
 
+  const styles = {
+    grid: {
+      paddingLeft: 0,
+      paddingRight: 0,
+      position: "absolute", //change this later
+      top: "10rem",
+    },
+    row: {
+      marginLeft: 0,
+      marginRight: 0,
+      //  the rows is already taking up the whole height, need the ListGroup Items to expand/shrink
+      // in response to the available size
+    },
+    col: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+    //     row-eq-height {
+    //   display: -webkit-box;
+    //   display: -webkit-flex;
+    //   display: -ms-flexbox;
+    //   display:         flex;
+    // }
+  };
+
+  //CONTAINER //style={styles.grid}
+  // ROW style={styles.row}
+  // COL 1 style={styles.col}
+  // COL 2 style={styles.col}
   return (
-    <Tabs
-      defaultActiveKey="profile"
-      id="uncontrolled-tab-example"
-      className="mb-3"
-      onSelect={addCourseTab}
-    >
-      <Tab eventKey="SoftwareDesign" title="Software Design">
-        <Card border="primary" style={{ width: "35rem", color: "black" }}>
-          <Card.Header>Grades</Card.Header>
-          <Card.Body>
-            {/* <Card.Title>Primary Card Title</Card.Title> */}
-            {/* is this div necessary? */}
-            <div>
-              <InputGroup>
-                <InputGroup.Text>Assignment</InputGroup.Text>
-                <FormControl aria-label="Assignment" />
-                {/* group should be a dropdown with the ability to add new groups */}
-                <Dropdown
-                  // error has to be with the function call?
-                  onMouseOver={() => console.log("onMouseOver")}
-                  onMouseEnter={() => console.log("onMouseEnter")}
-                  onMouseLeave={() => console.log("onMouseLeave")}
-                  //   onMouseEnter={() => showDropdown()}
-                  //   onMouseLeave={() => hideDropdown()}
-                  show={show}
-                >
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Group
-                  </Dropdown.Toggle>
+    <Container style={styles.grid}>
+      <Row style={styles.row}>
+        <Col style={styles.col}>
+          {/* {<Semester></Semester>} */}
+          <Semester />
+        </Col>
+        <Col style={styles.col}>
+          <Tabs
+            defaultActiveKey="profile"
+            id="uncontrolled-tab-example"
+            className="mb-3"
+            onSelect={addCourseTab}
+          >
+            <Tab eventKey="SoftwareDesign" title="Software Design">
+              <Card border="primary">
+                <Card.Header>Grades</Card.Header>
+                <Card.Body>
+                  {/* <Card.Title>Primary Card Title</Card.Title> */}
+                  {/* is this div necessary? */}
+                  <div>
+                    <InputGroup>
+                      <InputGroup.Text>Assignment</InputGroup.Text>
+                      <FormControl aria-label="Assignment" />
+                      {/* group should be a dropdown with the ability to add new groups */}
+                      <Dropdown
+                      // error has to be with the function call?
+                      // onMouseOver={() => console.log("onMouseOver")}
+                      // onMouseEnter={() => console.log("onMouseEnter")}
+                      // onMouseLeave={() => console.log("onMouseLeave")}
+                      //   onMouseEnter={() => showDropdown()}
+                      //   onMouseLeave={() => hideDropdown()}
+                      // show={show}
+                      >
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                          Group
+                        </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Quiz</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Assignments</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Attendance</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-                {/* ************************************************************ */}
-
-                {/* <DropdownButton
+                        <Dropdown.Menu>
+                          <Dropdown.Item href="#/action-1">Quiz</Dropdown.Item>
+                          <Dropdown.Item href="#/action-2">
+                            Assignments
+                          </Dropdown.Item>
+                          <Dropdown.Item href="#/action-3">
+                            Attendance
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                      {/* ************************************************************ */}
+                      {/* <DropdownButton
                   id="dropdown-basic-button"
                   title="Group"
                   variant="secondary"
@@ -99,56 +144,58 @@ function Course() {
                   <Dropdown.Item href="#/action-2">Assignments</Dropdown.Item>
                   <Dropdown.Item href="#/action-3">Attendence</Dropdown.Item>
                   <Dropdown.Item href="#/action-3"> */}
-                {/* <DropdownButton
+                      {/* <DropdownButton
                       id="dropdown-basic-button-Add-Group"
                       title="Add Group"
                       variant="secondary"
                     ></DropdownButton> */}
-                {/* </Dropdown.Item>
+                      {/* </Dropdown.Item>
                 </DropdownButton> */}
-                {/* ************************************************************ */}
-                {/* <InputGroup.Text>Group</InputGroup.Text>
+                      {/* ************************************************************ */}
+                      {/* <InputGroup.Text>Group</InputGroup.Text>
                 <FormControl aria-label="Group" /> */}
+                      <InputGroup.Text>Grade</InputGroup.Text>
+                      <FormControl aria-label="Grade" />
+                      <Button variant="outline-success" onClick={addAssignment}>
+                        {" "}
+                        <FaPlus />
+                        {" Add Assignment "}
+                      </Button>{" "}
+                    </InputGroup>
+                  </div>
+                  <Card.Text></Card.Text>
+                </Card.Body>
+              </Card>
+            </Tab>
+            <Tab eventKey="IH" title="Intellectual Heritage">
+              <Card border="primary" style={{ width: "35rem", color: "black" }}>
+                <Card.Header>Grades</Card.Header>
+                <Card.Body>
+                  <Card.Title>Primary Card Title</Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Tab>
 
-                <InputGroup.Text>Grade</InputGroup.Text>
-                <FormControl aria-label="Grade" />
-              </InputGroup>
-              <Button variant="outline-success" onClick={addAssignment}>
-                {" "}
-                <FaPlus />
-                {" Add Assignment "}
-              </Button>{" "}
-            </div>
-            <Card.Text></Card.Text>
-          </Card.Body>
-        </Card>
-      </Tab>
-      <Tab eventKey="profile" title="Profile">
-        <Card border="primary" style={{ width: "35rem", color: "black" }}>
-          <Card.Header>Grades</Card.Header>
-          <Card.Body>
-            <Card.Title>Primary Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Tab>
-
-      <Tab eventKey="addNewCourse" title="Add Course">
-        <Card border="primary" style={{ width: "35rem", color: "black" }}>
-          <Card.Header>Grades</Card.Header>
-          <Card.Body>
-            <Card.Title>Primary Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Tab>
-    </Tabs>
+            <Tab eventKey="addNewCourse" title="Add Course">
+              <Card border="primary" style={{ width: "35rem", color: "black" }}>
+                <Card.Header>Grades</Card.Header>
+                <Card.Body>
+                  <Card.Title>Primary Card Title</Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Tab>
+          </Tabs>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

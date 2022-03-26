@@ -1,0 +1,10 @@
+.SemesterListGroup {
+  /* position: absolute; */
+  /* top: 0%; */
+  /* left: 0%; */
+  height: 100%;
+}
+
+.list-group-item {
+  background-color: aqua;
+}

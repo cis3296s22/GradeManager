@@ -40,7 +40,7 @@ function Course() {
 
   // ********************************************************
   //   NOT WORKING on dropdown below
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const showDropdown = () => {
     console.log(show);
@@ -59,6 +59,8 @@ function Course() {
       paddingRight: 0,
       position: "absolute", //change this later
       top: "10rem",
+      left: "10rem",
+      width: "75%",
     },
     row: {
       marginLeft: 0,
@@ -70,18 +72,7 @@ function Course() {
       paddingLeft: 0,
       paddingRight: 0,
     },
-    //     row-eq-height {
-    //   display: -webkit-box;
-    //   display: -webkit-flex;
-    //   display: -ms-flexbox;
-    //   display:         flex;
-    // }
   };
-
-  //CONTAINER //style={styles.grid}
-  // ROW style={styles.row}
-  // COL 1 style={styles.col}
-  // COL 2 style={styles.col}
   return (
     <Container style={styles.grid}>
       <Row style={styles.row}>
@@ -100,23 +91,17 @@ function Course() {
               <Card border="primary">
                 <Card.Header>Grades</Card.Header>
                 <Card.Body>
-                  {/* <Card.Title>Primary Card Title</Card.Title> */}
-                  {/* is this div necessary? */}
+                  {/* put everything in this div into a variable and add to all courses dynamically */}
                   <div>
                     <InputGroup>
                       <InputGroup.Text>Assignment</InputGroup.Text>
                       <FormControl aria-label="Assignment" />
                       {/* group should be a dropdown with the ability to add new groups */}
-                      <Dropdown
-                      // error has to be with the function call?
-                      // onMouseOver={() => console.log("onMouseOver")}
-                      // onMouseEnter={() => console.log("onMouseEnter")}
-                      // onMouseLeave={() => console.log("onMouseLeave")}
-                      //   onMouseEnter={() => showDropdown()}
-                      //   onMouseLeave={() => hideDropdown()}
-                      // show={show}
-                      >
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      <Dropdown>
+                        <Dropdown.Toggle
+                          variant="outline-success"
+                          id="dropdown-basic"
+                        >
                           Group
                         </Dropdown.Toggle>
 
@@ -131,29 +116,6 @@ function Course() {
                         </Dropdown.Menu>
                       </Dropdown>
                       {/* ************************************************************ */}
-                      {/* <DropdownButton
-                  id="dropdown-basic-button"
-                  title="Group"
-                  variant="secondary"
-                  show={show}
-                  //   showDropdown hideDropdown
-                  onMouseEnter={console.log("mouse hovering")}
-                  onMouseLeave={console.log("mouse NOT hovering")}
-                >
-                  <Dropdown.Item href="#/action-1">Quiz</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Assignments</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Attendence</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3"> */}
-                      {/* <DropdownButton
-                      id="dropdown-basic-button-Add-Group"
-                      title="Add Group"
-                      variant="secondary"
-                    ></DropdownButton> */}
-                      {/* </Dropdown.Item>
-                </DropdownButton> */}
-                      {/* ************************************************************ */}
-                      {/* <InputGroup.Text>Group</InputGroup.Text>
-                <FormControl aria-label="Group" /> */}
                       <InputGroup.Text>Grade</InputGroup.Text>
                       <FormControl aria-label="Grade" />
                       <Button variant="outline-success" onClick={addAssignment}>

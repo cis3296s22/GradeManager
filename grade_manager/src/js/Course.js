@@ -4,10 +4,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { FaPlus } from "react-icons/fa";
 import InputGroup from "react-bootstrap/InputGroup";
-// import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownButton from "react-bootstrap/DropdownButton";
 import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Semester from "./Semester";
@@ -71,12 +69,17 @@ function Course() {
     col: {
       paddingLeft: 0,
       paddingRight: 0,
+      // marginLeft: 0,
+      // marginRight: 0,
     },
   };
+
+  // COLUMN DIV FOR SEMESTER IS TAKING UP TOO MUCH SPACE
+  // HAVE TO DIVIDE IT UP ACCORDING TO BOOTSTRAP GRID
   return (
     <Container style={styles.grid}>
       <Row style={styles.row}>
-        <Col style={styles.col}>
+        <Col sm={3} style={styles.col}>
           {/* {<Semester></Semester>} */}
           <Semester />
         </Col>

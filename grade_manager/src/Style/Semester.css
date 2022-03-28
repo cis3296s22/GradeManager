@@ -2,9 +2,7 @@
   /* position: absolute; */
   /* top: 0%; */
   /* left: 0%; */
+  /* with a max height in Semester.js? */
   height: 100%;
 }
-
-.list-group-item {
-  background-color: aqua;
-}
+/* use prefix option on bootstrap-react */

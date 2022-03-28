@@ -1,13 +1,8 @@
 .App {
   text-align: center;
+  position: relative;
+  top: 50px;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
-  
 }
-
-
-
-
-

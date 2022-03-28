@@ -23,7 +23,7 @@ function Semester() {
   return (
     <ListGroup
       defaultActiveKey="#link1"
-      style={{ maxHeight: "300px" }}
+      // style={{ maxHeight: "300px" }}
       bsPrefix="SemesterContainer"
     >
       <ListGroup.Item action href="#link1">
@@ -37,6 +37,15 @@ function Semester() {
       </ListGroup.Item>
       <ListGroup.Item action href="#link4">
         Semester 4
+      </ListGroup.Item>
+      <ListGroup.Item action href="#link5">
+        Semester 5
+      </ListGroup.Item>
+      <ListGroup.Item action href="#link6">
+        Semester 6
+      </ListGroup.Item>
+      <ListGroup.Item action href="#link7">
+        Semester 7
       </ListGroup.Item>
       <ListGroup.Item action onClick={alertClicked}>
         Add Semester

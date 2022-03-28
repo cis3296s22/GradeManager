@@ -22,6 +22,12 @@ function Semester() {
       <ListGroup.Item action href="#link2" disabled>
         Semester 2
       </ListGroup.Item>
+        <ListGroup.Item action href="#link2" disabled>
+            Semester 3
+        </ListGroup.Item>
+        <ListGroup.Item action href="#link2" disabled>
+            Semester 4
+        </ListGroup.Item>
       <ListGroup.Item action onClick={alertClicked}>
         Add Semester
       </ListGroup.Item>

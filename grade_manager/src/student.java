@@ -2,7 +2,6 @@ package com.example.grade.student;
 
 import java.time.LocalDate;
 
-
 public class Student {
 
     private String name;
@@ -11,8 +10,7 @@ public class Student {
     private String email;
     private LocalDate dob;
 
-
-
+    private ArrayList<Course> courseList;
     public Student(){}
 
     public Student(String name, int age, String email, LocalDate dob){
@@ -28,6 +26,10 @@ public class Student {
         this.age = age;
         this.email = email;
         this.dob = dob;
+    }
+
+    public void addCourse(Course course){
+        courseList.add(course);
     }
 
     public long getId() {
@@ -80,5 +82,5 @@ public class Student {
                 "dob = " + dob +
                 "email = " + email +
                 "}";
-        }
+    }
 }

@@ -4,10 +4,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { FaPlus } from "react-icons/fa";
 import InputGroup from "react-bootstrap/InputGroup";
-// import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownButton from "react-bootstrap/DropdownButton";
 import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Semester from "./Semester";
@@ -71,12 +69,55 @@ function Course() {
     col: {
       paddingLeft: 0,
       paddingRight: 0,
+      // marginLeft: 0,
+      // marginRight: 0,
     },
   };
+
+  const addAssignmentDiv = (
+    <div>
+      <InputGroup>
+        <InputGroup.Text>Assignment</InputGroup.Text>
+        <FormControl aria-label="Assignment" />
+        {/* group should be a dropdown with the ability to add new groups */}
+        <Dropdown>
+          <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
+            Group
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1">Quiz</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Assignments</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Attendance</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        {/* ************************************************************ */}
+        <InputGroup.Text>Grade</InputGroup.Text>
+        <FormControl aria-label="Grade" />
+        <Button variant="outline-success" onClick={addAssignment}>
+          {" "}
+          <FaPlus />
+          {" Add Assignment "}
+        </Button>{" "}
+      </InputGroup>
+    </div>
+  );
+
+  const placeHolderAssignment = (
+    <div>
+      <p>
+        <span>Assignment Name</span> <span>Quiz</span>
+        <span> 89</span>
+      </p>
+    </div>
+  );
+
+  // COLUMN DIV FOR SEMESTER IS TAKING UP TOO MUCH SPACE
+  // HAVE TO DIVIDE IT UP ACCORDING TO BOOTSTRAP GRID
   return (
     <Container style={styles.grid}>
       <Row style={styles.row}>
-        <Col style={styles.col}>
+        <Col sm={3} style={styles.col}>
           {/* {<Semester></Semester>} */}
           <Semester />
         </Col>
@@ -92,53 +133,16 @@ function Course() {
                 <Card.Header>Grades</Card.Header>
                 <Card.Body>
                   {/* put everything in this div into a variable and add to all courses dynamically */}
-                  <div>
-                    <InputGroup>
-                      <InputGroup.Text>Assignment</InputGroup.Text>
-                      <FormControl aria-label="Assignment" />
-                      {/* group should be a dropdown with the ability to add new groups */}
-                      <Dropdown>
-                        <Dropdown.Toggle
-                          variant="outline-success"
-                          id="dropdown-basic"
-                        >
-                          Group
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item href="#/action-1">Quiz</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">
-                            Assignments
-                          </Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">
-                            Attendance
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                      {/* ************************************************************ */}
-                      <InputGroup.Text>Grade</InputGroup.Text>
-                      <FormControl aria-label="Grade" />
-                      <Button variant="outline-success" onClick={addAssignment}>
-                        {" "}
-                        <FaPlus />
-                        {" Add Assignment "}
-                      </Button>{" "}
-                    </InputGroup>
-                  </div>
-                  <Card.Text></Card.Text>
+                  {placeHolderAssignment}
+                  {addAssignmentDiv}
+                  {/* <Card.Text></Card.Text> */}
                 </Card.Body>
               </Card>
             </Tab>
             <Tab eventKey="IH" title="Intellectual Heritage">
               <Card border="primary" style={{ width: "35rem", color: "black" }}>
                 <Card.Header>Grades</Card.Header>
-                <Card.Body>
-                  <Card.Title>Primary Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                </Card.Body>
+                <Card.Body>{addAssignmentDiv}</Card.Body>
               </Card>
             </Tab>
 

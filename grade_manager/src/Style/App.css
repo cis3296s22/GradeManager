@@ -1,13 +1,13 @@
 .App {
   text-align: center;
+  position: relative;
+  top: 50px;
 }
 
+/* @media (prefers-reduced-motion: no-preference) {
+} */
 
-@media (prefers-reduced-motion: no-preference) {
-  
+.App h1 {
+  color: #63a375;
+  font-weight: 600;
 }
-
-
-
-
-

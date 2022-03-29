@@ -103,6 +103,15 @@ function Course() {
     </div>
   );
 
+  const placeHolderAssignment = (
+    <div>
+      <p>
+        <span>Assignment Name</span> <span>Quiz</span>
+        <span> 89</span>
+      </p>
+    </div>
+  );
+
   // COLUMN DIV FOR SEMESTER IS TAKING UP TOO MUCH SPACE
   // HAVE TO DIVIDE IT UP ACCORDING TO BOOTSTRAP GRID
   return (
@@ -124,8 +133,9 @@ function Course() {
                 <Card.Header>Grades</Card.Header>
                 <Card.Body>
                   {/* put everything in this div into a variable and add to all courses dynamically */}
+                  {placeHolderAssignment}
                   {addAssignmentDiv}
-                  <Card.Text></Card.Text>
+                  {/* <Card.Text></Card.Text> */}
                 </Card.Body>
               </Card>
             </Tab>

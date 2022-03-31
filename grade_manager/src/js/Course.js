@@ -53,11 +53,31 @@ function Course() {
       console.log("just clicking through the course tabs");
     }
   }
-  function addAssignment() {
-    //   fill in
 
+  function addAssignment() {
+    // CURRENT: taking input from user and storing in newAssignment
+    // not displaying the new assignmnet
+    // press the +newAssignment button to send the newAssignmet to the database
+    // also adds to the newAssignment variable on change
+
+    // SEND TO DATABASE FROM HERE
+
+    // make this look better later
     console.log("add assignment");
     console.log(newAssignment);
+
+    const newAssignmentDiv = (
+      <div>
+        <div>newAssignment.name</div>
+        <div>newAssignment.group</div>
+        <div>newAssignment.grade</div>
+      </div>
+    );
+
+    setNewAssignment((prevState) => ({
+      ...prevState,
+      container: newAssignmentDiv,
+    }));
   }
 
   // ********************************************************
@@ -79,6 +99,7 @@ function Course() {
     name: null,
     grade: null,
     group: null,
+    container: null,
   });
 
   function chooseAssignmentGroup(e) {

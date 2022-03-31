@@ -27,12 +27,6 @@ npm -v
 ```
 npm install -g npm
 ```
-* To install Create-React-App run:
-```
-npx create-react-app my-app
-cd my-app
-npm start
-```
 
 * If the program gives you errors when trying to run, use either of these:
 ```

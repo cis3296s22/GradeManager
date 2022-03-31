@@ -15,7 +15,7 @@ Grades attached to those classes will be calculated.
 
 ### How to build ###
 
-*Using this github repository: https://github.com/cis3296s22/GradeManager download into local Javascript IDE from the green button marked "Code", click on Download Zip. Another option is to download the code via the release towards the right of the page. Choose the "Source code.zip" option. After extraction, open the folder in your Javascript IDE. 
+* Using this github repository: https://github.com/cis3296s22/GradeManager download into local Javascript IDE from the green button marked "Code", click on Download Zip. Another option is to download the code via the release towards the right of the page. Choose the "Source code.zip" option. After extraction, open the folder in your Javascript IDE. 
 
 In order to get this project started, you will first need to download Node. Go to https://nodejs.org/en/ and select the "Recommended For Most Users" button and download the current version for your operating system. 
 

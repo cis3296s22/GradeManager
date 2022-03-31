@@ -74,21 +74,30 @@ function Course() {
     },
   };
 
+  // function ChooseAssigmentGroup(){
+  //   console.log(this)
+  // }
+  const chooseAssignmentGroup = (e) => {
+    console.log(e);
+    console.log("check");
+  };
+
   const addAssignmentDiv = (
     <div>
       <InputGroup>
         <InputGroup.Text>Assignment</InputGroup.Text>
         <FormControl aria-label="Assignment" />
         {/* group should be a dropdown with the ability to add new groups */}
-        <Dropdown>
+        <Dropdown onSelect={chooseAssignmentGroup}>
           <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
             Group
           </Dropdown.Toggle>
-
+          {/* onclick repalce the innerHTMl of Dropdown.Toggle */}
+          {/* replace href with event key instead? */}
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Quiz</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Assignments</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Attendance</Dropdown.Item>
+            <Dropdown.Item eventKey="1">Quiz</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Assignments</Dropdown.Item>
+            <Dropdown.Item eventKey="3">Attendance</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         {/* ************************************************************ */}

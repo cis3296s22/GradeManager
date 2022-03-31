@@ -15,23 +15,23 @@ Grades attached to those classes will be calculated.
 
 ### How to build ###
 
-* Using this github repository: https://github.com/cis3296s22/GradeManager download into local Javascript IDE from the green button marked "Code", click on Download Zip. Another option is to download the code via the release towards the right of the page. Choose the "Source code.zip" option. After extraction, open the folder in your Javascript IDE. 
+*Using this github repository: https://github.com/cis3296s22/GradeManager download into local Javascript IDE from the green button marked "Code", click on Download Zip. Another option is to download the code via the release towards the right of the page. Choose the "Source code.zip" option. After extraction, open the folder in your Javascript IDE. 
 
-* In order to get this project started, you will first need to download Node. Go to https://nodejs.org/en/ and select the "Recommended For Most Users" button and download the current version for your operating system. 
+In order to get this project started, you will first need to download Node. Go to https://nodejs.org/en/ and select the "Recommended For Most Users" button and download the current version for your operating system. 
 
 * After download is complete, using the main branch, go to your Javascript IDE (example Visual Code) and go to your command line or terminal and enter:
 
-- npm -v
+--> npm -v
 
 * This will present you with the version of NPM installed. Check to see if your version is above 5.2.0. If not, run:
 
-- npm install -g npm
+--> npm install -g npm
 
 * To install Create-React-App run:
 
-- npx create-react-app my-app
-- cd my-app
-- npm start
+--> npx create-react-app my-app
+--> cd my-app
+--> npm start
 
 * If the program gives you errors when trying to run "npm start", try "npm run start" or "npm run".
 
@@ -39,13 +39,13 @@ Grades attached to those classes will be calculated.
 
 * If it is still giving an error, more than likely the update didn't install all the necessary dependencies. Run :
 
-- npm updates
+--> npm updates
 
-- npm install
+--> npm install
  
  or 
 
- - npm install updates
+--> npm install updates
 
  * then try "npm start", "npm run start", "npm run"
 

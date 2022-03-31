@@ -23,34 +23,6 @@ import Row from "react-bootstrap/Row";
 }
 
 function Course() {
-  // const newAssignment =
-  function addCourseTab(key) {
-    if (key === "addNewCourse") {
-      console.log("add new course tab");
-    } else {
-      console.log("just clicking through the course tabs");
-    }
-  }
-  function addAssignment() {
-    //   fill in
-    console.log("add assignment");
-  }
-
-  // ********************************************************
-  //   NOT WORKING on dropdown below
-  const [show, setShow] = useState(true);
-
-  const showDropdown = () => {
-    console.log(show);
-    setShow(true);
-  };
-  const hideDropdown = () => {
-    console.log(show);
-    setShow(false);
-  };
-
-  // ********************************************************
-
   const styles = {
     grid: {
       paddingLeft: 0,
@@ -73,29 +45,91 @@ function Course() {
       // marginRight: 0,
     },
   };
+  // const newAssignment =
+  function addCourseTab(key) {
+    if (key === "addNewCourse") {
+      console.log("add new course tab");
+    } else {
+      console.log("just clicking through the course tabs");
+    }
+  }
+  function addAssignment() {
+    //   fill in
+
+    console.log("add assignment");
+    console.log(newAssignment);
+  }
+
+  // ********************************************************
+  //   NOT WORKING on dropdown below
+  const [show, setShow] = useState(true);
+
+  const showDropdown = () => {
+    console.log(show);
+    setShow(true);
+  };
+  const hideDropdown = () => {
+    console.log(show);
+    setShow(false);
+  };
+
+  // ********************************************************
+
+  const [newAssignment, setNewAssignment] = useState({
+    name: null,
+    grade: null,
+    group: null,
+  });
+
+  function chooseAssignmentGroup(e) {
+    // setNewAssignment((prevState) => { group: e });
+    setNewAssignment((prevState) => ({
+      ...prevState,
+      group: e,
+    }));
+
+    console.log("clicking through dropdown");
+    console.log(e);
+    console.log(newAssignment);
+  }
 
   const addAssignmentDiv = (
     <div>
       <InputGroup>
         <InputGroup.Text>Assignment</InputGroup.Text>
-        <FormControl aria-label="Assignment" />
+        <FormControl
+          aria-label="Assignment"
+          onChange={(e) =>
+            setNewAssignment((prevState) => ({
+              ...prevState,
+              name: e.target.value,
+            }))
+          }
+        />
         {/* group should be a dropdown with the ability to add new groups */}
-        <Dropdown>
+        <Dropdown onSelect={(e) => chooseAssignmentGroup(e)}>
           <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
             Group
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Quiz</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Assignments</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Attendance</Dropdown.Item>
+            <Dropdown.Item eventKey={"Quiz"}>Quiz</Dropdown.Item>
+            <Dropdown.Item eventKey={"Assignment"}>Assignment</Dropdown.Item>
+            <Dropdown.Item eventKey={"Attendance"}>Attendance</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         {/* ************************************************************ */}
         <InputGroup.Text>Grade</InputGroup.Text>
-        <FormControl aria-label="Grade" />
+        <FormControl
+          aria-label="Grade"
+          onChange={(e) =>
+            setNewAssignment((prevState) => ({
+              ...prevState,
+              grade: e.target.value,
+            }))
+          }
+        />
         <Button variant="outline-success" onClick={addAssignment}>
-          {" "}
           <FaPlus />
           {" Add Assignment "}
         </Button>{" "}
@@ -112,8 +146,6 @@ function Course() {
     </div>
   );
 
-  // COLUMN DIV FOR SEMESTER IS TAKING UP TOO MUCH SPACE
-  // HAVE TO DIVIDE IT UP ACCORDING TO BOOTSTRAP GRID
   return (
     <Container style={styles.grid}>
       <Row style={styles.row}>

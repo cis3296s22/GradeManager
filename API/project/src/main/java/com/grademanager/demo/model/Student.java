@@ -16,7 +16,7 @@ import java.util.concurrent.TimeoutException;
 @Entity
 
 @Table(name="students")
-
+//private ArrayList<Course> courseList;
 public class Student {
     
     @Id

@@ -1,0 +1,15 @@
+/* .SemesterListGroup {
+  position: absolute; 
+  top: 0%;
+  left: 0%;
+   with a max height in Semester.js?
+  height: 100%;
+} */
+/* use prefix option on bootstrap-react */
+
+.SemesterContainer {
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}

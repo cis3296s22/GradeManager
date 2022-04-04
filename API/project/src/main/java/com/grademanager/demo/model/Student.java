@@ -20,7 +20,7 @@ import java.util.concurrent.TimeoutException;
 public class Student {
     
     @Id
-    private Long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+    private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
     @Column(name="firstName")
     private String firstName;
     @Column(name="lastName")
@@ -33,10 +33,11 @@ public class Student {
     private LocalDate birthday;
     @Column (name = "age")
     private int age;
-    
-    public Student(){
 
-    }
+
+
+    
+    public Student(){}
     
     public Student(String firstName, String lastName, int age, String email, LocalDate birthday){
         this.firstName = firstName;

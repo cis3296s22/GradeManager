@@ -1,3 +1,5 @@
+package com.grademanager.demo.model;
+
 public class Quiz {
     private int grade;
 

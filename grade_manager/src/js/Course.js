@@ -41,18 +41,16 @@ function Course() {
     col: {
       paddingLeft: 0,
       paddingRight: 0,
-      // marginLeft: 0,
-      // marginRight: 0,
     },
   };
-  // const newAssignment =
-  function addCourseTab(key) {
-    if (key === "addNewCourse") {
-      console.log("add new course tab");
-    } else {
-      console.log("just clicking through the course tabs");
-    }
-  }
+
+  // function addCourseTab(key) {
+  //   if (key === "addNewCourse") {
+  //     console.log("add new course tab");
+  //   } else {
+  //     console.log("just clicking through the course tabs");
+  //   }
+  // }
 
   // addAssignmentDiv has all the calls to the function addAssignment
   // add Assignment creates a div and attaches it to the useState for the assignment variable
@@ -203,7 +201,6 @@ function Course() {
     <Container style={styles.grid}>
       <Row style={styles.row}>
         <Col sm={3} style={styles.col}>
-          {/* {<Semester></Semester>} */}
           <Semester />
         </Col>
         <Col style={styles.col}>
@@ -211,7 +208,7 @@ function Course() {
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3"
-            onSelect={addCourseTab}
+            // onSelect={addCourseTab}
           >
             <Tab eventKey="SoftwareDesign" title="Software Design">
               <Card border="primary">

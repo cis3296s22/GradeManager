@@ -51,6 +51,13 @@ function Course() {
   //     console.log("just clicking through the course tabs");
   //   }
   // }
+  const [newAssignment, setNewAssignment] = useState({
+    name: null,
+    grade: null,
+    group: null,
+    container: null,
+  });
+
   const addAssignmentDiv = (
     <Row>
       <InputGroup>
@@ -132,7 +139,10 @@ function Course() {
     <Tab eventKey={eachCourseName} title={eachCourseName} key={eachCourseName}>
       <Card border="primary">
         <Card.Header>{eachCourseName}</Card.Header>
-        <Card.Body>{addAssignmentDiv}</Card.Body>
+        <Card.Body>
+          {newAssignment.container}
+          {addAssignmentDiv}
+        </Card.Body>
       </Card>
     </Tab>
   ));
@@ -191,13 +201,6 @@ function Course() {
       </Card>
     </Tab>
   );
-
-  const [newAssignment, setNewAssignment] = useState({
-    name: null,
-    grade: null,
-    group: null,
-    container: null,
-  });
 
   function chooseAssignmentGroup(e) {
     // setNewAssignment((prevState) => { group: e });

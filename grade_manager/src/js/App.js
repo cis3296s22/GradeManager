@@ -1,6 +1,8 @@
+import React from 'react';
 import "../Style/App.css";
 import Course from "./Course";
 import Profile from "./Profile";
+import ProfileComponent from './ProfileComponent'
 
 function App() {
   return (

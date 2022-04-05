@@ -221,16 +221,15 @@ function Course() {
                 </Card.Body>
               </Card>
             </Tab>
-
             <Tab eventKey="IH" title="Intellectual Heritage">
               <Card border="primary" style={{ width: "35rem", color: "black" }}>
                 <Card.Header>Intellectual Heritage</Card.Header>
                 <Card.Body>{addAssignmentDiv}</Card.Body>
               </Card>
             </Tab>
-
             {/* map through the all the courses being returned from the database and render*/}
             {/*  */}
+            {newCourse.container}
             {addCourseDiv}
           </Tabs>
         </Col>

@@ -1,55 +1,59 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import "../Style/Semester.css";
+import { useState } from "react";
+import { ListGroupItem } from "react-bootstrap";
 
 function Semester() {
-  function addSemesterTab(key) {
-    if (key === "addNewSemester") {
-      console.log("add new semester tab");
-    } else {
-      console.log("just clicking through the semester tabs");
-    }
+  // pull the semesters from the database
+  // semesterobject : {
+  // course1: {assignment1: {name: "name", grade: 100, group: "quiz"}};
+
+  function addSemesterTab(semester) {
+    // automatically increment the semester &
+    // SEND TO DATABASE
+
+    setSemesterNames((prevState) => [
+      ...prevState,
+      "Semester " +
+        (Number(semesterNames[semesterNames.length - 1].match(/\d+/g)) + 1),
+    ]);
+
+    // if the key is Add New Semester
+    // send a new semester to the database
   }
 
-  //   .list-group{
-  //     max-height: 300px;
-  //     margin-bottom: 10px;
-  //     overflow:scroll;
-  //     -webkit-overflow-scrolling: touch;
-  // }
-  function alertClicked() {
-    alert("You clicked the third ListGroupItem");
-  }
-  // style={{ width: "35rem", color: "black" }}
-  return (
-    <ListGroup
-      defaultActiveKey="#link1"
-      // style={{ maxHeight: "300px" }}
-      bsPrefix="SemesterContainer"
+  const [semesterNames, setSemesterNames] = useState([
+    "Semester 1",
+    "Semester 2",
+    "Semester 3",
+    "Semester 4",
+    "Semester 5",
+    "Semester 6",
+    "Semester 7",
+    "Semester 8",
+  ]);
+
+  const listItems = semesterNames.map((semester) => (
+    <ListGroup.Item
+      action
+      eventKey={semester}
+      key={semester}
+      // onClick display the associated courses
     >
-      <ListGroup.Item action href="#link1">
-        Semester 1
-      </ListGroup.Item>
-      <ListGroup.Item action href="#link2">
-        Semester 2
-      </ListGroup.Item>
-      <ListGroup.Item action href="#link3">
-        Semester 3
-      </ListGroup.Item>
-      <ListGroup.Item action href="#link4">
-        Semester 4
-      </ListGroup.Item>
-      <ListGroup.Item action href="#link5">
-        Semester 5
-      </ListGroup.Item>
-      <ListGroup.Item action href="#link6">
-        Semester 6
-      </ListGroup.Item>
-      <ListGroup.Item action href="#link7">
-        Semester 7
-      </ListGroup.Item>
-      <ListGroup.Item action onClick={alertClicked}>
-        Add Semester
-      </ListGroup.Item>
+      {semester}
+    </ListGroup.Item>
+  ));
+
+  return (
+    <ListGroup defaultActiveKey="#link1" bsPrefix="SemesterContainer">
+      {listItems}
+      <ListGroupItem
+        action
+        eventKey={"Add New Semester"}
+        onClick={addSemesterTab}
+      >
+        Add New Semester
+      </ListGroupItem>
     </ListGroup>
   );
 }

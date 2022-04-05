@@ -11,13 +11,13 @@ public class Course {
 
     ArrayList<Quiz> quizList = new ArrayList<Quiz>();
     ArrayList<Assignment> assignmentList = new ArrayList<Assignment>();
-    ArrayList<Final> finalList = new ArrayList<Final>();
+    ArrayList<Exam> examList = new ArrayList<Exam>();
 
-    public double calculateGrade(ArrayList<Quiz> quizList, ArrayList<Assignment> assignmentList, ArrayList<Final> finalList){
+    public double calculateGrade(ArrayList<Quiz> quizList, ArrayList<Assignment> assignmentList, ArrayList<Exam> finalList){
         double quizScore = 0;
         double assignmentScore = 0;
-        double finalScore = 0;
-        
+        double examScore = 0;
+
 
         for(int i = 0; i < quizList.size(); i++){
             quizScore += quizList.get(i).getGrade();
@@ -26,9 +26,9 @@ public class Course {
             assignmentScore += assignmentList.get(i).getGrade();
         }
         for(int i = 0; i < finalList.size(); i++){
-            finalScore += finalList.get(i).getGrade();
+            examScore += finalList.get(i).getGrade();
         }
-        totalGrade = quizScore * quizList.get(0).getWeight()  + assignmentScore * assignmentList.get(0).getWeight() + finalScore * finalList.get(0).getWeight();
+        totalGrade = quizScore * quizList.get(0).getWeight()  + assignmentScore * assignmentList.get(0).getWeight() + examScore * finalList.get(0).getWeight();
         return totalGrade;
     }
 
@@ -38,8 +38,8 @@ public class Course {
     public void addAssignment(Assignment assignment){
         assignmentList.add(assignment);
     }
-    public void addFinal(Final finalExam){
-        finalList.add(finalExam);
+    public void addFinal(Exam finalExam){
+        examList.add(finalExam);
     }
 
     // delete operations

@@ -51,6 +51,48 @@ function Course() {
   //     console.log("just clicking through the course tabs");
   //   }
   // }
+  const addAssignmentDiv = (
+    <Row>
+      <InputGroup>
+        <InputGroup.Text>Assignment</InputGroup.Text>
+        <FormControl
+          aria-label="Assignment"
+          onChange={(e) =>
+            setNewAssignment((prevState) => ({
+              ...prevState,
+              name: e.target.value,
+            }))
+          }
+        />
+        {/* group should be a dropdown with the ability to add new groups */}
+        <Dropdown onSelect={(e) => chooseAssignmentGroup(e)}>
+          <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
+            Group
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item eventKey={"Quiz"}>Quiz</Dropdown.Item>
+            <Dropdown.Item eventKey={"Assignment"}>Assignment</Dropdown.Item>
+            <Dropdown.Item eventKey={"Attendance"}>Attendance</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <InputGroup.Text>Grade</InputGroup.Text>
+        <FormControl
+          aria-label="Grade"
+          onChange={(e) =>
+            setNewAssignment((prevState) => ({
+              ...prevState,
+              grade: e.target.value,
+            }))
+          }
+        />
+        <Button variant="outline-success" onClick={addAssignment}>
+          <FaPlus />
+          {" Add Assignment "}
+        </Button>{" "}
+      </InputGroup>
+    </Row>
+  );
 
   // addAssignmentDiv has all the calls to the function addAssignment
   // add Assignment creates a div and attaches it to the useState for the assignment variable
@@ -80,6 +122,20 @@ function Course() {
       container: newAssignmentDiv,
     }));
   }
+  const [courseNames, setCourseNames] = useState([
+    "Software Design",
+    "Intellectual Heritage",
+    "Calculus I",
+  ]);
+
+  const CourseTabs = courseNames.map((eachCourseName) => (
+    <Tab eventKey={eachCourseName} title={eachCourseName} key={eachCourseName}>
+      <Card border="primary">
+        <Card.Header>{eachCourseName}</Card.Header>
+        <Card.Body>{addAssignmentDiv}</Card.Body>
+      </Card>
+    </Tab>
+  ));
 
   const [newCourse, setNewCourse] = useState({
     CourseName: null,
@@ -87,18 +143,19 @@ function Course() {
   });
 
   function applyNewCourse(e) {
-    const newCourseDiv = (
-      <Tab eventKey={newCourse.CourseName} title={newCourse.CourseName}>
-        <Card border="primary">
-          <Card.Header>{newCourse.CourseName}</Card.Header>
-          <Card.Body>{addAssignmentDiv}</Card.Body>
-        </Card>
-      </Tab>
-    );
-    setNewCourse((prevState) => ({
-      ...prevState,
-      container: newCourseDiv,
-    }));
+    // const newCourseDiv = (
+    //   <Tab eventKey={newCourse.CourseName} title={newCourse.CourseName}>
+    //     <Card border="primary">
+    //       <Card.Header>{newCourse.CourseName}</Card.Header>
+    //       <Card.Body>{addAssignmentDiv}</Card.Body>
+    //     </Card>
+    //   </Tab>
+    // );
+    // setNewCourse((prevState) => ({
+    //   ...prevState,
+    //   container: newCourseDiv,
+    // }));
+    setCourseNames((prevState) => [...prevState, newCourse.CourseName]);
 
     // SEND TO DATABASE HERE
   }
@@ -154,49 +211,6 @@ function Course() {
     console.log(newAssignment);
   }
 
-  const addAssignmentDiv = (
-    <Row>
-      <InputGroup>
-        <InputGroup.Text>Assignment</InputGroup.Text>
-        <FormControl
-          aria-label="Assignment"
-          onChange={(e) =>
-            setNewAssignment((prevState) => ({
-              ...prevState,
-              name: e.target.value,
-            }))
-          }
-        />
-        {/* group should be a dropdown with the ability to add new groups */}
-        <Dropdown onSelect={(e) => chooseAssignmentGroup(e)}>
-          <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
-            Group
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item eventKey={"Quiz"}>Quiz</Dropdown.Item>
-            <Dropdown.Item eventKey={"Assignment"}>Assignment</Dropdown.Item>
-            <Dropdown.Item eventKey={"Attendance"}>Attendance</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <InputGroup.Text>Grade</InputGroup.Text>
-        <FormControl
-          aria-label="Grade"
-          onChange={(e) =>
-            setNewAssignment((prevState) => ({
-              ...prevState,
-              grade: e.target.value,
-            }))
-          }
-        />
-        <Button variant="outline-success" onClick={addAssignment}>
-          <FaPlus />
-          {" Add Assignment "}
-        </Button>{" "}
-      </InputGroup>
-    </Row>
-  );
-
   return (
     <Container style={styles.grid}>
       <Row style={styles.row}>
@@ -210,26 +224,26 @@ function Course() {
             className="mb-3"
             // onSelect={addCourseTab}
           >
-            <Tab eventKey="SoftwareDesign" title="Software Design">
+            {/* <Tab eventKey="SoftwareDesign" title="Software Design">
               <Card border="primary">
                 <Card.Header>Software Design</Card.Header>
                 <Card.Body>
-                  {/* use useEffect instead?????? */}
                   {newAssignment.container}
                   {addAssignmentDiv}
-                  {/* <Card.Text></Card.Text> */}
                 </Card.Body>
               </Card>
-            </Tab>
-            <Tab eventKey="IH" title="Intellectual Heritage">
+            </Tab> */}
+
+            {/* <Tab eventKey="IH" title="Intellectual Heritage">
               <Card border="primary" style={{ width: "35rem", color: "black" }}>
                 <Card.Header>Intellectual Heritage</Card.Header>
                 <Card.Body>{addAssignmentDiv}</Card.Body>
               </Card>
-            </Tab>
+            </Tab> */}
+            {CourseTabs}
+
             {/* map through the all the courses being returned from the database and render*/}
             {/*  */}
-            {newCourse.container}
             {addCourseDiv}
           </Tabs>
         </Col>

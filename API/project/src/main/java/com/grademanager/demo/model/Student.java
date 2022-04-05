@@ -9,18 +9,19 @@ import javax.persistence.*;
 import javax.persistence.Id;
 import java.io.File;
 import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeoutException;
 // To Do: Add semster object
          // Secure password ?
         
 @Entity
-
 @Table(name="students")
 
 public class Student {
     
     @Id
-    private Long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+    private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
     @Column(name="firstName")
     private String firstName;
     @Column(name="lastName")
@@ -33,10 +34,10 @@ public class Student {
     private LocalDate birthday;
     @Column (name = "age")
     private int age;
-    
-    public Student(){
+    @OneToMany( targetEntity = Course.class)
+    private List<Course> courses = new ArrayList<Course>();
 
-    }
+    public Student(){}
     
     public Student(String firstName, String lastName, int age, String email, LocalDate birthday){
         this.firstName = firstName;

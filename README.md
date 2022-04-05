@@ -8,17 +8,65 @@ Grades attached to those classes will be calculated.
 
 
 ![This is a screenshot.](images.png)
-# How to run
-Provide here instructions on how to use your application.   
-- Download the latest binary from the Release section on the right on GitHub.  
-- On the command line uncompress using
-```
-tar -xzf  
-```
+
 
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### How to build ###
+
+* Using this github repository: https://github.com/cis3296s22/GradeManager download into local Javascript IDE from the green button marked "Code", click on Download Zip. Another option is to download the code via the release towards the right of the page. Choose the "Source code.zip" option. After extraction, open the folder in your Javascript IDE. 
+
+In order to get this project started, you will first need to download Node. Go to https://nodejs.org/en/ and select the "Recommended For Most Users" button and download the current version for your operating system. 
+
+* After download is complete, using the main branch, go to your Javascript IDE (example Visual Code) and go to your command line or terminal and enter:
+```
+npm -v
+```
+* This will present you with the version of NPM installed. Check to see if your version is above 5.2.0. If not, run:
+```
+npm install -g npm
+```
+
+* If the program gives you errors when trying to run, use either of these:
+```
+npm start
+```
+```
+npm run start
+```
+```
+npm run
+```
+
+* Make sure you are in gradeManager/prj-grademanager/grade_manager
+
+* If it is still giving an error, more than likely the update didn't install all the necessary dependencies. Try running any of these:
+```
+npm updates
+```
+```
+ npm install
+ ```
+ or 
+```
+npm install updates
+```
+ * then try: 
+```
+npm start
+```
+```
+npm run start
+```
+or 
+```
+npm run
+```
+
+* If everything runs successfully, you should be brought to the localhost through a webpage that shows this project.
+
+
 
 ## Available Scripts
 
@@ -57,32 +105,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
@@ -95,13 +117,4 @@ npm run start
 - You will see the user interface on the loopback network protocal, http://localhost:3000/
 
 
-### How to build
-- Use this github repository: https://github.com/cis3296s22/GradeManager 
-- Use the main branch
-- Use a Javascript IDE
-- On the command line run 
-```
-npm install 
-```
-- to install any missing dependencies
-- make sure you are in gradeManager/prj-grademanager/grade_manager 
+

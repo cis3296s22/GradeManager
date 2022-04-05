@@ -1,11 +1,9 @@
-import '../Style/SignUpPageLayout.css';
+// import '../Style/SignUpPageLayout.css';
 
 function Signup() {
   return (
     <div>
-      <div>
-
-      </div>
+      <div></div>
     </div>
   );
 }

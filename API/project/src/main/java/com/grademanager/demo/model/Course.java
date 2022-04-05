@@ -1,16 +1,19 @@
 package com.grademanager.demo.model;
+import java.time.LocalDate;
+import java.util.UUID;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
+
+@Entity
 public class Course {
 
     private String dept;
     private int id;
     private String name;
     private int courseGrade;
-    
-    public Quiz quiz;
-    public Assignment assignment;
-    public Final finalExam;
-    
+ 
     public Course(){}
     
     public Course(String dept, int id, String name){

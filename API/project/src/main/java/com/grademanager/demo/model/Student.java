@@ -8,6 +8,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.persistence.Id;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.TimeoutException;
 // To Do: Add semster object
@@ -34,9 +35,13 @@ public class Student {
     @Column (name = "age")
     private int age;
 
-
-
     
+    public ArrayList<Semester> semesterList= new ArrayList<Semester>();
+
+    public void addSemester(Semester semester){
+        semesterList.add(semester);
+    }
+
     public Student(){}
     
     public Student(String firstName, String lastName, int age, String email, LocalDate birthday){

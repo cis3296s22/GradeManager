@@ -1,13 +1,13 @@
 package com.grademanager.demo.model;
 
-public class Final {
+public class Exam {
     private int grade;
     public int weight = 30;
     private String name;
 
-    public Final(){}
+    public Exam(){}
 
-    public Final(String name, int grade){
+    public Exam(String name, int grade){
         this.name = name;
         this.grade = grade;
     }

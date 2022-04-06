@@ -24,5 +24,5 @@ public class StudentController {
 @PostMapping("/age")
 public Integer age(@RequestBody Id studentId) {
     return 0;
- }
+  }
 }

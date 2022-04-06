@@ -8,6 +8,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.persistence.Id;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class Student {
     private int age;
     @OneToMany( targetEntity = Course.class)
     private List<Course> courses = new ArrayList<Course>();
+    
 
     public Student(){}
     
@@ -103,4 +105,10 @@ public class Student {
                 "email = " + this.email +
                 "}";
         }
+  
+    public ArrayList<Semester> semesterList= new ArrayList<Semester>();
+
+    public void addSemester(Semester semester){
+        semesterList.add(semester);
+    }
 }

@@ -12,7 +12,7 @@ public class courseService {
     courseRepository courseRepository;
 
 
-    public Boolean deleteStudent(Long studentId){
+    public Boolean deleteCourse(Long studentId){
         Boolean success = false;
     
         try{

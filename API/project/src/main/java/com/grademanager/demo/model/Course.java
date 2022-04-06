@@ -55,6 +55,7 @@ public class Course {
     }
     public void addFinal(Exam finalExam){
         examList.add(finalExam);
+    }
     public String getDept() {
         return dept;
     }

@@ -1,7 +1,12 @@
 package com.grademanager.demo.model;
-
+import java.time.LocalDate;
+import java.util.UUID;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import java.util.ArrayList;
+import javax.persistence.*;
 
+@Entity
 public class Course {
 
     private String dept;
@@ -13,7 +18,17 @@ public class Course {
     ArrayList<Assignment> assignmentList = new ArrayList<Assignment>();
     ArrayList<Exam> examList = new ArrayList<Exam>();
 
-    public double calculateGrade(ArrayList<Quiz> quizList, ArrayList<Assignment> assignmentList, ArrayList<Exam> finalList){
+    // delete operation
+    private int courseGrade;
+ 
+    public Course(){}
+    
+    public Course(String dept, int id, String name){
+        this.dept = dept;
+        this.id = id;
+        this.name = name;
+    }
+        public double calculateGrade(ArrayList<Quiz> quizList, ArrayList<Assignment> assignmentList, ArrayList<Exam> finalList){
         double quizScore = 0;
         double assignmentScore = 0;
         double examScore = 0;
@@ -40,16 +55,6 @@ public class Course {
     }
     public void addFinal(Exam finalExam){
         examList.add(finalExam);
-    }
-
-    // delete operations
-    
-    public Course(String dept, int id, String name){
-        this.dept = dept;
-        this.id = id;
-        this.name = name;
-    }
-    
     public String getDept() {
         return dept;
     }

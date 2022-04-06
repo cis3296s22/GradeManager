@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       {/*add router when adding new pages (login/signup)  */}
       <h1>Grade Manager</h1>
-      {/* {<Course></Course>} */}
-      <Signup></Signup>
+      {<Course></Course>}
+      {/* <Signup></Signup> */}
     </div>
   );
 }

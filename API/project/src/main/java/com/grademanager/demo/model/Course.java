@@ -6,7 +6,7 @@ import org.hibernate.annotations.Type;
 import java.util.ArrayList;
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Course {
 
     private String dept;
@@ -55,6 +55,7 @@ public class Course {
     }
     public void addFinal(Exam finalExam){
         examList.add(finalExam);
+    }
     public String getDept() {
         return dept;
     }

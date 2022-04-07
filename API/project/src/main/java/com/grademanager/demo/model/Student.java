@@ -35,8 +35,8 @@ public class Student {
     private LocalDate birthday;
     @Column (name = "age")
     private int age;
-    @OneToMany( targetEntity = Course.class)
-    private List<Course> courses = new ArrayList<Course>();
+    //@OneToMany( targetEntity = Course.class)
+    //private List<Course> courses = new ArrayList<Course>();
     
 
     public Student(){}

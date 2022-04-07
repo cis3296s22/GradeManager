@@ -23,7 +23,7 @@ public class Course {
     @ManyToOne
     private Semester semester;
 
-    @OneToMany(mappedBy="students", targetEntity = Quiz.class)
+    @OneToMany(mappedBy="courses", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Quiz.class)
     ArrayList<Quiz> quizList = new ArrayList<Quiz>();
     @OneToMany(targetEntity = Assignment.class)
     ArrayList<Assignment> assignmentList = new ArrayList<Assignment>();

@@ -9,12 +9,12 @@ public class Semester {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     @Column(name="semesterId")
     private int id;
-    @Column(name="number")  //what is the difference between number and name?
+    @Column(name="number")
     private int number; // Semester 1
     @Column(name="name")
     private String name; // Fall 2022
     @ManyToOne
-    private Student student;
+    private Student student;          //Cascade to propagate changes from any related antities to Semester, to automatically remove orphaned entities.
     @OneToMany(mappedBy="semesters", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Semester.class)
     public ArrayList<Course> courseList = new ArrayList<Course>();
 

@@ -20,9 +20,10 @@ import java.util.concurrent.TimeoutException;
 @Table(name="students")
 
 public class Student {
-    
     @Id
-    private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+    private Long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+   // @Column(name = "studentId")
+    //private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
     @Column(name="firstName")
     private String firstName;
     @Column(name="lastName")
@@ -35,9 +36,22 @@ public class Student {
     private LocalDate birthday;
     @Column (name = "age")
     private int age;
-    //@OneToMany( targetEntity = Course.class)
-    //private List<Course> courses = new ArrayList<Course>();
+
+//instead of having a list with semester here, grab all the semesters using the student ID
+//    separately
+//    public ArrayList<Semester> semesterList= new ArrayList<Semester>();
+
+//    public void addSemester(Semester semester){
+//        semesterList.add(semester);
+//    }
+
+    //    Student => Semesters -> Courses -> Assignments, Quizzes, Exams
+//    @OneToMany( targetEntity = Course.class)
+    @OneToMany(mappedBy = "students", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Semester.class)
+    private List<Semester> semesters = new ArrayList<Semester>();
+//    private List<Course> courses = new ArrayList<Course>();
     
+
 
     public Student(){}
     

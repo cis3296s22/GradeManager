@@ -6,16 +6,28 @@ import org.hibernate.annotations.Type;
 import java.util.ArrayList;
 import javax.persistence.*;
 
-//@Entity
+@Entity
+@Table(name="courses")
 public class Course {
 
-    private String dept;
+   // @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     private int id;
+    @Column(name="dept")
+    private String dept;
+    @Column(name="name")
     private String name;
+    @Column(name="totalGrade")
     private double totalGrade;
 
+    @ManyToOne
+    private Semester semester;
+
+    @OneToMany(mappedBy="courses", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Quiz.class)
     ArrayList<Quiz> quizList = new ArrayList<Quiz>();
+    @OneToMany(targetEntity = Assignment.class)
     ArrayList<Assignment> assignmentList = new ArrayList<Assignment>();
+    @OneToMany(targetEntity = Exam.class)
     ArrayList<Exam> examList = new ArrayList<Exam>();
 
     // delete operation

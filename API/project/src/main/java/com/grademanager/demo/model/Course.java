@@ -1,18 +1,12 @@
 package com.grademanager.demo.model;
-import java.time.LocalDate;
-import java.util.UUID;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 import java.util.ArrayList;
 import javax.persistence.*;
-import javax.persistence.Id;
-
 
 @Entity
 @Table(name="courses")
 public class Course {
 
-    @Id
+   // @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     private int id;
     @Column(name="dept")
@@ -32,8 +26,7 @@ public class Course {
     @OneToMany(targetEntity = Exam.class)
     ArrayList<Exam> examList = new ArrayList<Exam>();
 
-    // delete operation
-    private int courseGrade;
+
  
     public Course(){}
     

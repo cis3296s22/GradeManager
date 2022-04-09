@@ -1,16 +1,9 @@
 package com.grademanager.demo.controller;
 import com.grademanager.demo.model.*;
 import com.grademanager.demo.service.StudentService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+//import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 import java.util.Optional;
 
 // To Do: Add logger

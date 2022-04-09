@@ -14,15 +14,14 @@ function Semester() {
       paddingLeft: 0,
       paddingRight: 0,
       position: "absolute", //change this later
-      top: "10rem",
+      marginTop: "5rem",
+      top: "20rem",
       left: "10rem",
       width: "75%",
     },
     row: {
       marginLeft: 0,
       marginRight: 0,
-      //  the rows is already taking up the whole height, need the ListGroup Items to expand/shrink
-      // in response to the available size
     },
     col: {
       paddingLeft: 0,
@@ -84,9 +83,7 @@ function Semester() {
             </ListGroupItem>
           </ListGroup>
         </Col>
-        <Col style={styles.col}>
-          {<Course></Course>}
-          </Col>
+        <Col style={styles.col}>{<Course></Course>}</Col>
       </Row>
     </Container>
   );

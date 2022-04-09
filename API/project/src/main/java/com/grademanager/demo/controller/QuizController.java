@@ -1,5 +1,4 @@
 package com.grademanager.demo.controller;
-
 import java.util.Optional;
 import com.grademanager.demo.model.Quiz;
 import com.grademanager.demo.service.QuizService;
@@ -19,18 +18,16 @@ public class QuizController {
     @Autowired
     private QuizService quizService;
 
-    // POSTS
-    @PostMapping
+    @PostMapping("/createQuiz/{name}")
     public void createNewQuiz(@RequestBody Quiz quiz){
         quizService.createQuiz(quiz);
     }
 
-    @PostMapping("/{name}")
+    @PostMapping("/updateQuiz/{name}")
     public void updateQuiz(@RequestBody Quiz quiz, @PathVariable Integer grade){
         quizService.updateQuiz(quiz);
     }
 
-    // GET
     @GetMapping("{name}")
     public Quiz getQuiz(String name){
         Optional<Quiz> optionalQuiz = quizService.getQuiz(name);
@@ -41,7 +38,6 @@ public class QuizController {
         return optionalQuiz.get();
     }
 
-    // DELETE
     @DeleteMapping("{name}")
     public void deleteQuiz(@PathVariable String name){
         quizService.deleteQuiz(name);

@@ -38,8 +38,8 @@ public class Student {
 
     //    Student => Semesters -> Courses -> Assignments, Quizzes, Exams
 //    @OneToMany( targetEntity = Course.class)
-    @OneToMany(mappedBy = "students", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Semester.class)
-    private List<Semester> semesters = new ArrayList<Semester>();
+    @OneToMany(mappedBy="student",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public List<Semester> semesterList;
 //    private List<Course> courses = new ArrayList<Course>();
     
 
@@ -111,7 +111,7 @@ public class Student {
                 "}";
         }
   
-    public ArrayList<Semester> semesterList= new ArrayList<Semester>();
+    //public ArrayList<Semester> semesterList= new ArrayList<Semester>();
 
     public void addSemester(Semester semester){
         semesterList.add(semester);

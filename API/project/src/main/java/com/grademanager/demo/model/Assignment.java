@@ -1,11 +1,14 @@
 package com.grademanager.demo.model;
 
 import javax.persistence.*;
+import javax.persistence.Id;
 
 
 @Entity
 @Table(name="assignments")
 public class Assignment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     @Column(name="grade")
     private int grade;
     @Column(name="name")

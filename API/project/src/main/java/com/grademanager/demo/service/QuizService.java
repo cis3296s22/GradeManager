@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 //@Log4j2
-public class QuizService {
+public class QuizService  {
 
     @Autowired
     QuizRepository quizRepository;

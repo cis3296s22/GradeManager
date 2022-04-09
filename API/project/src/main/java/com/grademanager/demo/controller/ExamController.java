@@ -18,12 +18,12 @@ public class ExamController {
     @Autowired
     private ExamService examService;
 
-    @PostMapping
+    @PostMapping("/create")
     public void createNewExam(@RequestBody Exam exam){
         examService.createExam(exam);
     }
 
-    @PostMapping
+    @PostMapping("/update")
     public void updateExam(@RequestBody Exam exam, @PathVariable Integer grade){
         examService.updateExam(exam);
     }

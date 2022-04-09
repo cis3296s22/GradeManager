@@ -1,7 +1,8 @@
 package com.grademanager.demo.service;
-import com.grademanager.demo.model.*;
+import com.grademanager.demo.model.Student;
 import com.grademanager.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,8 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
     
-    public void createStudent(Student student) {
-        studentRepository.save(student);
+    public ResponseEntity<Student> createStudent(Student student) {
+        return ResponseEntity.ok(studentRepository.save(student));
     }
 
     public void deleteStudent(Long studentId) {
@@ -29,8 +30,9 @@ public class StudentService {
 
     public Optional<Student> getStudent(Long studentId) {
         return studentRepository.findById(studentId);
-
     }
+
+    
 
 //unfinished
 //    public Student getstudentWithEmailPassword(String email, String password){

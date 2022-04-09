@@ -14,24 +14,22 @@ public class  StudentController {
 
     @Autowired
     private StudentService studentService;
-//DELETE
-    @DeleteMapping("/{id}")
+
+    @DeleteMapping("/deleteStudent/{id}")
     public void deleteStudent(@PathVariable Long id){
         studentService.deleteStudent(id);
     }
 
-//POSTS
-    @PostMapping
+    @PostMapping("/createStudent")
     public void registerNewStudent(@RequestBody Student newStudent){
         studentService.createStudent(newStudent);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/updateStudent")
     public void updateStudent(@RequestBody Student student, @PathVariable Long id){
         studentService.updateStudent(student);
     }
 
-//GETS
     @GetMapping("{id}")
     public Student getStudent(Long studentId){
 //        return studentService.getStudent(studentId);

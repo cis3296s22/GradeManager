@@ -1,12 +1,18 @@
 package com.grademanager.demo.model;
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.List;
+import javax.persistence.Id;
+
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name="courses")
 public class Course {
 
-   // @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     private int id;
     @Column(name="dept")
@@ -16,15 +22,15 @@ public class Course {
     @Column(name="totalGrade")
     private double totalGrade;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Semester semester;
 
-    @OneToMany(mappedBy="courses", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Quiz.class)
-    ArrayList<Quiz> quizList = new ArrayList<Quiz>();
+    /*@OneToMany(mappedBy="courses", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Quiz.class)
+    private Set<Quiz> quizList;
     @OneToMany(targetEntity = Assignment.class)
-    ArrayList<Assignment> assignmentList = new ArrayList<Assignment>();
+    private Set<Assignment> assignmentList;
     @OneToMany(targetEntity = Exam.class)
-    ArrayList<Exam> examList = new ArrayList<Exam>();
+    private Set<Exam> examList;*/
 
 
  
@@ -35,7 +41,7 @@ public class Course {
         this.id = id;
         this.name = name;
     }
-        public double calculateGrade(ArrayList<Quiz> quizList, ArrayList<Assignment> assignmentList, ArrayList<Exam> finalList){
+       /* public double calculateGrade(List<Quiz> quizList, List<Assignment> assignmentList, List<Exam> finalList){
         double quizScore = 0;
         double assignmentScore = 0;
         double examScore = 0;
@@ -94,5 +100,6 @@ public class Course {
     public void setTotalGrade(double totalGrade) {
         this.totalGrade = totalGrade;
     }
+}*/
 }
 

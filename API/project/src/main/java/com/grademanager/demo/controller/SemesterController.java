@@ -14,19 +14,17 @@ public class SemesterController {
     @Autowired
     private SemesterService semesterService;
 
-//DELETE
     @DeleteMapping("{id}")
     public void deleteSemester(@PathVariable Long id){
         semesterService.deleteSemester(id);
     }
 
-//POSTS
-    @PostMapping
+    @PostMapping("/createNewSem/{id}")
     public void createNewSemester(@RequestBody Semester semester){
         semesterService.createSemester(semester);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/updateSem/{id}")
     public void updateSemester(@RequestBody Semester semester, @PathVariable Integer id){
 //        NEED TO UPDATE ASSOCIATED SERVICE FUNCTION
         semesterService.updateSemester(semester);

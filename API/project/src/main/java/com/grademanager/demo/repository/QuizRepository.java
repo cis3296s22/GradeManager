@@ -1,17 +1,9 @@
 package com.grademanager.demo.repository;
-
 import java.util.Optional;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.grademanager.demo.model.Quiz;
 
-public interface QuizRepository {
+public interface QuizRepository extends JpaRepository<Quiz, Long> {
+    Optional<Quiz> deleteByName(String name);
 
-    public void save(Quiz quiz);
-
-    public Optional<Quiz> deleteByName(String name);
-
-    public Iterable<Quiz> findAll();
-
-    
-    
 }

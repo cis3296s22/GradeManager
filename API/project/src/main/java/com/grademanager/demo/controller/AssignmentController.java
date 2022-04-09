@@ -37,7 +37,7 @@ public class AssignmentController{
         assignmentService.createAssignment(assignment);
     }
 
-    @PostMapping("{name}")
+    @PostMapping("/updateAssignment/{name}")
     public void updateAssignment(@RequestBody Assignment assignment, @PathVariable Integer grade){
         
         assignmentService.updateAssignment(assignment, grade);

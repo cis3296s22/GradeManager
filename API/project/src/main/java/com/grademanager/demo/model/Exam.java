@@ -1,7 +1,7 @@
 package com.grademanager.demo.model;
 import javax.persistence.*;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity
 @Table(name="exams")

@@ -2,6 +2,7 @@ package com.grademanager.demo.controller;
 import com.grademanager.demo.model.*;
 import com.grademanager.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 //import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
@@ -21,8 +22,8 @@ public class  StudentController {
     }
 
     @PostMapping("/createStudent")
-    public void registerNewStudent(@RequestBody Student newStudent){
-        studentService.createStudent(newStudent);
+    public ResponseEntity<Student> registerNewStudent(@RequestBody Student newStudent){
+        return studentService.createStudent(newStudent);
     }
 
     @PostMapping("/updateStudent")

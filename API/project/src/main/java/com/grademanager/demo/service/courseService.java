@@ -1,7 +1,7 @@
 package com.grademanager.demo.service;
 
 import com.grademanager.demo.model.Course;
-import com.grademanager.demo.repository.courseRepository;
+import com.grademanager.demo.repository.CourseRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -9,7 +9,7 @@ public class courseService {
 
     
     @Autowired
-    courseRepository courseRepository;
+    CourseRepository courseRepository;
 
 
     public Boolean deleteCourse(Long studentId){

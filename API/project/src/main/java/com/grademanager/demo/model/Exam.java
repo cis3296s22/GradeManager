@@ -1,5 +1,19 @@
 package com.grademanager.demo.model;
 
+import java.time.LocalDate;
+import java.util.UUID;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
+import javax.persistence.Id;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeoutException;
+
 @Entity
 @Table(name="exams")
 public class Exam {

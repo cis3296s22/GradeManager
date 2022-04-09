@@ -1,0 +1,15 @@
+
+ensure-mysql-image:
+
+run-mysql:
+    docker run --name mysql-standalone  -e MYSQL_ROOT_PASSWORD=test -e MYSQL_DATABASE=students -e MYSQL_USER=test -e MYSQL_PASSWORD=test -e MYSQL_ALLOW_EMPTY_PASSWORD -d mysql:5.6
+
+build-grade-manager:
+    docker build -t grademanager .
+
+run-grade-manager: 
+    docker run -p 8086:8086 --name grademanager --link mysql-standalone:mysql -d grademanager
+
+stop-mysql:
+
+stop-grade-manager:

@@ -5,14 +5,13 @@ import com.grademanager.demo.model.Course;
 import com.grademanager.demo.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import lombok.extern.log4j.Log4j2;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Service
-@Log4j2
-public class courseService {
+//@Log4j2
+public class CourseService {
 
     @Autowired
     CourseRepository courseRepository;
@@ -31,7 +30,7 @@ public class courseService {
         return courses;
     }
 
-    public void deleteCourse(Integer id){
+    public void deleteCourse(Long id){
         courseRepository.deleteById(id);
     }
 

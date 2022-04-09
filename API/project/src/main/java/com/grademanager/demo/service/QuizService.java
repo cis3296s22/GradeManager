@@ -7,10 +7,9 @@ import com.grademanager.demo.model.Quiz;
 import com.grademanager.demo.repository.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import lombok.extern.log4j.Log4j2;
 
 @Service
-@Log4j2
+//@Log4j2
 public class QuizService {
 
     @Autowired

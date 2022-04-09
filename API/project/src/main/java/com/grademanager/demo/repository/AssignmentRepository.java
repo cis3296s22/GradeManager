@@ -6,13 +6,9 @@ import com.grademanager.demo.model.Student;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AssignmentRepository{
+public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
 
     Optional<Assignment> findByName(String name);
-
-	Student save(Assignment assignment);
-
-    Iterable<Assignment> findAll();
 
     void deleteByName(String name);
 }

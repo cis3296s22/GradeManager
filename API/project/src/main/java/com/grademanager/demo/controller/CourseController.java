@@ -2,7 +2,7 @@ package com.grademanager.demo.controller;
 import java.util.Optional;
 
 import com.grademanager.demo.model.Course;
-import com.grademanager.demo.service.courseService;
+import com.grademanager.demo.service.CourseService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CourseController {
 
     @Autowired
-    courseService courseService;
+    CourseService courseService;
 
     //GET
     @GetMapping("{course}")
@@ -33,20 +33,18 @@ public class CourseController {
         return optionalCourse.get();
     }
 
-    // POST
     @PostMapping
     public void createNewCourse(@RequestBody Course course){
         courseService.createCourse(course);
     }
 
     @PostMapping("/{id}")
-    public void updateCourse(@RequestBody Course course, @PathVariable Integer id){
+    public void updateCourse(@RequestBody Course course, @PathVariable Long id){
         courseService.updateCourse(course);
     }
 
-    // DELETE
     @DeleteMapping("{id}")
-    public void deleteCourse(@PathVariable Integer id){
+    public void deleteCourse(@PathVariable Long id){
         courseService.deleteCourse(id);
 
     }

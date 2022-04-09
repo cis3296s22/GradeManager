@@ -1,9 +1,13 @@
 package com.grademanager.demo.model;
 import javax.persistence.*;
 
+import org.springframework.data.annotation.Id;
+
 @Entity
 @Table(name="exams")
 public class Exam {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column(name="grade")
     private int grade;
     @Column(name="weight")

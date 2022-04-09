@@ -18,7 +18,7 @@ public class SemesterController {
 
 //DELETE
     @DeleteMapping("{id}")
-    public void deleteSemester(@PathVariable Integer id){
+    public void deleteSemester(@PathVariable Long id){
         semesterService.deleteSemester(id);
     }
 
@@ -34,9 +34,8 @@ public class SemesterController {
         semesterService.updateSemester(semester);
     }
 
-//    GET
     @GetMapping("{semester}")
-    public Semester getSemester(Integer id){
+    public Semester getSemester(Long id){
         Optional<Semester> optionalSemester = semesterService.getSemester(id);
         if(!optionalSemester.isPresent()){
             String ErrMsg = String.format("The semester having ID %s was not found", id);

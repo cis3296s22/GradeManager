@@ -1,6 +1,5 @@
 package com.grademanager.demo.controller;
-
-import com.google.common.base.Optional;
+import java.util.Optional;
 import com.grademanager.demo.model.Exam;
 import com.grademanager.demo.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ public class ExamController {
     @Autowired
     private ExamService examService;
 
-    // POSTS
     @PostMapping
     public void createNewExam(@RequestBody Exam exam){
         examService.createExam(exam);
@@ -30,20 +28,18 @@ public class ExamController {
         examService.updateExam(exam);
     }
 
-    // GET
     @GetMapping
-    public Exam getExam(String name){
-        Optional<Exam> optionalExam = examService.getExam(name);
+    public Exam getExam(Long id){
+        Optional<Exam> optionalExam = examService.getExam(id);
         if(!optionalExam.isPresent()){
-            String err = String.format("The exam %s was not found", name);
+            String err = String.format("The exam %s was not found", id);
             System.out.println(err);
         }
         return optionalExam.get();
     }
 
-    // DELETE
     @DeleteMapping("{name}")
-    public void deleteExam(@PathVariable String name){
-        examService.deleteExam(name);
+    public void deleteExam(@PathVariable Long id){
+        examService.deleteExam(id);
     }
 }

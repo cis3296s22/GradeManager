@@ -22,8 +22,6 @@ import java.util.concurrent.TimeoutException;
 public class Student {
     @Id
     private Long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
-    @Column(name = "studentId")
-    private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
     @Column(name="firstName")
     private String firstName;
     @Column(name="lastName")

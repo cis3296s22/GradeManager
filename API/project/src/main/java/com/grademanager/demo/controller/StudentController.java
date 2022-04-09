@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 
 // To Do: Add logger
-@Log4j2
+//@Log4j2
 @RestController
 @RequestMapping("api/v1/Student")
 public class  StudentController {

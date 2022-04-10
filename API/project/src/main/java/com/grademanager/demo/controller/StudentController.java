@@ -30,7 +30,7 @@ public class  StudentController {
     public void updateStudent(@RequestBody Student student, @PathVariable Long id){
         studentService.updateStudent(student);
     }
-
+// FIX GET ENDPOINTS
     @GetMapping("{id}")
     public Student getStudent(Long studentId){
 //        return studentService.getStudent(studentId);

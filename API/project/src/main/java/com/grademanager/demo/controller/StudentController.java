@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.Optional;
+
 // To Do: Add logger
 @Log4j2
 @RestController
@@ -39,15 +41,22 @@ public class StudentController {
 //GETS
     @GetMapping("{student}")
     public Student getStudent(Long studentId){
-        return studentService.getStudent(studentId);
+//        return studentService.getStudent(studentId);
+        Optional<Student> optionalStudent =studentService.getStudent(studentId);
+        if(!optionalStudent.isPresent()){
+            String ErrMsg = String.format("The student having ID %s was not found", studentId);
+            System.out.println(ErrMsg);  //log and throw exception instead?
+        }
+        return optionalStudent.get();
+
     }
 
 
 //    get student ID from email and password
-    @GetMapping("/{email}/{password}")  //probably will have to fix this
-    public Student getstudentWithEmailPassword(String email, String password){
-        return studentService.getstudentWithEmailPassword(email, password);
-    }
+//    @GetMapping("/{email}/{password}")  //probably will have to fix this
+//    public Student getstudentWithEmailPassword(String email, String password){
+//        return studentService.getstudentWithEmailPassword(email, password);
+//    }
 
 
 

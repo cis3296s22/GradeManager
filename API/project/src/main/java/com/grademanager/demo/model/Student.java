@@ -19,7 +19,7 @@ import java.util.concurrent.TimeoutException;
 //private ArrayList<Course> courseList;
 public class Student {
     @Id
-    private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+    private Long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
     @Column(name="firstName")
     private String firstName;
     @Column(name="lastName")

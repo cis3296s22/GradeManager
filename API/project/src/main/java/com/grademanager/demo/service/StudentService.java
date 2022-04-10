@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Log4j2
@@ -19,30 +20,30 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
     
-    public Student createStudent(Student student) {
-        return studentRepository.save(student);
+    public void createStudent(Student student) {
+        studentRepository.save(student);
     }
 
-    public void deleteStudent(long studentId) {
+    public void deleteStudent(Long studentId) {
         studentRepository.deleteById(studentId);
     }
-    public Student updateStudent(Student student) {
+    public void updateStudent(Student student) {
 //        don't need to send the id in because save will update student
 //        based on student info (which already includes id)
-        return studentRepository.save(student);
+        studentRepository.save(student);
     }
 
-    public Student getStudent(Long studentId) {
-        return studentRepository.findById(studentId).get();
+    public Optional<Student> getStudent(Long studentId) {
+        return studentRepository.findById(studentId);
 
     }
 
 //unfinished
-    public Student getstudentWithEmailPassword(String email, String password){
-        Student matchingStudent = (Student) studentRepository.findAll().stream().filter(student -> student.getEmail().equals(email));
-//        check if password matches?
-        return new Student("firstname", "lastname", 80, "string", LocalDate.of(2011, 12, 12));
-    }
+//    public Student getstudentWithEmailPassword(String email, String password){
+//        Student matchingStudent = (Student) studentRepository.findAll().stream().filter(student -> student.getEmail().equals(email));
+////        check if password matches?
+//        return new Student("firstname", "lastname", 80, "string", LocalDate.of(2011, 12, 12));
+//    }
 
     public List<Student> getAllStudents(){
         List<Student> students = new ArrayList<>();

@@ -19,7 +19,7 @@ public class SemesterService {
 
     public void createSemester(Semester semester){
         semesterRepository.save(semester);
-
+    }
     public void deleteSemester(Long id){
     //if semester is displaying in frontend should be able to delete sem without needing student id
         semesterRepository.deleteById(id);

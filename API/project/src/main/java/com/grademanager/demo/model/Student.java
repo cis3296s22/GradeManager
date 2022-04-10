@@ -36,7 +36,6 @@ public class Student {
     private LocalDate birthday;
     @Column (name = "age")
     private int age;
-<<<<<<< HEAD
 
 //instead of having a list with semester here, grab all the semesters using the student ID
 //    separately
@@ -45,14 +44,14 @@ public class Student {
 //    public void addSemester(Semester semester){
 //        semesterList.add(semester);
 //    }
-=======
+
     //    Student => Semesters -> Courses -> Assignments, Quizzes, Exams
 //    @OneToMany( targetEntity = Course.class)
     @OneToMany(mappedBy = "students", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Semester.class)
     private List<Semester> semesters = new ArrayList<Semester>();
 //    private List<Course> courses = new ArrayList<Course>();
     
->>>>>>> objectsBackend
+
 
     public Student(){}
     

@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name="courses")
 public class Course {
 
-    @Id
+   // @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     private int id;
     @Column(name="dept")

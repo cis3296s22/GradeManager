@@ -15,11 +15,9 @@ import java.util.concurrent.TimeoutException;
          // Secure password ?
         
 @Entity
-
 @Table(name="students")
 //private ArrayList<Course> courseList;
 public class Student {
-    
     @Id
     private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
     @Column(name="firstName")
@@ -35,12 +33,13 @@ public class Student {
     @Column (name = "age")
     private int age;
 
-    
-    public ArrayList<Semester> semesterList= new ArrayList<Semester>();
+//instead of having a list with semester here, grab all the semesters using the student ID
+//    separately
+//    public ArrayList<Semester> semesterList= new ArrayList<Semester>();
 
-    public void addSemester(Semester semester){
-        semesterList.add(semester);
-    }
+//    public void addSemester(Semester semester){
+//        semesterList.add(semester);
+//    }
 
     public Student(){}
     

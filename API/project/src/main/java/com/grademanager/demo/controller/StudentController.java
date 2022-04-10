@@ -1,5 +1,6 @@
 package com.grademanager.demo.controller;
 import com.grademanager.demo.model.*;
+import com.grademanager.demo.service.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,13 +17,39 @@ import java.util.Map;
 @RequestMapping("api/v1/Student")
 public class StudentController {
 
-    
-//@PostMapping("/createStudent")
-//public ResponseEntity<Student> createStudent(@RequestBody Student student) {
-  //  return new Student();
-//}
-@PostMapping("/age")
-public Integer age(@RequestBody Id studentId) {
-    return 0;
-  }
+    @Autowired
+    private StudentService studentService;
+//DELETE
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable Long id){
+        studentService.deleteStudent(id);
+    }
+
+//POSTS
+    @PostMapping
+    public void registerNewStudent(@RequestBody Student newStudent){
+        studentService.createStudent(newStudent);
+    }
+    @PostMapping("/{id}")
+    public void updateStudent(@RequestBody Student student, @PathVariable Long id){
+//        NEED TO UPDATE ASSOCIATED SERVICE FUNCTION
+        studentService.updateStudent(student);
+    }
+
+//GETS
+    @GetMapping("{student}")
+    public Student getStudent(Long studentId){
+        return studentService.getStudent(studentId);
+    }
+
+
+//    get student ID from email and password
+    @GetMapping("/{email}/{password}")  //probably will have to fix this
+    public Student getstudentWithEmailPassword(String email, String password){
+        return studentService.getstudentWithEmailPassword(email, password);
+    }
+
+
+
+
 }

@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 //@Log4j2
@@ -22,14 +21,14 @@ public class StudentService {
     public void deleteStudent(Long studentId) {
         studentRepository.deleteById(studentId);
     }
-    public void updateStudent(Student student) {
+    public ResponseEntity<Student> updateStudent(Student student) {
 //        don't need to send the id in because save will update student
 //        based on student info (which already includes id)
-        studentRepository.save(student);
+        return ResponseEntity.ok(studentRepository.save(student));
     }
 
-    public Optional<Student> getStudent(Long studentId) {
-        return studentRepository.findById(studentId);
+    public  ResponseEntity<Student> getStudent(Long studentId) {
+        return ResponseEntity.ok(studentRepository.findById(studentId).get());
     }
 
     
@@ -41,9 +40,9 @@ public class StudentService {
 //        return new Student("firstname", "lastname", 80, "string", LocalDate.of(2011, 12, 12));
 //    }
 
-    public List<Student> getAllStudents(){
+    public ResponseEntity<List<Student>> getAllStudents(){
         List<Student> students = new ArrayList<>();
         studentRepository.findAll().forEach(students::add);
-        return students;
+        return ResponseEntity.ok(students);
     }
 }

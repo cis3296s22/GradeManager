@@ -22,7 +22,7 @@ public class CourseController {
 
     @GetMapping("{course}")
     public ResponseEntity<Course> getCourse(Integer id){
-        return ResponseEntity.ok(courseService.getCourse(id))
+        return ResponseEntity.ok(courseService.getCourse(id));
     }
 
     @PostMapping("/create")

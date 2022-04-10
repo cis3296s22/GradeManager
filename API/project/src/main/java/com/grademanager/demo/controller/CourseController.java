@@ -20,8 +20,8 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
-    @GetMapping("{course}")
-    public ResponseEntity<Course> getCourse(Integer id){
+    @GetMapping("{id}")
+    public ResponseEntity<Course> getCourse(@PathVariable Integer id){
         return ResponseEntity.ok(courseService.getCourse(id));
     }
 
@@ -35,7 +35,7 @@ public class CourseController {
         return ResponseEntity.ok(courseService.updateCourse(course));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deleteCourse(@PathVariable Long id){
         courseService.deleteCourse(id);
 

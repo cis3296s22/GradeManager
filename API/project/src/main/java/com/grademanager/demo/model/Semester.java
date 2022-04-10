@@ -8,7 +8,7 @@ public class Semester {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     @Column(name="semesterId")
-    private int id;
+    private Integer id;
     @Column(name="number")
     private int number; // Semester 1
     @Column(name="name")

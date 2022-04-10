@@ -17,7 +17,7 @@ import java.util.Optional;
 @Log4j2
 @RestController
 @RequestMapping("api/v1/Student")
-public class StudentController {
+public class  StudentController {
 
     @Autowired
     private StudentService studentService;
@@ -32,14 +32,14 @@ public class StudentController {
     public void registerNewStudent(@RequestBody Student newStudent){
         studentService.createStudent(newStudent);
     }
+
     @PostMapping("/{id}")
     public void updateStudent(@RequestBody Student student, @PathVariable Long id){
-//        NEED TO UPDATE ASSOCIATED SERVICE FUNCTION
         studentService.updateStudent(student);
     }
 
 //GETS
-    @GetMapping("{student}")
+    @GetMapping("{id}")
     public Student getStudent(Long studentId){
 //        return studentService.getStudent(studentId);
         Optional<Student> optionalStudent =studentService.getStudent(studentId);
@@ -47,6 +47,7 @@ public class StudentController {
             String ErrMsg = String.format("The student having ID %s was not found", studentId);
             System.out.println(ErrMsg);  //log and throw exception instead?
         }
+//        going to crash if student isn't returned bc exception isn't thrown above
         return optionalStudent.get();
 
     }

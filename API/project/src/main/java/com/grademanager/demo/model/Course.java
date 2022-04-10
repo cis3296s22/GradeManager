@@ -5,6 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import java.util.ArrayList;
 import javax.persistence.*;
+import javax.persistence.Id;
+
 
 @Entity
 @Table(name="courses")

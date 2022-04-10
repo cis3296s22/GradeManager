@@ -1,5 +1,6 @@
 package com.grademanager.demo.service;
 import com.grademanager.demo.model.*;
+import com.grademanager.demo.repository.AssignmentRepository;
 import com.grademanager.demo.repository.StudentRepository;
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
@@ -8,39 +9,34 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-
-public class AssignmentService {
+import java.util.Optional;
 
 @Service
 @Log4j2
-public class StudentService {
+public class AssignmentService {
 
     @Autowired
-    StudentRepository studentRepository;
+    AssignmentRepository assignmentRepository;
+
+    public void createAssignment(Assignment assignment){
+        assignmentRepository.save(assignment);
+    }
     
-    public Student createStudent(Student student) {
-        return studentRepository.save(student);
+    public Optional<Assignment> getAssignment(String name){
+        return assignmentRepository.findByName(name);
     }
 
-    public Boolean deleteStudent(Long studentId) {
-        Boolean success = false;
-        try {
-            if (studentRepository.findById(studentId).isPresent()) {
-                studentRepository.deleteById(studentId);
-                success = true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return success;
-    }
-    public Student updateStudent(Student student) {
-        return studentRepository.save(student);
+    public List<Assignment> getAllAssignments(){
+        List<Assignment> assignments = new ArrayList<>();
+        assignmentRepository.findAll().forEach(assignments::add);
+        return assignments;
     }
 
-    public Student getStudent(Long studentId) {
-        return studentRepository.findById(studentId).get();
+    public void updateAssignment(Assignment assignment, Integer grade){
+        assignmentRepository.save(assignment);
     }
 
+    public void deleteAssignment(String name) {
+        assignmentRepository.deleteByName(name);
+    }
 }

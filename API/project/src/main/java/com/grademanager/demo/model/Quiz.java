@@ -1,4 +1,5 @@
 package com.grademanager.demo.model;
+import javax.persistence.*;
 
 @Entity //annotation specifies that this Java class is mapped to the database table.
 @Table(name="quizzes")

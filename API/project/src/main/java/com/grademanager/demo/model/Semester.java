@@ -1,6 +1,8 @@
 package com.grademanager.demo.model;
 
 import java.util.ArrayList;
+import javax.persistence.*;
+import javax.persistence.Id;
 
 @Entity
 @Table(name="semesters")

@@ -2,9 +2,7 @@ package com.grademanager.demo.controller;
 
 import com.google.common.base.Optional;
 import com.grademanager.demo.model.Exam;
-import com.grademanager.demo.repository.ExamRepository;
 import com.grademanager.demo.service.ExamService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

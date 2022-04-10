@@ -9,6 +9,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+public class AssignmentService {
+
 @Service
 @Log4j2
 public class StudentService {
@@ -39,4 +42,5 @@ public class StudentService {
     public Student getStudent(Long studentId) {
         return studentRepository.findById(studentId).get();
     }
+
 }

@@ -1,13 +1,105 @@
+input:focus, button:focus{
+    outline: none;
+}
 
-@media all and (min-width: 480px) {
-    .Login {
-        padding: 60px 0;
-    }
+.Login{
+    width: 200vw;
+    height: 200vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .Login form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+.LoginFormat{
+    width: 650px;
+    height: 770px;
+    padding: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3CB0FF;
+    box-shadow: 0px 0px 20px 0px #0F4CB2;
+    color: antiquewhite;
 
-    }
+}
+
+.LoginHeading{
+    text-align: center;
+    color: whitesmoke;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+}
+
+.LoginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.NameInputText{
+    height: 50px;
+    padding-left: 10px;
+    margin-bottom: 30px;
+    align-self: stretch;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: antiquewhite;
+    background-color: transparent;
+
+    border-style: none;
+    border-bottom: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: rgba(255, 255, 255, 0.7)
+}
+
+.NameInputText::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.InputText{
+    height: 35px;
+    padding-left: 20px;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: antiquewhite;
+    background-color: transparent;
+
+    border-style: none;
+    border-bottom: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: rgba(255, 255, 255, 0.7)
+}
+
+.InstructText{
+    height: 55px;
+    padding-left: 20px;
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: antiquewhite;
+    background-color: transparent;
+
+    border-style: none;
+    border-bottom-width: 3px;
+    border-bottom-color: rgba(255, 255, 255, 0.7)
+}
+
+.LoginForm button{
+    height: 80px;
+    width: 100%;
+    padding: 15px 32px;
+    margin-top: 40px;
+    display: inline-block;
+
+    text-align: center;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+
+    border: none;
+    border-radius: 40px;
+    color: whitesmoke;
+    background-color: #2CFEC5;
+    box-shadow: 0px 0px 20px rgba(0, 0, 255, 0.7);
 }

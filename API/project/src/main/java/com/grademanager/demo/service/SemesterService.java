@@ -41,8 +41,4 @@ public class SemesterService {
         return semesters;
 
     }
-
-
-
-
 }

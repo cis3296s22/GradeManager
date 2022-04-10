@@ -1,5 +1,10 @@
 package com.grademanager.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+
 @Entity
 @Table(name="assignments")
 public class Assignment {

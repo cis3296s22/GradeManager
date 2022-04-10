@@ -1,4 +1,5 @@
 package com.grademanager.demo.model;
+import javax.persistence.*;
 
 @Entity
 @Table(name="exams")

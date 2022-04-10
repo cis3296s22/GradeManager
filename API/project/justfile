@@ -24,7 +24,7 @@ start-env:
 stop-env:
     #!/usr/bin/env bash
     set -euxo pipefail
-    docker stop grademanager
+    docker rm grademanager
 restart-env:
     just stop-env
     just start-env

@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.Optional;
 
 // To Do: Add logger
 //@Log4j2
@@ -26,18 +25,17 @@ public class  StudentController {
         return studentService.createStudent(newStudent);
     }
 
-    @PostMapping("/updateStudent")
-    public void updateStudent(@RequestBody Student student, @PathVariable Long id){
-        studentService.updateStudent(student);
+    @PostMapping("{id}")
+    public ResponseEntity<Student> updateStudent(@RequestBody Student student, @PathVariable Long id){
+        return studentService.updateStudent(student);
     }
-// FIX GET ENDPOINTS
+
     @GetMapping("/getStudent")
     public ResponseEntity<Student> getStudent(Long studentId){
         return studentService.getStudent(studentId);
         }
 
     }
-
 
 //    get student ID from email and password
 //    @GetMapping("/{email}/{password}")  //probably will have to fix this

@@ -1,9 +1,17 @@
 package com.grademanager.demo.model;
 
+@Entity
+@Table(name="exams")
 public class Exam {
+    @Column(name="grade")
     private int grade;
+    @Column(name="weight")
     public int weight = 30;
+    @Column(name="name")
     private String name;
+
+    @ManyToOne
+    private Course course;
 
     public Exam(){}
 

@@ -51,108 +51,12 @@ function Course() {
   //     console.log("just clicking through the course tabs");
   //   }
   // }
-
-  // addAssignmentDiv has all the calls to the function addAssignment
-  // add Assignment creates a div and attaches it to the useState for the assignment variable
-  // the variable is waiting to be displayed within the return newAssignment.container
-  function addAssignment() {
-    // CURRENT: taking input from user and storing in newAssignment
-    // not displaying the new assignmnet
-    // press the +newAssignment button to send the newAssignmet to the database
-    // also adds to the newAssignment variable on change
-
-    // SEND TO DATABASE FROM HERE
-
-    // make this look better later
-    console.log("add assignment");
-    console.log(newAssignment);
-
-    const newAssignmentDiv = (
-      <Row>
-        <Col>{newAssignment.name}</Col>
-        <Col>{newAssignment.group}</Col>
-        <Col>{newAssignment.grade}</Col>
-      </Row>
-    );
-
-    setNewAssignment((prevState) => ({
-      ...prevState,
-      container: newAssignmentDiv,
-    }));
-  }
-
-  const [newCourse, setNewCourse] = useState({
-    CourseName: null,
-    container: null,
-  });
-
-  function applyNewCourse(e) {
-    const newCourseDiv = (
-      <Tab eventKey={newCourse.CourseName} title={newCourse.CourseName}>
-        <Card border="primary">
-          <Card.Header>{newCourse.CourseName}</Card.Header>
-          <Card.Body>{addAssignmentDiv}</Card.Body>
-        </Card>
-      </Tab>
-    );
-    setNewCourse((prevState) => ({
-      ...prevState,
-      container: newCourseDiv,
-    }));
-
-    // SEND TO DATABASE HERE
-  }
-  const addCourseDiv = (
-    <Tab eventKey={"newCourse"} title={"New Course"}>
-      <Card border="primary">
-        <Card.Header>{newCourse.CourseName}</Card.Header>
-        <Card.Body>
-          <InputGroup className="mb-3">
-            <InputGroup.Text id="basic-addon1">
-              Enter Course Name
-            </InputGroup.Text>
-            <FormControl
-              aria-label="newCourseName"
-              aria-describedby="basic-addon1"
-              onChange={(e) =>
-                setNewCourse({
-                  CourseName: e.target.value,
-                })
-              }
-            />
-
-            <Button variant="outline-success" onClick={applyNewCourse}>
-              <FaPlus />
-              {"Add Course"}
-            </Button>
-          </InputGroup>
-
-          {/* {newAssignment.container} */}
-          {/* {addAssignmentDiv} */}
-          {/* <Card.Text></Card.Text> */}
-        </Card.Body>
-      </Card>
-    </Tab>
-  );
-
   const [newAssignment, setNewAssignment] = useState({
     name: null,
     grade: null,
     group: null,
     container: null,
   });
-
-  function chooseAssignmentGroup(e) {
-    // setNewAssignment((prevState) => { group: e });
-    setNewAssignment((prevState) => ({
-      ...prevState,
-      group: e,
-    }));
-
-    // console.log("clicking through dropdown");
-    // console.log(e);
-    console.log(newAssignment);
-  }
 
   const addAssignmentDiv = (
     <Row>
@@ -197,6 +101,119 @@ function Course() {
     </Row>
   );
 
+  // addAssignmentDiv has all the calls to the function addAssignment
+  // add Assignment creates a div and attaches it to the useState for the assignment variable
+  // the variable is waiting to be displayed within the return newAssignment.container
+  function addAssignment() {
+    // CURRENT: taking input from user and storing in newAssignment
+    // not displaying the new assignmnet
+    // press the +newAssignment button to send the newAssignmet to the database
+    // also adds to the newAssignment variable on change
+
+    // SEND TO DATABASE FROM HERE
+
+    // make this look better later
+    console.log("add assignment");
+    console.log(newAssignment);
+
+    const newAssignmentDiv = (
+      <Row>
+        <Col>{newAssignment.name}</Col>
+        <Col>{newAssignment.group}</Col>
+        <Col>{newAssignment.grade}</Col>
+      </Row>
+    );
+
+    setNewAssignment((prevState) => ({
+      ...prevState,
+      container: newAssignmentDiv,
+    }));
+  }
+  const [courseNames, setCourseNames] = useState([
+    "Software Design",
+    "Intellectual Heritage",
+    "Calculus I",
+  ]);
+
+  const CourseTabs = courseNames.map((eachCourseName) => (
+    <Tab eventKey={eachCourseName} title={eachCourseName} key={eachCourseName}>
+      <Card border="primary">
+        <Card.Header>{eachCourseName}</Card.Header>
+        <Card.Body>
+          {newAssignment.container}
+          {addAssignmentDiv}
+        </Card.Body>
+      </Card>
+    </Tab>
+  ));
+
+  const [newCourse, setNewCourse] = useState({
+    CourseName: null,
+    container: null,
+  });
+
+  function applyNewCourse(e) {
+    // const newCourseDiv = (
+    //   <Tab eventKey={newCourse.CourseName} title={newCourse.CourseName}>
+    //     <Card border="primary">
+    //       <Card.Header>{newCourse.CourseName}</Card.Header>
+    //       <Card.Body>{addAssignmentDiv}</Card.Body>
+    //     </Card>
+    //   </Tab>
+    // );
+    // setNewCourse((prevState) => ({
+    //   ...prevState,
+    //   container: newCourseDiv,
+    // }));
+    setCourseNames((prevState) => [...prevState, newCourse.CourseName]);
+
+    // SEND TO DATABASE HERE
+  }
+  const addCourseDiv = (
+    <Tab eventKey={"newCourse"} title={"New Course"}>
+      <Card border="primary">
+        <Card.Header>{newCourse.CourseName}</Card.Header>
+        <Card.Body>
+          <InputGroup className="mb-3">
+            <InputGroup.Text id="basic-addon1">
+              Enter Course Name
+            </InputGroup.Text>
+            <FormControl
+              aria-label="newCourseName"
+              aria-describedby="basic-addon1"
+              onChange={(e) =>
+                setNewCourse({
+                  CourseName: e.target.value,
+                })
+              }
+            />
+
+            <Button variant="outline-success" onClick={applyNewCourse}>
+              <FaPlus />
+              {"Add Course"}
+            </Button>
+          </InputGroup>
+
+          {/* {newAssignment.container} */}
+          {/* {addAssignmentDiv} */}
+          {/* <Card.Text></Card.Text> */}
+        </Card.Body>
+      </Card>
+    </Tab>
+  );
+
+  function chooseAssignmentGroup(e) {
+    // setNewAssignment((prevState) => { group: e });
+    setNewAssignment((prevState) => ({
+      ...prevState,
+      group: e,
+    }));
+
+    // console.log("clicking through dropdown");
+    // console.log(e);
+    console.log(newAssignment);
+  }
+
   return (
     <Container style={styles.grid}>
       <Row style={styles.row}>
@@ -210,24 +227,23 @@ function Course() {
             className="mb-3"
             // onSelect={addCourseTab}
           >
-            <Tab eventKey="SoftwareDesign" title="Software Design">
+            {/* <Tab eventKey="SoftwareDesign" title="Software Design">
               <Card border="primary">
                 <Card.Header>Software Design</Card.Header>
                 <Card.Body>
-                  {/* use useEffect instead?????? */}
                   {newAssignment.container}
                   {addAssignmentDiv}
-                  {/* <Card.Text></Card.Text> */}
                 </Card.Body>
               </Card>
-            </Tab>
+            </Tab> */}
 
-            <Tab eventKey="IH" title="Intellectual Heritage">
+            {/* <Tab eventKey="IH" title="Intellectual Heritage">
               <Card border="primary" style={{ width: "35rem", color: "black" }}>
                 <Card.Header>Intellectual Heritage</Card.Header>
                 <Card.Body>{addAssignmentDiv}</Card.Body>
               </Card>
-            </Tab>
+            </Tab> */}
+            {CourseTabs}
 
             {/* map through the all the courses being returned from the database and render*/}
             {/*  */}

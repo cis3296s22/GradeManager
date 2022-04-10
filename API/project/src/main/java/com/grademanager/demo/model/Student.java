@@ -10,16 +10,20 @@ import javax.persistence.Id;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeoutException;
 // To Do: Add semster object
          // Secure password ?
         
 @Entity
 @Table(name="students")
-//private ArrayList<Course> courseList;
+
 public class Student {
     @Id
     private Long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+    @Column(name = "studentId")
+    private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
     @Column(name="firstName")
     private String firstName;
     @Column(name="lastName")
@@ -32,6 +36,7 @@ public class Student {
     private LocalDate birthday;
     @Column (name = "age")
     private int age;
+<<<<<<< HEAD
 
 //instead of having a list with semester here, grab all the semesters using the student ID
 //    separately
@@ -40,6 +45,14 @@ public class Student {
 //    public void addSemester(Semester semester){
 //        semesterList.add(semester);
 //    }
+=======
+    //    Student => Semesters -> Courses -> Assignments, Quizzes, Exams
+//    @OneToMany( targetEntity = Course.class)
+    @OneToMany(mappedBy = "students", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Semester.class)
+    private List<Semester> semesters = new ArrayList<Semester>();
+//    private List<Course> courses = new ArrayList<Course>();
+    
+>>>>>>> objectsBackend
 
     public Student(){}
     
@@ -107,4 +120,10 @@ public class Student {
                 "email = " + this.email +
                 "}";
         }
+  
+    public ArrayList<Semester> semesterList= new ArrayList<Semester>();
+
+    public void addSemester(Semester semester){
+        semesterList.add(semester);
+    }
 }

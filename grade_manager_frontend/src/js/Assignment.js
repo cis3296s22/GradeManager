@@ -4,11 +4,17 @@ import FormControl from "react-bootstrap/FormControl";
 import Dropdown from "react-bootstrap/Dropdown";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
+import Badge from "react-bootstrap/Badge";
+import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Assignment(props) {
   const ifAddAssignmentDiv = props.ifAddAssignmentDiv;
   const ifNewAssignmentContainer = props.ifNewAssignmentContainer;
+
+  const assignmentStyling = {
+    justifyContent: "space-evenly",
+  };
 
   const [newAssignment, setNewAssignment] = useState({
     name: null,
@@ -16,6 +22,17 @@ function Assignment(props) {
     group: null,
     container: null,
   });
+
+  const [group, setGroup] = useState("Group");
+  function chooseAssignmentGroup(e) {
+    setGroup(e);
+
+    setNewAssignment((prevState) => ({
+      ...prevState,
+      group: e,
+    }));
+    console.log(newAssignment);
+  }
 
   const addAssignmentDiv = (
     <Row>
@@ -33,7 +50,7 @@ function Assignment(props) {
         {/* group should be a dropdown with the ability to add new groups */}
         <Dropdown onSelect={(e) => chooseAssignmentGroup(e)}>
           <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
-            Group
+            {group}
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -76,11 +93,18 @@ function Assignment(props) {
     console.log(newAssignment);
 
     const newAssignmentDiv = (
-      <Row>
-        <Col>{newAssignment.name}</Col>
-        <Col>{newAssignment.group}</Col>
-        <Col>{newAssignment.grade}</Col>
-      </Row>
+      // could use listGroup & ListGroup.Item
+      <ListGroup horizontal style={{ width: "100%" }}>
+        <ListGroup.Item style={{ width: "33.33%" }}>
+          {newAssignment.name}
+        </ListGroup.Item>
+        <ListGroup.Item style={{ width: "33.33%" }}>
+          {newAssignment.group}
+        </ListGroup.Item>
+        <ListGroup.Item style={{ width: "33.33%" }}>
+          {newAssignment.grade}
+        </ListGroup.Item>
+      </ListGroup>
     );
 
     setNewAssignment((prevState) => ({
@@ -88,19 +112,9 @@ function Assignment(props) {
       container: newAssignmentDiv,
     }));
   }
-  function chooseAssignmentGroup(e) {
-    // setNewAssignment((prevState) => { group: e });
-    setNewAssignment((prevState) => ({
-      ...prevState,
-      group: e,
-    }));
-
-    // console.log("clicking through dropdown");
-    // console.log(e);
-    console.log(newAssignment);
-  }
+  
   return (
-    <div>
+    <div style={{ maxWidth: "100%" }}>
       {newAssignment.container}
       {ifAddAssignmentDiv && addAssignmentDiv}
     </div>

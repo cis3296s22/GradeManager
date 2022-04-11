@@ -6,36 +6,32 @@ import { FaPlus } from "react-icons/fa";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Semester from "./Semester";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
 import Assignment from "./Assignment";
 
 // import "../Style/Course.css";
 
 function Course() {
-  const styles = {
-    grid: {
-      paddingLeft: 0,
-      paddingRight: 0,
-      position: "absolute", //change this later
-      top: "10rem",
-      left: "10rem",
-      width: "75%",
-    },
-    row: {
-      marginLeft: 0,
-      marginRight: 0,
-      //  the rows is already taking up the whole height, need the ListGroup Items to expand/shrink
-      // in response to the available size
-    },
-    col: {
-      paddingLeft: 0,
-      paddingRight: 0,
-    },
-  };
+  // const styles = {
+  //   grid: {
+  //     paddingLeft: 0,
+  //     paddingRight: 0,
+  //     position: "absolute", //change this later
+  //     top: "10rem",
+  //     left: "10rem",
+  //     width: "75%",
+  //   },
+  //   row: {
+  //     marginLeft: 0,
+  //     marginRight: 0,
+  //     //  the rows is already taking up the whole height, need the ListGroup Items to expand/shrink
+  //     // in response to the available size
+  //   },
+  //   col: {
+  //     paddingLeft: 0,
+  //     paddingRight: 0,
+  //   },
+  // };
 
   const [courseNames, setCourseNames] = useState([
     "Software Design",
@@ -94,26 +90,17 @@ function Course() {
   );
 
   return (
-    <Container style={styles.grid}>
-      <Row style={styles.row}>
-        <Col sm={3} style={styles.col}>
-          <Semester />
-        </Col>
-        <Col style={styles.col}>
-          <Tabs
-            defaultActiveKey="profile"
-            id="uncontrolled-tab-example"
-            className="mb-3"
-            // onSelect={addCourseTab}
-          >
-            {/* map through the all the courses being returned from the database and render*/}
-            {CourseTabs}
+    <Tabs
+      defaultActiveKey="profile"
+      id="uncontrolled-tab-example"
+      className="mb-3"
+      // onSelect={addCourseTab}
+    >
+      {/* map through the all the courses being returned from the database and render*/}
+      {CourseTabs}
 
-            {addCourseDiv}
-          </Tabs>
-        </Col>
-      </Row>
-    </Container>
+      {addCourseDiv}
+    </Tabs>
   );
 }
 

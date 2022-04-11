@@ -4,17 +4,10 @@ import FormControl from "react-bootstrap/FormControl";
 import Dropdown from "react-bootstrap/Dropdown";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
-import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
-import Col from "react-bootstrap/Col";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 function Assignment(props) {
   const ifAddAssignmentDiv = props.ifAddAssignmentDiv;
-  const ifNewAssignmentContainer = props.ifNewAssignmentContainer;
-
-  const assignmentStyling = {
-    justifyContent: "space-evenly",
-  };
 
   const [newAssignment, setNewAssignment] = useState({
     name: null,
@@ -112,7 +105,7 @@ function Assignment(props) {
       container: newAssignmentDiv,
     }));
   }
-  
+
   return (
     <div style={{ maxWidth: "100%" }}>
       {newAssignment.container}

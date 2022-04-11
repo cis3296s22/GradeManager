@@ -2,8 +2,33 @@ import ListGroup from "react-bootstrap/ListGroup";
 import "../Style/Semester.css";
 import { useState } from "react";
 import { ListGroupItem } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+
+import Course from "./Course";
 
 function Semester() {
+  const styles = {
+    grid: {
+      paddingLeft: 0,
+      paddingRight: 0,
+      position: "absolute", //change this later
+      top: "10rem",
+      left: "10rem",
+      width: "75%",
+    },
+    row: {
+      marginLeft: 0,
+      marginRight: 0,
+      //  the rows is already taking up the whole height, need the ListGroup Items to expand/shrink
+      // in response to the available size
+    },
+    col: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+  };
   // pull the semesters from the database
   // semesterobject : {
   // course1: {assignment1: {name: "name", grade: 100, group: "quiz"}};
@@ -45,16 +70,25 @@ function Semester() {
   ));
 
   return (
-    <ListGroup defaultActiveKey="#link1" bsPrefix="SemesterContainer">
-      {listItems}
-      <ListGroupItem
-        action
-        eventKey={"Add New Semester"}
-        onClick={addSemesterTab}
-      >
-        Add New Semester
-      </ListGroupItem>
-    </ListGroup>
+    <Container style={styles.grid}>
+      <Row style={styles.row}>
+        <Col sm={3} style={styles.col}>
+          <ListGroup defaultActiveKey="#link1" bsPrefix="SemesterContainer">
+            {listItems}
+            <ListGroupItem
+              action
+              eventKey={"Add New Semester"}
+              onClick={addSemesterTab}
+            >
+              Add New Semester
+            </ListGroupItem>
+          </ListGroup>
+        </Col>
+        <Col style={styles.col}>
+          {<Course></Course>}
+          </Col>
+      </Row>
+    </Container>
   );
 }
 export default Semester;

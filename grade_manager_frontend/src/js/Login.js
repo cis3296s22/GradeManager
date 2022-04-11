@@ -23,19 +23,24 @@ export default class Login extends React.Component {
 
     validate = () =>{
 
-        let emailError = "";
-        let passwordError = "";
+        this.state.emailError = "";
+        this.state.passwordError = "";
 
 
         if (!this.state.email){
-            emailError = "Enter your Email!";
+            this.state.emailError = "Enter your Email!";
         }
         if (!this.state.email.includes("@")){
-            emailError = "Invalid Email";
+            this.state.emailError = "Invalid Email";
         }
 
         if (!this.state.password){
-            passwordError = "Please Enter the Password";
+            this.state.passwordError = "Please Enter the Password";
+        }
+
+        if (this.state.passwordError || this.state.emailError){
+            this.setState(initialState);
+            return false;
         }
 
         return true;
@@ -44,7 +49,7 @@ export default class Login extends React.Component {
     handleButtonClicked = event => {
         const isValid = this.validate();
         if (isValid){
-            alert('Welcome');
+            alert('Welcome Again!');
             this.setState(initialState);
         }
     };
@@ -74,7 +79,7 @@ export default class Login extends React.Component {
                         <input
                             className = "NameInputText"
                             type = "password"
-                            name = "Password"
+                            name = "password"
                             value = {this.state.password}
                             onChange = {this.handleChange}
                             placeholder = "Password"

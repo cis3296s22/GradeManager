@@ -12,7 +12,7 @@ input:focus, button:focus{
 
 .LoginFormat{
     width: 650px;
-    height: 770px;
+    height: auto;
     padding: 80px;
     margin-left: auto;
     margin-right: auto;

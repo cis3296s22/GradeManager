@@ -1,8 +1,4 @@
 package com.grademanager.demo.model;
-import java.time.LocalDate;
-import java.util.UUID;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 

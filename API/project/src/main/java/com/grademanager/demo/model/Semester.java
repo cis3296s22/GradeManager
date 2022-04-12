@@ -1,19 +1,7 @@
 package com.grademanager.demo.model;
-
-import java.time.LocalDate;
-import java.util.UUID;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.persistence.Id;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeoutException;
-
 
 @Entity
 @Table(name="semesters")
@@ -21,7 +9,7 @@ public class Semester {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     @Column(name="semesterId")
-    private int id;
+    private Integer id;
     @Column(name="number")
     private int number; // Semester 1
     @Column(name="name")

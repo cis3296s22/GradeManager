@@ -2,17 +2,10 @@ package com.grademanager.demo.model;
 
 import java.time.LocalDate;
 import java.util.UUID;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.persistence.Id;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
 // To Do: Add semster object
          // Secure password ?
         
@@ -22,8 +15,6 @@ import java.util.concurrent.TimeoutException;
 public class Student {
     @Id
     private Long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
-   // @Column(name = "studentId")
-    //private long studentId=UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
     @Column(name="firstName")
     private String firstName;
     @Column(name="lastName")

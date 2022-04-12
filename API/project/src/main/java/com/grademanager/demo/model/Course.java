@@ -1,8 +1,4 @@
 package com.grademanager.demo.model;
-import java.time.LocalDate;
-import java.util.UUID;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 import java.util.ArrayList;
 import javax.persistence.*;
 
@@ -30,8 +26,7 @@ public class Course {
     @OneToMany(targetEntity = Exam.class)
     ArrayList<Exam> examList = new ArrayList<Exam>();
 
-    // delete operation
-    private int courseGrade;
+
  
     public Course(){}
     

@@ -1,5 +1,10 @@
+import {
+    Link, Route, Routes
+  } from 'react-router-dom';
 import '../Style/LoginPageLayout.css';
 import React from "react";
+import Course from "./Course"
+import { BrowserRouter } from 'react-router-dom';
 
 const initialState = {
     email: "",
@@ -52,17 +57,21 @@ export default class Login extends React.Component {
             alert('Welcome Again!');
             this.setState(initialState);
         }
+        <Course></Course>
+            
     };
+
 
 
     render() {
         return (
             <div className = "LoginPageLayout">
                 <div className = "LoginFormat">
-                    <h2 className = "LoginHeading">Login!</h2>
+                <h2 className = "GradeHeader"> 
+                    Grade Manager </h2>
+                    <h2 className = "LoginHeading">
+                        Login!</h2>
                     <form className = "LoginForm">
-
-
 
                         <input
                             className = "NameInputText"
@@ -88,13 +97,12 @@ export default class Login extends React.Component {
                             {this.state.passwordError}
                         </div>
 
-
-
                         <button
                             type="button"
                             onClick={this.handleButtonClicked}>
 
                             Login</button>
+
 
                     </form>
 

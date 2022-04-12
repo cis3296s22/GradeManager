@@ -13,9 +13,9 @@ public class DatabaseConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         //dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         //dataSource.setUrl("jdbc:mysql://google/<converse>?cloudSqlInstance=<valiant-vault-30:us-east4:>&socketFactory=com.google.cloud.sql.mysql.SocketFactory&user=<root>&password=<root>");
-        dataSource.setUrl("jdbc:mysql://mysql-standalone:3306/students");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/mysql");
         dataSource.setUsername( "root" );
-        dataSource.setPassword( "test" );
+        dataSource.setPassword( "root" );
         return dataSource;
     }
 }

@@ -23,16 +23,21 @@ function Profile() {
   useEffect(() => {
     const fetchData = async () => {
       //   STUDENT PROFILE URL BELOW
-      const data = await fetch("https://dog.ceo/api/breeds/image/random"); //replace URL here with student
+      const data = await fetch(
+        "http://localhost:8086/api/v1/Student/createStudent",
+        {
+          mode: "no-cors", //stack over flow says that's a server issue (remove this line?)
+        }
+      ); //replace URL here with student
       if (data.ok) {
         const json = await data.json();
         console.log(json);
         setProfileInfo(json);
         setProfileInfo({
-          name: "remove this setProfileInfo",
-          email: "test@gmail.com",
-          age: 90,
-          studentId: 89899,
+          firstName: "removeadf",
+          lastNaem: " this setProfileInfoasdf",
+          age: 91,
+          email: "test@gmail.comm",
         });
       }
     };

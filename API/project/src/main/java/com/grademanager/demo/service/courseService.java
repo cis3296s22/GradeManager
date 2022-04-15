@@ -1,10 +1,9 @@
 package com.grademanager.demo.service;
 
 import java.util.Optional;
-// import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity;
 import com.grademanager.demo.model.Course;
 import com.grademanager.demo.repository.CourseRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public Course getCourse(Long id){
+    public Course getCourse(Integer id){
       Optional <Course> optionalCourse = courseRepository.findById(id);
         if(!optionalCourse.isPresent()){
             String err = String.format("The course having ID %s was not found", id);
@@ -41,23 +40,7 @@ public class CourseService {
         courseRepository.deleteById(id);
     }
 
-    public Course updateCourse(Course course, Long id){
-        if(courseRepository.findById(id).isPresent()){
-            Course oldCourse = courseRepository.findById(id).get();
-
-            // String dept String name double totalGrade
-            String dept = (course.getDept() != null) ? course.getDept() : oldCourse.getDept();
-            oldCourse.setDept(dept); 
-
-            String name = (course.getName() != null) ? course.getName() : oldCourse.getName();
-            oldCourse.setName(name);
-
-            Double totalGrade = (course.getCourseGrade() != null) ? course.getCourseGrade() : oldCourse.getCourseGrade();
-            oldCourse.setTotalGrade(totalGrade);
-            
-            course.setId(id);
-        }
-
+    public Course updateCourse(Course course){
         return courseRepository.save(course);
     }
 }

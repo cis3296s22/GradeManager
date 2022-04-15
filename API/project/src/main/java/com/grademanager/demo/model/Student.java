@@ -25,7 +25,7 @@ public class Student {
     @Column(name = "birthday")
     private LocalDate birthday;
     @Column (name = "age")
-    private Integer age;
+    private int age;
 
 //instead of having a list with semester here, grab all the semesters using the student ID
 //    separately
@@ -51,24 +51,17 @@ public class Student {
         this.age = age;
         this.email = email;
         this.birthday = birthday;
-        
     }
 
     public long getStudentId() {
         return this.studentId;
-    }
-    public String getFirstName(){
-        return this.firstName;
-    }
-    public String getLastName(){
-        return this.lastName;
     }
 
     public String getName() {
         return this.firstName + this.lastName;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return this.age;
     }
 
@@ -80,8 +73,7 @@ public class Student {
         return this.birthday;
     }
 
-    public void setStudentId(Long id) {
-        this.studentId = id;
+    public void setStudentId() {
         //UUID uniqueKey = UUID.randomUUID();
         //this.studentId = uniqueKey.toString();
     }
@@ -94,7 +86,7 @@ public class Student {
     }
 
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

@@ -1,4 +1,5 @@
 package com.grademanager.demo.controller;
+import java.util.Optional;
 
 import com.grademanager.demo.model.Course;
 import com.grademanager.demo.service.CourseService;
@@ -19,8 +20,8 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
-    @GetMapping("{id}")
-    public ResponseEntity<Course> getCourse(@PathVariable Long id){
+    @GetMapping("{course}")
+    public ResponseEntity<Course> getCourse(Integer id){
         return ResponseEntity.ok(courseService.getCourse(id));
     }
 
@@ -31,10 +32,10 @@ public class CourseController {
 
     @PostMapping("/{id}")
     public ResponseEntity<Course> updateCourse(@RequestBody Course course, @PathVariable Long id){
-        return ResponseEntity.ok(courseService.updateCourse(course, id));
+        return ResponseEntity.ok(courseService.updateCourse(course));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void deleteCourse(@PathVariable Long id){
         courseService.deleteCourse(id);
     }

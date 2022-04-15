@@ -26,7 +26,7 @@ public class  StudentController {
 
     @PostMapping("{id}")
     public ResponseEntity<Student> updateStudent(@RequestBody Student student, @PathVariable Long id){
-        return studentService.updateStudent(student, id);
+        return studentService.updateStudent(student);
     }
 
     @GetMapping("/getStudent")

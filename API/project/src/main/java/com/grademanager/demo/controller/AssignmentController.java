@@ -28,7 +28,7 @@ public class AssignmentController{
          return ResponseEntity.ok(assignmentService.createAssignment(assignment));
     }
 
-    @PostMapping("{name}")
+    @PostMapping("{id}")
     public ResponseEntity<Assignment> updateAssignment(@RequestBody Assignment assignment, @PathVariable Integer grade){
           return ResponseEntity.ok(assignmentService.updateAssignment(assignment, grade));
     }

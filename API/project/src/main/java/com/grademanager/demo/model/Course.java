@@ -11,8 +11,8 @@ import javax.persistence.*;
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database        
+    private Long id;
     @Column(name="dept")
     private String dept;
     @Column(name="name")
@@ -34,39 +34,38 @@ public class Course {
  
     public Course(){}
     
-    public Course(String dept, int id, String name){
-        this.dept = dept;
-        this.id = id;
+    public Course(String dept, String name){
+        this.dept = dept;        
         this.name = name;
     }
-       /* public double calculateGrade(List<Quiz> quizList, List<Assignment> assignmentList, List<Exam> finalList){
-        double quizScore = 0;
-        double assignmentScore = 0;
-        double examScore = 0;
+        // public double calculateGrade(List<Quiz> quizList, List<Assignment> assignmentList, List<Exam> finalList){
+        // double quizScore = 0;
+        // double assignmentScore = 0;
+        // double examScore = 0;
 
 
-        for(int i = 0; i < quizList.size(); i++){
-            quizScore += quizList.get(i).getGrade();
-        }
-        for(int i = 0; i < assignmentList.size(); i++){
-            assignmentScore += assignmentList.get(i).getGrade();
-        }
-        for(int i = 0; i < finalList.size(); i++){
-            examScore += finalList.get(i).getGrade();
-        }
-        totalGrade = quizScore * quizList.get(0).getWeight()  + assignmentScore * assignmentList.get(0).getWeight() + examScore * finalList.get(0).getWeight();
-        return totalGrade;
-    }
+        // for(int i = 0; i < quizList.size(); i++){
+        //     quizScore += quizList.get(i).getGrade();
+        // }
+        // for(int i = 0; i < assignmentList.size(); i++){
+        //     assignmentScore += assignmentList.get(i).getGrade();
+        // }
+        // for(int i = 0; i < finalList.size(); i++){
+        //     examScore += finalList.get(i).getGrade();
+        // }
+        // totalGrade = quizScore * quizList.get(0).getWeight()  + assignmentScore * assignmentList.get(0).getWeight() + examScore * finalList.get(0).getWeight();
+        // return totalGrade;
+    // }
 
-    public void addQuiz(Quiz quiz){
-        quizList.add(quiz);
-    }
-    public void addAssignment(Assignment assignment){
-        assignmentList.add(assignment);
-    }
-    public void addFinal(Exam finalExam){
-        examList.add(finalExam);
-    }
+    // public void addQuiz(Quiz quiz){
+    //     quizList.add(quiz);
+    // }
+    // public void addAssignment(Assignment assignment){
+    //     assignmentList.add(assignment);
+    // }
+    // public void addFinal(Exam finalExam){
+    //     examList.add(finalExam);
+    // }
     public String getDept() {
         return dept;
     }
@@ -75,11 +74,11 @@ public class Course {
         this.dept = dept;
     }
     
-    public int getId() {
+    public Long getId() {
         return id;
     }
     
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
     
@@ -98,6 +97,6 @@ public class Course {
     public void setTotalGrade(double totalGrade) {
         this.totalGrade = totalGrade;
     }
-}*/
 }
+
 

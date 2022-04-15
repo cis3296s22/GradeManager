@@ -14,12 +14,18 @@ public class AssignmentService {
     @Autowired
     AssignmentRepository assignmentRepository;
 
-    public void createAssignment(Assignment assignment){
-        assignmentRepository.save(assignment);
+    public Assignment createAssignment(Assignment assignment){
+        return assignmentRepository.save(assignment);
     }
     
-    public Optional<Assignment> getAssignment(String name){
-        return assignmentRepository.findByName(name);
+    public Assignment getAssignment(String name){
+        Optional<Assignment> optionalAssignment = assignmentRepository.findByName(name);
+        if(!optionalAssignment.isPresent()){
+            String err = String.format("The Assignment %s was not found", name);
+            
+            System.out.println(err);
+        }
+        return optionalAssignment.get();
     }
 
     public List<Assignment> getAllAssignments(){
@@ -28,8 +34,8 @@ public class AssignmentService {
         return assignments;
     }
 
-    public void updateAssignment(Assignment assignment, Integer grade){
-        assignmentRepository.save(assignment);
+    public Assignment updateAssignment(Assignment assignment, Integer grade){
+        return assignmentRepository.save(assignment);
     }
 
     public void deleteAssignment(String name) {

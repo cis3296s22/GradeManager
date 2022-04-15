@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.UUID;
 import javax.persistence.*;
 import javax.persistence.Id;
-import java.util.ArrayList;
 import java.util.List;
 // To Do: Add semster object
          // Secure password ?

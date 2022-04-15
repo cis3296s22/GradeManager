@@ -1,6 +1,4 @@
 package com.grademanager.demo.model;
-import java.util.Set;
-import java.util.List;
 import javax.persistence.Id;
 
 import lombok.Data;

@@ -18,7 +18,7 @@ public class Course {
     @Column(name="name")
     private String name;
     @Column(name="totalGrade")
-    private double totalGrade;
+    private Double totalGrade;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Semester semester;
@@ -90,11 +90,11 @@ public class Course {
         this.name = name;
     }
     
-    public double getCourseGrade() {
+    public Double getCourseGrade() {
         return totalGrade;
     }
     
-    public void setTotalGrade(double totalGrade) {
+    public void setTotalGrade(Double totalGrade) {
         this.totalGrade = totalGrade;
     }
 }

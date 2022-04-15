@@ -51,6 +51,7 @@ public class Student {
         this.age = age;
         this.email = email;
         this.birthday = birthday;
+        
     }
 
     public long getStudentId() {
@@ -67,7 +68,7 @@ public class Student {
         return this.firstName + this.lastName;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return this.age;
     }
 
@@ -93,7 +94,7 @@ public class Student {
     }
 
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

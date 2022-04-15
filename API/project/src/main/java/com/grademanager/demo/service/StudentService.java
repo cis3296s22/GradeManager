@@ -4,6 +4,7 @@ import com.grademanager.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,9 +37,15 @@ public class StudentService {
             String lastName = (student.getLastName() != null) ? student.getLastName() : oldStudent.getLastName();
             oldStudent.setLastName(lastName);
 
-            // int age = (student.getAge() != null) ? student.getAge() : oldStudent.getAge();
+            String email = (student.getEmail() != null) ? student.getEmail() : oldStudent.getEmail();
+            oldStudent.setEmail(email);
 
+            // unable to change password and birthday
+            // LocalDate birthday = (student.getBirthday() != null) ? student.getBirthday() : oldStudent.getBirthday();
+            // oldStudent.setBirthday(birthday);
 
+            Integer age = (student.getAge() != null) ? student.getAge() : oldStudent.getAge();
+            oldStudent.setAge(age);
 
             student.setStudentId(id);
         }

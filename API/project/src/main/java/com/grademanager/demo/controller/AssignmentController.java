@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,23 +19,23 @@ public class AssignmentController{
     @Autowired
     private AssignmentService assignmentService;
 
-    @GetMapping("{name}")
-    public ResponseEntity<Assignment> getAssignment(@PathVariable String name){
-        return ResponseEntity.ok(assignmentService.getAssignment(name));
+    @GetMapping("{id}")
+    public ResponseEntity<Assignment> getAssignment(@PathVariable Long id){
+        return ResponseEntity.ok(assignmentService.getAssignment(id));
     }
 
-    @PostMapping("{name}")
+    @PostMapping("/create")
     public ResponseEntity<Assignment> createNewAssignment(@RequestBody Assignment assignment){
          return ResponseEntity.ok(assignmentService.createAssignment(assignment));
     }
 
-    @PostMapping("{name}")
-    public ResponseEntity<Assignment> updateAssignment(@RequestBody Assignment assignment, @PathVariable Integer grade){
-          return ResponseEntity.ok(assignmentService.updateAssignment(assignment, grade));
+    @PostMapping("{id}")
+    public ResponseEntity<Assignment> updateAssignment(@RequestBody Assignment assignment, @PathVariable Long id){
+          return ResponseEntity.ok(assignmentService.updateAssignment(assignment, id));
     }
 
-    @DeleteMapping("{name}")
-    public void deleteAssignment(@PathVariable String name){
-        assignmentService.deleteAssignment(name);
+    @DeleteMapping("{id}")
+    public void deleteAssignment(@PathVariable Long id){
+        assignmentService.deleteAssignment(id);
     }
 }

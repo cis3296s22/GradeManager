@@ -18,10 +18,10 @@ public class AssignmentService {
         return assignmentRepository.save(assignment);
     }
     
-    public Assignment getAssignment(String name){
-        Optional<Assignment> optionalAssignment = assignmentRepository.findByName(name);
+    public Assignment getAssignment(Long id){        
+        Optional<Assignment> optionalAssignment = assignmentRepository.findById(id);
         if(!optionalAssignment.isPresent()){
-            String err = String.format("The Assignment %s was not found", name);
+            String err = String.format("The Assignment %s was not found", id);
             
             System.out.println(err);
         }
@@ -34,11 +34,26 @@ public class AssignmentService {
         return assignments;
     }
 
-    public Assignment updateAssignment(Assignment assignment, Integer grade){
+
+// name, grade
+    public Assignment updateAssignment(Assignment assignment, Long id){
+        if(assignmentRepository.findById(id).isPresent()){
+            Assignment oldAssignment = assignmentRepository.findById(id).get();
+            
+            String name = (assignment.getName() != null) ? assignment.getName() : oldAssignment.getName();
+            oldAssignment.setName(name);
+
+            Integer grade = (assignment.getGrade() != null) ? assignment.getGrade() : oldAssignment.getGrade();
+            oldAssignment.setGrade(grade);
+
+
+            assignment.setId(id);
+        }
         return assignmentRepository.save(assignment);
     }
 
-    public void deleteAssignment(String name) {
-        assignmentRepository.deleteByName(name);
+    // Could delete by entity
+    public void deleteAssignment(Long id) {
+        assignmentRepository.deleteById(id);        
     }
 }

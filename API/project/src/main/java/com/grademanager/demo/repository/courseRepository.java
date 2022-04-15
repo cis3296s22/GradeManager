@@ -1,6 +1,6 @@
 package com.grademanager.demo.repository;
 
-import java.util.Optional;
+// import java.util.Optional;
 
 import com.grademanager.demo.model.*;
 
@@ -9,9 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
-
-    Optional<Course> findById(Integer id);
-
-    void deleteById(Integer id);
 
 }

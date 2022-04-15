@@ -3,6 +3,7 @@ import java.util.Optional;
 import com.grademanager.demo.model.Exam;
 import com.grademanager.demo.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,24 +19,19 @@ public class ExamController {
     @Autowired
     private ExamService examService;
 
+    @GetMapping("{exam}")
+    public ResponseEntity<Optional<Exam>> getExam(Long id){
+        return ResponseEntity.ok(examService.getExam(id));
+    }
+
     @PostMapping("/create")
-    public void createNewExam(@RequestBody Exam exam){
-        examService.createExam(exam);
+    public ResponseEntity<Exam> createNewExam(@RequestBody Exam exam){
+        return ResponseEntity.ok(examService.createExam(exam));
     }
 
     @PostMapping("/update")
     public void updateExam(@RequestBody Exam exam, @PathVariable Integer grade){
         examService.updateExam(exam);
-    }
-
-    @GetMapping
-    public Exam getExam(Long id){
-        Optional<Exam> optionalExam = examService.getExam(id);
-        if(!optionalExam.isPresent()){
-            String err = String.format("The exam %s was not found", id);
-            System.out.println(err);
-        }
-        return optionalExam.get();
     }
 
     @DeleteMapping("{name}")

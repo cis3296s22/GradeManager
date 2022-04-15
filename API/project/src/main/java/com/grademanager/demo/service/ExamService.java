@@ -17,8 +17,8 @@ public class ExamService {
     @Autowired
     ExamRepository examRepository;
 
-    public void createExam(Exam exam){
-        examRepository.save(exam);
+    public Exam createExam(Exam exam){
+        return examRepository.save(exam);
     }
     
     public void updateExam(Exam exam){

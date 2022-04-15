@@ -21,9 +21,28 @@ public class StudentService {
     public void deleteStudent(Long studentId) {
         studentRepository.deleteById(studentId);
     }
-    public ResponseEntity<Student> updateStudent(Student student) {
+    public ResponseEntity<Student> updateStudent(Student student, Long id) {
 //        don't need to send the id in because save will update student
 //        based on student info (which already includes id)
+
+
+        if(studentRepository.findById(id).isPresent()){
+            Student oldStudent = studentRepository.findById(id).get();
+            
+
+            String firstName =  (student.getFirstName() != null) ? student.getFirstName() : oldStudent.getFirstName();
+            oldStudent.setFirstName(firstName);
+
+            String lastName = (student.getLastName() != null) ? student.getLastName() : oldStudent.getLastName();
+            oldStudent.setLastName(lastName);
+
+            // int age = (student.getAge() != null) ? student.getAge() : oldStudent.getAge();
+
+
+
+            student.setStudentId(id);
+        }
+        
         return ResponseEntity.ok(studentRepository.save(student));
     }
 

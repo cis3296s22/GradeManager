@@ -1,15 +1,35 @@
 
 ensure-mysql-image:
+    docker pull mysql:5.6
 
 run-mysql:
+    #!/usr/bin/env bash
+    set -euxo pipefail
     docker run --name mysql-standalone  -e MYSQL_ROOT_PASSWORD=test -e MYSQL_DATABASE=students -e MYSQL_USER=test -e MYSQL_PASSWORD=test -e MYSQL_ALLOW_EMPTY_PASSWORD -d mysql:5.6
 
 build-grade-manager:
+    #!/usr/bin/env bash
+    set -euxo pipefail
     docker build -t grademanager .
 
 run-grade-manager: 
+    #!/usr/bin/env bash
+    set -euxo pipefail
     docker run -p 8086:8086 --name grademanager --link mysql-standalone:mysql -d grademanager
-
+# TO:DO Check if mysql restart is needed
+start-env:
+ mvn install -DskipTests 
+ just build-grade-manager  
+ just run-grade-manager
+stop-env:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    docker stop grademanager
+restart-env:
+    just stop-env
+    just start-env
 stop-mysql:
-
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    docker stop mysql-standalone
 stop-grade-manager:

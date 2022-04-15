@@ -31,16 +31,10 @@ public class  StudentController {
         studentService.updateStudent(student);
     }
 // FIX GET ENDPOINTS
-    @GetMapping("{id}")
-    public Student getStudent(Long studentId){
-//        return studentService.getStudent(studentId);
-        Optional<Student> optionalStudent =studentService.getStudent(studentId);
-        if(!optionalStudent.isPresent()){
-            String ErrMsg = String.format("The student having ID %s was not found", studentId);
-            System.out.println(ErrMsg);  //log and throw exception instead?
+    @GetMapping("/getStudent")
+    public ResponseEntity<Student> getStudent(Long studentId){
+        return studentService.getStudent(studentId);
         }
-//        going to crash if student isn't returned bc exception isn't thrown above
-        return optionalStudent.get();
 
     }
 
@@ -54,4 +48,3 @@ public class  StudentController {
 
 
 
-}

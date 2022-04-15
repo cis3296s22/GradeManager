@@ -23,8 +23,10 @@ function Profile() {
   useEffect(() => {
     const fetchData = async () => {
       //   STUDENT PROFILE URL BELOW
+      // HARD CODED STUDENT ID HERE
+      const studentId = encodeURIComponent("8207732286254237848");
       const data = await fetch(
-        "http://localhost:8086/api/v1/Student/createStudent",
+        `http://localhost:8086/api/v1/Student/getStudent?studentId=${studentId}`,
         {
           mode: "no-cors", //stack over flow says that's a server issue (remove this line?)
         }
@@ -33,12 +35,12 @@ function Profile() {
         const json = await data.json();
         console.log(json);
         setProfileInfo(json);
-        setProfileInfo({
-          firstName: "removeadf",
-          lastNaem: " this setProfileInfoasdf",
-          age: 91,
-          email: "test@gmail.comm",
-        });
+        // setProfileInfo({
+        //   firstName: "removeadf",
+        //   lastName: " setProfileInfoasdf",
+        //   age: 91,
+        //   email: "test@gmail.comm"
+        // });
       }
     };
     fetchData();

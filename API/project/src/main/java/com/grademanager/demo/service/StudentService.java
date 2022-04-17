@@ -32,20 +32,20 @@ public class StudentService {
             
 
             String firstName =  (student.getFirstName() != null) ? student.getFirstName() : oldStudent.getFirstName();
-            oldStudent.setFirstName(firstName);
+            student.setFirstName(firstName);
 
             String lastName = (student.getLastName() != null) ? student.getLastName() : oldStudent.getLastName();
-            oldStudent.setLastName(lastName);
+            student.setLastName(lastName);
 
             String email = (student.getEmail() != null) ? student.getEmail() : oldStudent.getEmail();
-            oldStudent.setEmail(email);
+            student.setEmail(email);
 
-            // unable to change password and birthday
+            // unable to change password and birthday rn
             // LocalDate birthday = (student.getBirthday() != null) ? student.getBirthday() : oldStudent.getBirthday();
             // oldStudent.setBirthday(birthday);
 
             Integer age = (student.getAge() != null) ? student.getAge() : oldStudent.getAge();
-            oldStudent.setAge(age);
+            student.setAge(age);
 
             student.setStudentId(id);
         }

@@ -21,8 +21,21 @@ public class ExamService {
         return examRepository.save(exam);
     }
     
-    public void updateExam(Exam exam){
-        examRepository.save(exam);
+    public Exam updateExam(Exam exam, Long id){
+        if(examRepository.findById(id).isPresent()){
+            Exam oldExam = examRepository.findById(id).get();
+
+            Integer grade =  (exam.getGrade() != null) ? exam.getGrade() : oldExam.getGrade();
+            exam.setGrade(grade);
+
+            String name = (exam.getName() != null) ? exam.getName() : oldExam.getName();
+            exam.setName(name);
+
+            exam.setId(id);
+            
+        }   
+        // rn if the exam isn't present, a new exam is created
+        return examRepository.save(exam);
 
     }
 

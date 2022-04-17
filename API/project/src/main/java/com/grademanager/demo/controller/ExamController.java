@@ -19,8 +19,8 @@ public class ExamController {
     @Autowired
     private ExamService examService;
 
-    @GetMapping("{exam}")
-    public ResponseEntity<Optional<Exam>> getExam(Long id){
+    @GetMapping("{id}")
+    public ResponseEntity<Optional<Exam>> getExam(@PathVariable Long id){
         return ResponseEntity.ok(examService.getExam(id));
     }
 
@@ -29,12 +29,12 @@ public class ExamController {
         return ResponseEntity.ok(examService.createExam(exam));
     }
 
-    @PostMapping("/update")
-    public void updateExam(@RequestBody Exam exam, @PathVariable Integer grade){
-        examService.updateExam(exam);
+    @PostMapping("{id}")
+    public ResponseEntity<Exam> updateExam(@RequestBody Exam exam, @PathVariable Long id){
+        return ResponseEntity.ok(examService.updateExam(exam, id));
     }
 
-    @DeleteMapping("{name}")
+    @DeleteMapping("{id}")
     public void deleteExam(@PathVariable Long id){
         examService.deleteExam(id);
     }

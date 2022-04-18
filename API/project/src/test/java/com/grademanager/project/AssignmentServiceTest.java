@@ -1,5 +1,6 @@
 package com.grademanager.project;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 // import com.grademanager.*;
@@ -14,6 +15,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import java.util.List;
+import java.util.ArrayList;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -57,9 +61,50 @@ public class AssignmentServiceTest {
 
     }
 
+    @Test
+    public void getAllAssignmentsTest(){
+        Assignment assignment1 = new Assignment();
+        assignment1.setId(Long.valueOf(1));
+        assignment1.setName("Homework 1");
+        assignment1.setGrade(50);
+
+        Assignment assignment2 = new Assignment();
+        assignment2.setId(Long.valueOf(2));
+        assignment2.setName("Homework 2");
+        assignment2.setGrade(60);
+
+        Assignment assignment3 = new Assignment();
+        assignment3.setId(Long.valueOf(2));
+        assignment3.setName("Homework 3");
+        assignment3.setGrade(78);
+
+        List<Assignment> assignments = new ArrayList<>(Arrays.asList(
+            assignment1, assignment2, assignment3
+        ));
+        
+        Mockito.when(assignmentRepository.findAll()).thenReturn(assignments);
+
+        List<Assignment> retrieveAssignments = assignmentService.getAllAssignments();
+        Assert.assertEquals(assignments, retrieveAssignments);
+    }
+
     // DELETE ASSIGNMENT DOESN'T RETURN ANYTHING
+
     
+    // @Test
+    // public void updateAssignmentTest(){
+    //     Assignment assignment1 = new Assignment();
+    //     assignment1.setId(Long.valueOf(1));
+    //     assignment1.setName("Homework 1");
+    //     assignment1.setGrade(50);
+
+    //     Mockito.when(assignmentRepository.save(assignment1)).thenReturn(assignment1);
+
+    //     Assignment assignment = assignmentService.updateAssignment(assignment1, Long.valueOf(1));
+    //     Assert.assertNotEquals(assignment1, assignment);
+    // }
     
+
 
 
     

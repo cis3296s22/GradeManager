@@ -2,7 +2,6 @@ package com.grademanager.project;
 
 import java.util.Optional;
 
-// import com.grademanager.*;
 import com.grademanager.demo.model.Course;
 import com.grademanager.demo.repository.CourseRepository;
 import com.grademanager.demo.service.CourseService;
@@ -74,7 +73,7 @@ public class CourseServiceTest {
     }
 
 
-    // HAVE TO CHANGE HOW COURSE IS UPDATED (TO PUT)...
+   
     @Test
     public void updateCourseTest(){
         // should return the updated course

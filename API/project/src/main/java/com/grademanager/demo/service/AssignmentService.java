@@ -37,7 +37,8 @@ public class AssignmentService {
 
 // name, grade
     public Assignment updateAssignment(Assignment assignment, Long id){
-        if(assignmentRepository.findById(id).isPresent()){
+        if(this.getAssignment(id).getId() == id){
+        // if(assignmentRepository.findById(id).isPresent()){
             Assignment oldAssignment = assignmentRepository.findById(id).get();
             
             String name = (assignment.getName() != null) ? assignment.getName() : oldAssignment.getName();

@@ -7,9 +7,9 @@ import com.grademanager.demo.repository.CourseRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Service
 //@Log4j2
@@ -22,7 +22,7 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public Course getCourse(Long id){
+    public Course getCourse(Long id){        
       Optional <Course> optionalCourse = courseRepository.findById(id);
         if(!optionalCourse.isPresent()){
             String err = String.format("The course having ID %s was not found", id);

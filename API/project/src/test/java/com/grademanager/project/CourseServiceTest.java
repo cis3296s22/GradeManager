@@ -55,13 +55,13 @@ public class CourseServiceTest {
         Mockito.when(courseRepository.save(course)).thenReturn(course);
         
         Course retrievedCourse = courseService.createCourse(course);
-        Assert.assertEquals(retrievedCourse, course);
+        Assert.assertEquals(course, retrievedCourse);
         
     }
 
     // getAllCourses not implemented
 
-// repository returns the optional course 
+//GOING TO FAIL
     @Test
     public void deleteCourseTest(){
        
@@ -69,10 +69,8 @@ public class CourseServiceTest {
         Assert.assertEquals(true,false);        
     }
 
-// public Course updateCourse(Course course, Long id){
 
-
-    // have to change how the course is updated....
+    // HAVE TO CHANGE HOW COURSE IS UPDATED (TO PUT)...
     @Test
     public void updateCourseTest(){
         // should return the updated course
@@ -81,7 +79,7 @@ public class CourseServiceTest {
         course.setDept("ART");
         course.setName("Painting");
 
-        Mockito.when(courseRepository.
+        // Mockito.when(courseRepository.
         
         // have the course update it and then they shouldn't be teh same anymore?
 

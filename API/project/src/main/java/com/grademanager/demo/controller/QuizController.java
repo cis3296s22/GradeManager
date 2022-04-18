@@ -2,7 +2,10 @@ package com.grademanager.demo.controller;
 import java.util.Optional;
 import com.grademanager.demo.model.Quiz;
 import com.grademanager.demo.service.QuizService;
+
+// import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,28 +21,25 @@ public class QuizController {
     @Autowired
     private QuizService quizService;
 
-    @PostMapping("/createQuiz/{name}")
+    @PostMapping("/createQuiz")
     public void createNewQuiz(@RequestBody Quiz quiz){
         quizService.createQuiz(quiz);
     }
 
-    @PostMapping("/updateQuiz/{name}")
-    public void updateQuiz(@RequestBody Quiz quiz, @PathVariable Integer grade){
-        quizService.updateQuiz(quiz);
+    @PostMapping("{id}")
+    public ResponseEntity<Quiz> updateQuiz(@RequestBody Quiz quiz, @PathVariable Long id){
+        return ResponseEntity.ok(quizService.updateQuiz(quiz, id));        
     }
 
-    @GetMapping("{name}")
-    public Quiz getQuiz(String name){
-        Optional<Quiz> optionalQuiz = quizService.getQuiz(name);
-        if(!optionalQuiz.isPresent()){
-            String err = String.format("The quiz %s was not found", name);
-            System.out.println(err);
-        }
-        return optionalQuiz.get();
+    @GetMapping("{id}")
+    public ResponseEntity<Optional<Quiz>> getQuiz(@PathVariable Long id){
+       return ResponseEntity.ok(quizService.getQuiz(id));
     }
 
-    @DeleteMapping("{name}")
-    public void deleteQuiz(@PathVariable String name){
-        quizService.deleteQuiz(name);
+
+
+    @DeleteMapping("{id}")
+    public void deleteQuiz(@PathVariable Long id){
+        quizService.deleteQuiz(id);
     }
 }

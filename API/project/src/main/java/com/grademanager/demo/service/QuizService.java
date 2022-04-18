@@ -23,8 +23,8 @@ public class QuizService  {
         quizRepository.save(quiz);
     }
 
-    public Optional<Quiz> getQuiz(String name) {
-        return quizRepository.deleteByName(name);
+    public Optional<Quiz> getQuiz(Long id) {
+       return quizRepository.findById(id);
     }
 
     public List<Quiz> getAllQuizzes(){
@@ -33,8 +33,24 @@ public class QuizService  {
         return quizzes;
     }
 
-    public void deleteQuiz(String name) {
-        quizRepository.deleteByName(name);
+    public void deleteQuiz(Long id) {
+        quizRepository.deleteById(id);
+    }
+
+    public Quiz updateQuiz(Quiz quiz, Long id){
+        if(quizRepository.findById(id).isPresent()){
+            Quiz oldQuiz = quizRepository.findById(id).get();
+
+            Integer grade = (quiz.getGrade() != null) ? quiz.getGrade() : oldQuiz.getGrade();
+            quiz.setGrade(grade);
+
+            String name = (quiz.getName() != null) ? quiz.getName() : oldQuiz.getName();
+            quiz.setName(name);
+
+            quiz.setId(id);
+        }
+
+        return quizRepository.save(quiz);
     }
     
 }

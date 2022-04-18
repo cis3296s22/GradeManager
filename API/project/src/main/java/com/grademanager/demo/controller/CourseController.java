@@ -1,9 +1,9 @@
 package com.grademanager.demo.controller;
-import java.util.Optional;
 
 import com.grademanager.demo.model.Course;
 import com.grademanager.demo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,30 +19,23 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
-    //GET
-    @GetMapping("{course}")
-    public Course getCourse(Integer id){
-        Optional <Course> optionalCourse = courseService.getCourse(id);
-        if(!optionalCourse.isPresent()){
-            String err = String.format("The course having ID %s was not found", id);
-            System.out.println(err);
-        }
-        return optionalCourse.get();
+    @GetMapping("{id}")
+    public ResponseEntity<Course> getCourse(@PathVariable Long id){
+        return ResponseEntity.ok(courseService.getCourse(id));
     }
 
-    @PostMapping
-    public void createNewCourse(@RequestBody Course course){
-        courseService.createCourse(course);
+    @PostMapping("/create")
+    public ResponseEntity<Course> createNewCourse(@RequestBody Course course){
+        return ResponseEntity.ok(courseService.createCourse(course));
     }
 
     @PostMapping("/{id}")
-    public void updateCourse(@RequestBody Course course, @PathVariable Long id){
-        courseService.updateCourse(course);
+    public ResponseEntity<Course> updateCourse(@RequestBody Course course, @PathVariable Long id){
+        return ResponseEntity.ok(courseService.updateCourse(course, id));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void deleteCourse(@PathVariable Long id){
         courseService.deleteCourse(id);
-
     }
 }

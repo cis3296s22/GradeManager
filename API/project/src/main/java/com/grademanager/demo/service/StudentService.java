@@ -4,6 +4,7 @@ import com.grademanager.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +22,34 @@ public class StudentService {
     public void deleteStudent(Long studentId) {
         studentRepository.deleteById(studentId);
     }
-    public ResponseEntity<Student> updateStudent(Student student) {
+    public ResponseEntity<Student> updateStudent(Student student, Long id) {
 //        don't need to send the id in because save will update student
 //        based on student info (which already includes id)
-        return ResponseEntity.ok(studentRepository.save(student));
-    }
 
-    public  ResponseEntity<Student> getStudent(Long studentId) {
-        return ResponseEntity.ok(studentRepository.findById(studentId).get());
-    }
+
+        if(studentRepository.findById(id).isPresent()){
+            Student oldStudent = studentRepository.findById(id).get();
+            
+
+            String firstName =  (student.getFirstName() != null) ? student.getFirstName() : oldStudent.getFirstName();
+            student.setFirstName(firstName);
+
+            String lastName = (student.getLastName() != null) ? student.getLastName() : oldStudent.getLastName();
+            student.setLastName(lastName);
+
+            String email = (student.getEmail() != null) ? student.getEmail() : oldStudent.getEmail();
+            student.setEmail(email);
+
+            // unable to change password and birthday rn
+            // LocalDate birthday = (student.getBirthday() != null) ? student.getBirthday() : oldStudent.getBirthday();
+            // oldStudent.setBirthday(birthday);
+
+            Integer age = (student.getAge() != null) ? student.getAge() : oldStudent.getAge();
+            student.setAge(age);
+
+            student.setStudentId(id);
+        }
+        
 
     
 

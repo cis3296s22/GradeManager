@@ -1,10 +1,8 @@
-import {
-    Link, Route, Routes
-  } from 'react-router-dom';
+import React, { useRef, useState } from "react";
+//import { useAuth } from "../contexts/AuthContext";
+import { Link, useNavigate, Navigate, Route } from "react-router-dom";
 import '../Style/LoginPageLayout.css';
-import React from "react";
-import Course from "./Course"
-import { BrowserRouter } from 'react-router-dom';
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 const initialState = {
     email: "",
@@ -12,13 +10,24 @@ const initialState = {
 
 };
 
+var isLoggedIn = false;
+var isClicked = false;
+
 
 export default class Login extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          isLoggedIn: true,
+          isClicked: true
+        };
+      }
 
     state = initialState
 
     handleChange = event => {
-        const isCheckbox = event.target.type === "checkbox";
+        const isCheckbox = event.target.type == "checkbox";
         this.setState({
             [event.target.name]: isCheckbox
                 ? event.target.checked
@@ -53,17 +62,28 @@ export default class Login extends React.Component {
 
     handleButtonClicked = event => {
         const isValid = this.validate();
-        if (isValid){
+        
+        if (isValid){ 
             alert('Welcome Again!');
             this.setState(initialState);
+            isLoggedIn = isValid;
         }
-        <Course></Course>
             
+    };
+
+    launchSign = event => {
+        if (true){
+        alert("Please Sign Up!");
+        this.setState(initialState);
+        isClicked = true;
+        }
+
     };
 
 
 
     render() {
+
         return (
             <div className = "LoginPageLayout">
                 <div className = "LoginFormat">
@@ -97,12 +117,27 @@ export default class Login extends React.Component {
                             {this.state.passwordError}
                         </div>
 
+                            
+
                         <button
                             type="button"
                             onClick={this.handleButtonClicked}>
-
                             Login</button>
 
+                        <Container>
+                            {isLoggedIn ? <Navigate to = "/Home"></Navigate> : <Navigate to = "/"></Navigate>}
+                        </Container>
+
+                        <button
+                            type="button"
+                            onClick={this.launchSign}>
+                            <h6>Don't have an account? Sign Up</h6>
+                            </button>
+                        
+                        <Container>
+                            {isClicked ? <Navigate to = "/Signup"></Navigate> : <Navigate to = "/"></Navigate>}
+                        </Container>     
+                
 
                     </form>
 

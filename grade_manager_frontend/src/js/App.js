@@ -1,16 +1,20 @@
+import {BrowserRouter, BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
 import "../Style/App.css";
 import Course from "./Course";
 import Signup from "./Signup";
+import Login from "./Login";
 
-function App() {
+
+export default function App(){
+
   return (
-    <div className="App">
-      {/*add router when adding new pages (login/signup)  */}
-      <h1>Grade Manager</h1>
-      {<Course></Course>}
-      {/* <Signup></Signup> */}
-    </div>
+    <BrowserRouter>
+        <Routes>
+          <Route path ="/" element = {<Login></Login>}/>  
+          <Route path="/Signup" element = {<Signup></Signup>}/>
+          <Route path="/Home" element = {<Course></Course>}/>
+          </Routes>
+          
+    </BrowserRouter>
   );
 }
-
-export default App;

@@ -2,17 +2,17 @@ input:focus, button:focus{
     outline: none;
 }
 
-.SignUp{
+.Login{
     width: 200vw;
-    height: 200vh; 
+    height: 200vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.SignUpFormat{
+.LoginFormat{
     width: 650px;
-    height: auto; 
+    height: auto;
     padding: 80px;
     margin-left: auto;
     margin-right: auto;
@@ -22,14 +22,14 @@ input:focus, button:focus{
 
 }
 
-.SignUpHeading{
+.LoginHeading{
     text-align: center;
     color: whitesmoke;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 600;
 }
 
-.SignUpForm{
+.LoginForm{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,7 +84,7 @@ input:focus, button:focus{
     border-bottom-color: rgba(255, 255, 255, 0.7)
 }
 
-.SignUpForm button{
+.LoginForm button{
     height: 80px;
     width: 100%;
     padding: 15px 32px;
@@ -102,11 +102,4 @@ input:focus, button:focus{
     color: whitesmoke;
     background-color: #2CFEC5;
     box-shadow: 0px 0px 20px rgba(0, 0, 255, 0.7);
-}
-
-.ErrorMessages{
-    height: 15px;
-    padding-left: 20px;
-    align-items: center;
-    padding-bottom: 20px;
 }

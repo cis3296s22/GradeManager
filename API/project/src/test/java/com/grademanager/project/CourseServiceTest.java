@@ -15,6 +15,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class CourseServiceTest {
@@ -79,9 +83,39 @@ public class CourseServiceTest {
         course.setDept("ART");
         course.setName("Painting");
 
+
+
         // Mockito.when(courseRepository.
         
         // have the course update it and then they shouldn't be teh same anymore?
+
+    }
+
+    @Test 
+    public void getAllCoursesTest(){
+        Course course1 = new Course();
+        course1.setId(Long.valueOf(2));
+        course1.setDept("MATH");
+        course1.setName("Math Concepts I");
+
+        Course course2 = new Course();
+        course2.setId(Long.valueOf(1));
+        course2.setDept("CIS");
+        course2.setName("Data Structures");
+
+        Course course3 = new Course();
+        course3.setId(Long.valueOf(1));
+        course3.setDept("CIS");
+        course3.setName("Data Structures");
+
+        List<Course> courses = new ArrayList<>(Arrays.asList(
+            course1, course2, course3
+        ));
+        
+        Mockito.when(courseRepository.findAll()).thenReturn(courses);
+        
+        List<Course> retrievedCourses = courseService.getAllCourses();
+        Assert.assertEquals(courses, retrievedCourses);
 
 
 

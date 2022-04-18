@@ -1,17 +1,19 @@
 package com.grademanager.demo.model;
 import javax.persistence.*;
-
+import lombok.Data;
 import javax.persistence.Id;
 
+@Data
 @Entity
 @Table(name="exams")
 public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long id;
     @Column(name="grade")
-    private int grade;
+    private Integer grade;
     @Column(name="weight")
-    public int weight = 30;
+    public Integer weight = 30;
     @Column(name="name")
     private String name;
 
@@ -20,20 +22,27 @@ public class Exam {
 
     public Exam(){}
 
-    public Exam(String name, int grade){
+    public Exam(String name, Integer grade){
         this.name = name;
         this.grade = grade;
     }
 
-    public int getGrade() {
+    public Long getId(){
+        return this.id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 
-    public int getWeight(){
+    public Integer getWeight(){
         return weight;
     }
     

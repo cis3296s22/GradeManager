@@ -27,6 +27,7 @@ public class CourseService {
         if(!optionalCourse.isPresent()){
             String err = String.format("The course having ID %s was not found", id);
             System.out.println(err);
+            // doesn't handle not finding the course rn
         }
         return optionalCourse.get();
     }

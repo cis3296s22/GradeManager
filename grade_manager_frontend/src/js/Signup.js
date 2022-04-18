@@ -1,4 +1,6 @@
 import '../Style/SignUpPageLayout.css';
+import {Navigate} from "react-router-dom";
+import {Container} from "react-bootstrap";
 import React from "react";
 
 const initialState = {
@@ -19,7 +21,19 @@ const initialState = {
 };
 
 
+var isSignedIn = false;
+var isSelected = false;
+
+
 export default class Signup extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isSignedIn: true,
+      isSelected: true
+    };
+  }
      
   state = initialState
 
@@ -117,8 +131,19 @@ export default class Signup extends React.Component {
         this.state.passwordError = "";
         this.state.password_2Error = "";
         this.setState(initialState);
+        isSignedIn = isValid;
       }
+      
     };
+
+    launchLogin = event => {
+      if (true){
+      this.setState(initialState);
+      isSelected = true;
+      }
+
+  };
+
   
 
   render() {
@@ -234,8 +259,20 @@ export default class Signup extends React.Component {
           type="button"
           onClick={this.handleButtonClicked}>
 
-          Sign Up</button>
+          Sign Up</button> 
+          <Container>
+           {isSignedIn ? <Navigate to = "/Home"></Navigate> : <Navigate to = "/"></Navigate>}
+          </Container>
 
+              <button
+                  type="button"
+                  onClick={this.launchLogin}>
+                  <h6>Login If You Already Have An Account</h6>
+              </button>
+                        
+            <Container>
+              {isSelected ? <Navigate to = "/"></Navigate> : <Navigate to = "/Signup"></Navigate>}
+           </Container>
         </form>
 
       </div>

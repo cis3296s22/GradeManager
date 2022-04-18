@@ -34,7 +34,7 @@ public class Course {
  
     public Course(){}
     
-    public Course(String dept, String name){
+    public Course(String dept, String name, Double totalGrade){
         this.dept = dept;        
         this.name = name;
     }

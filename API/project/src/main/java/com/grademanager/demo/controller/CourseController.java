@@ -19,6 +19,11 @@ public class CourseController {
     @Autowired
     CourseService courseService;
 
+    public CourseController(CourseService courseService){
+        this.courseService = courseService;
+
+    }
+ 
     @GetMapping("{id}")
     public ResponseEntity<Course> getCourse(@PathVariable Long id){
         return ResponseEntity.ok(courseService.getCourse(id));

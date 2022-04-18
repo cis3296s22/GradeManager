@@ -22,7 +22,7 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public Course getCourse(Long id){
+    public Course getCourse(Long id){        
       Optional <Course> optionalCourse = courseRepository.findById(id);
         if(!optionalCourse.isPresent()){
             String err = String.format("The course having ID %s was not found", id);

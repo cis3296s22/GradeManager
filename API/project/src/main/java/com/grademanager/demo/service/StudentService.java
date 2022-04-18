@@ -50,12 +50,6 @@ public class StudentService {
             student.setStudentId(id);
         }
         
-        return ResponseEntity.ok(studentRepository.save(student));
-    }
-
-    public  ResponseEntity<Student> getStudent(Long studentId) {
-        return ResponseEntity.ok(studentRepository.findById(studentId).get());
-    }
 
     
 

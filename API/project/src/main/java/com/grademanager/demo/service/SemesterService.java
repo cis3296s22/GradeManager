@@ -17,8 +17,8 @@ public class SemesterService {
     @Autowired
     SemesterRepository semesterRepository;
 
-    public void createSemester(Semester semester){
-        semesterRepository.save(semester);
+    public Semester createSemester(Semester semester){
+        return semesterRepository.save(semester);
     }
     public void deleteSemester(Long id){
     //if semester is displaying in frontend should be able to delete sem without needing student id
@@ -29,8 +29,13 @@ public class SemesterService {
         semesterRepository.save(semester);
     }
 
-    public Optional<Semester> getSemester(Long id){
-        return semesterRepository.findById(id);
+    public Semester getSemester(Long id){
+        Optional<Semester> optionalSemester = semesterRepository.findById(id);
+        if(!optionalSemester.isPresent()){
+             String err = String.format("The semester %s was not found", id);            
+            System.out.println(err);
+        }
+        return optionalSemester.get();
     }
     public List<Semester> getAllSemesters(){
         List<Semester> semesters = new ArrayList<>();

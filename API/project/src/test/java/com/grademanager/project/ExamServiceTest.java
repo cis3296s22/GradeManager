@@ -1,12 +1,11 @@
 package com.grademanager.project;
 import java.util.Optional;
 
-// import com.grademanager.*;
 import com.grademanager.demo.model.Exam;
 import com.grademanager.demo.repository.ExamRepository;
 import com.grademanager.demo.service.ExamService;
 
-import org.assertj.core.util.Arrays;
+import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -77,9 +76,34 @@ public class ExamServiceTest {
 
         List<Exam> exams = new ArrayList<>(Arrays.asList(
             exam, exam2, exam3
-        ))
+        ));
+
+        // Exam exam6 = new Exam();
+        // exam6.setId(Long.valueOf(1));
+        // exam6.setName("Final");
+        // exam6.setGrade(45);
+
+        // Exam exam7 = new Exam();
+        // exam7.setId(Long.valueOf(1));
+        // exam7.setName("Final");
+        // exam7.setGrade(45);
+
+        // Exam exam8 = new Exam();
+        // exam8.setId(Long.valueOf(1));
+        // exam8.setName("Final");
+        // exam8.setGrade(45);
+
+        // List<Exam> exams2 = new ArrayList<>(Arrays.asList(
+        //     exam6, exam7, exam8
+        // ));
+        Mockito.when(examRepository.findAll()).thenReturn(exams);
+
+        List<Exam> retreivedExams = examService.getAllExams();
+        Assert.assertEquals(exams, retreivedExams);
 
     }
+    // deleteExam isn't returning anything
+    // update Exam has two calls to examRepository?
 
     
 

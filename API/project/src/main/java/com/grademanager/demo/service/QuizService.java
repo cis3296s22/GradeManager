@@ -15,16 +15,21 @@ public class QuizService  {
     @Autowired
     QuizRepository quizRepository;
 
-    public void createQuiz(Quiz quiz) {
-        quizRepository.save(quiz);
+    public Quiz createQuiz(Quiz quiz) {
+        return quizRepository.save(quiz);
     }
 
     public void updateQuiz(Quiz quiz) {
         quizRepository.save(quiz);
     }
 
-    public Optional<Quiz> getQuiz(Long id) {
-       return quizRepository.findById(id);
+    public Quiz getQuiz(Long id) {
+        Optional<Quiz> optionalQuiz = quizRepository.findById(id);
+        if(!optionalQuiz.isPresent()){
+             String err = String.format("The quiz %s was not found", id);            
+            System.out.println(err);
+        }
+       return optionalQuiz.get();
     }
 
     public List<Quiz> getAllQuizzes(){
@@ -52,5 +57,5 @@ public class QuizService  {
 
         return quizRepository.save(quiz);
     }
-    
+  
 }

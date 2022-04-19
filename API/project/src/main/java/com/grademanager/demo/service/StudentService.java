@@ -15,13 +15,24 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
     
+    /**
+     * @param Student - an Student object that would is to be saved in the StudentRepository
+     * @return Student - the Student object that is now saved in the StudentRepository
+     */
     public ResponseEntity<Student> createStudent(Student student) {
         return ResponseEntity.ok(studentRepository.save(student));
     }
 
+    /**
+     * @param id - the unique ID associated to the Student object
+     */ 
     public void deleteStudent(Long studentId) {
         studentRepository.deleteById(studentId);
     }
+    /**
+     * @param Student, id - the Student object, the unique ID associated to the Student object
+     * @return the Student object that is now saved in the StudentRepository
+     */
     public ResponseEntity<Student> updateStudent(Student student, Long id) {
 //        don't need to send the id in because save will update student
 //        based on student info (which already includes id)
@@ -49,10 +60,14 @@ public class StudentService {
 
             student.setStudentId(id);
         }
-        
+    }    
 
     
 
+
+/** 
+ * @return ResponseEntity<List<Student>>
+ */
 //unfinished
 //    public Student getstudentWithEmailPassword(String email, String password){
 //        Student matchingStudent = (Student) studentRepository.findAll().stream().filter(student -> student.getEmail().equals(email));
@@ -60,6 +75,10 @@ public class StudentService {
 //        return new Student("firstname", "lastname", 80, "string", LocalDate.of(2011, 12, 12));
 //    }
 
+
+    /**
+     * @return list of Student associated to the user
+     */
     public ResponseEntity<List<Student>> getAllStudents(){
         List<Student> students = new ArrayList<>();
         studentRepository.findAll().forEach(students::add);

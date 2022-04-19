@@ -17,10 +17,17 @@ public class ExamService {
     @Autowired
     ExamRepository examRepository;
 
+    /**
+     * @param Exam - an Exam object that would is to be saved in the ExamRepository
+     * @return Exam - the Exam object that is now saved in the ExamRepository
+     */
     public Exam createExam(Exam exam){
         return examRepository.save(exam);
     }
-    
+    /**
+     * @param Exam, id - the Exam object, the unique ID associated to the Exam object
+     * @return the Exam object that is now saved in the ExamRepository
+     */
     public Exam updateExam(Exam exam, Long id){
         if(examRepository.findById(id).isPresent()){
             Exam oldExam = examRepository.findById(id).get();
@@ -39,14 +46,24 @@ public class ExamService {
 
     }
 
+    /**
+     * @param id - the unique ID associated to the Exam object
+     */ 
     public void deleteExam(Long id){
         examRepository.deleteById(id);
     }
 
+    /**
+     * @param id - the unique ID associated to the Exam object
+     * @return an optional Exam object if found with the associated id
+     */
     public Optional<Exam> getExam(Long id) {
         return examRepository.findById(id);
     }
 
+    /**
+     * @return list of Exam associated to the user
+     */
     public List<Exam> getAllExams(){
         List<Exam> exams = new ArrayList<>();
         examRepository.findAll().forEach(exams::add);

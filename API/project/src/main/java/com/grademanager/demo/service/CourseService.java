@@ -18,10 +18,18 @@ public class CourseService {
     @Autowired
     CourseRepository courseRepository;
 
+    /**
+     * @param Course - an Course object that would is to be saved in the CourseRepository
+     * @return Course - the Course object that is now saved in the CourseRepository
+     */
     public Course createCourse(Course course){
         return courseRepository.save(course);
     }
 
+    /**
+     * @param id - the unique ID associated to the Course object
+     * @return an optional Course object if found with the associated id
+     */
     public Course getCourse(Long id){        
       Optional <Course> optionalCourse = courseRepository.findById(id);
         if(!optionalCourse.isPresent()){
@@ -32,16 +40,26 @@ public class CourseService {
         return optionalCourse.get();
     }
 
+    /**
+     * @return list of Course associated to the user
+     */
     public List<Course> getAllCourses(){
         List<Course> courses = new ArrayList<>();
         courseRepository.findAll().forEach(courses::add);
         return courses;
     }
 
+    /**
+     * @param id - the unique ID associated to the Course object
+     */ 
     public void deleteCourse(Long id){
         courseRepository.deleteById(id);
     }
 
+    /**
+     * @param Course, id - the Course object, the unique ID associated to the Course object
+     * @return the Course object that is now saved in the CourseRepository
+     */
     public Course updateCourse(Course course, Long id){
         if(courseRepository.findById(id).isPresent()){
             Course oldCourse = courseRepository.findById(id).get();

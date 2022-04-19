@@ -11,6 +11,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @SpringBootApplication
 public class GradeManagerApplication {
 
+	
+	/** 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(GradeManagerApplication.class, args);
 	}

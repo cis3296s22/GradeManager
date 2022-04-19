@@ -64,6 +64,10 @@ public class StudentService {
 
     
 
+
+/** 
+ * @return ResponseEntity<List<Student>>
+ */
 //unfinished
 //    public Student getstudentWithEmailPassword(String email, String password){
 //        Student matchingStudent = (Student) studentRepository.findAll().stream().filter(student -> student.getEmail().equals(email));

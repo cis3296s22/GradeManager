@@ -62,6 +62,10 @@ public class Course {
         return totalGrade;
     }
 
+    
+    /** 
+     * @return String
+     */
     // public void addQuiz(Quiz quiz){
     //     quizList.add(quiz);
     // }
@@ -76,30 +80,58 @@ public class Course {
         return dept;
     }
     
+    
+    /** 
+     * @param dept
+     */
     public void setDept(String dept) {
         this.dept = dept;
     }
     
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
         
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
     
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
     
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
     
+    
+    /** 
+     * @return Double
+     */
     public Double getCourseGrade() {
         return totalGrade;
     }
     
+    
+    /** 
+     * @param totalGrade
+     */
     public void setTotalGrade(Double totalGrade) {
         this.totalGrade = totalGrade;
     }    

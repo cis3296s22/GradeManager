@@ -21,26 +21,54 @@ public class Quiz {
     public Integer weight = 20;
 
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer getGrade() {
         return grade;
     }
+    
+    /** 
+     * @param grade
+     */
     public void setGrade(Integer grade) {
         this.grade = grade;
     }
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
     
+    
+    /** 
+     * @return Long
+     */
     public Long getId() {
         return id;
     }
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getWeight(){
         return weight;
     }

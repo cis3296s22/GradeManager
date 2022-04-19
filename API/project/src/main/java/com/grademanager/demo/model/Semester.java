@@ -26,6 +26,10 @@ public class Semester implements Serializable{
 
     private int semesterScore = 0;
 
+    
+    /** 
+     * @param course
+     */
     public void addCourse(Course course){
         courseList.add(course);
     }

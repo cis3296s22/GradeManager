@@ -27,28 +27,56 @@ public class Exam {
         this.grade = grade;
     }
 
+    
+    /** 
+     * @return Long
+     */
     public Long getId(){
         return this.id;
     }
+    
+    /** 
+     * @param id
+     */
     public void setId(Long id){
         this.id = id;
     }
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer getGrade() {
         return grade;
     }
 
+    
+    /** 
+     * @param grade
+     */
     public void setGrade(Integer grade) {
         this.grade = grade;
     }
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer getWeight(){
         return weight;
     }
     
+    
+    /** 
+     * @return String
+     */
     public String getName(){
         return name;
     }
+    
+    /** 
+     * @param name
+     */
     public void setName(String name){
         this.name = name;
     }

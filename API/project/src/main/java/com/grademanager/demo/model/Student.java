@@ -54,58 +54,114 @@ public class Student {
         
     }
 
+    
+    /** 
+     * @return long
+     */
     public long getStudentId() {
         return this.studentId;
     }
+    
+    /** 
+     * @return String
+     */
     public String getFirstName(){
         return this.firstName;
     }
+    
+    /** 
+     * @return String
+     */
     public String getLastName(){
         return this.lastName;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return this.firstName + this.lastName;
     }
 
+    
+    /** 
+     * @return Integer
+     */
     public Integer getAge() {
         return this.age;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getEmail() {
         return this.email;
     }
 
+    
+    /** 
+     * @return LocalDate
+     */
     public LocalDate getBirthday() {
         return this.birthday;
     }
 
+    
+    /** 
+     * @param id
+     */
     public void setStudentId(Long id) {
         this.studentId = id;
         //UUID uniqueKey = UUID.randomUUID();
         //this.studentId = uniqueKey.toString();
     }
 
+    
+    /** 
+     * @param name
+     */
     public void setFirstName(String name) {
         this.firstName = name;
     }
+    
+    /** 
+     * @param name
+     */
     public void setLastName(String name) {
         this.lastName = name;
     }
 
 
+    
+    /** 
+     * @param age
+     */
     public void setAge(Integer age) {
         this.age = age;
     }
 
+    
+    /** 
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    
+    /** 
+     * @param birthday
+     */
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString(){
         return "Student " +
@@ -118,6 +174,10 @@ public class Student {
                 "}";
         }
   
+    
+    /** 
+     * @param semester
+     */
     //public ArrayList<Semester> semesterList= new ArrayList<Semester>();
 
     public void addSemester(Semester semester){

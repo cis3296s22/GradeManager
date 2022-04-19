@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
-//import { useAuth } from "../contexts/AuthContext";
-import { Link, useNavigate, Navigate, Route } from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import '../Style/LoginPageLayout.css';
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import {Container} from "react-bootstrap";
 
 const initialState = {
     email: "",
@@ -15,14 +14,6 @@ var isClicked = false;
 
 
 export default class Login extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          isLoggedIn: true,
-          isClicked: true
-        };
-      }
 
     state = initialState
 
@@ -118,24 +109,27 @@ export default class Login extends React.Component {
                         </div>
 
                             
-
                         <button
+                            className= "LogButton"
                             type="button"
                             onClick={this.handleButtonClicked}>
                             Login</button>
 
                         <Container>
-                            {isLoggedIn ? <Navigate to = "/Home"></Navigate> : <Navigate to = "/"></Navigate>}
+                            {isLoggedIn ? <Navigate replace to = "/Home"></Navigate> : <></>}
                         </Container>
 
+
+                        
                         <button
+                            className= "SignupButton"
                             type="button"
                             onClick={this.launchSign}>
-                            <h6>Don't have an account? Sign Up</h6>
+                            <h6>Don't have an account? Sign up</h6>
                             </button>
                         
                         <Container>
-                            {isClicked ? <Navigate to = "/Signup"></Navigate> : <Navigate to = "/"></Navigate>}
+                            {isClicked ? <Navigate replace to = "/Signup"></Navigate> : <></>}
                         </Container>     
                 
 

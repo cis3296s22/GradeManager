@@ -8,11 +8,19 @@ public class Id {
 
 
 
+    
+    /** 
+     * @return String
+     */
     public String getBaseId(){
         return this.baseId;
     }
 
     
+    
+    /** 
+     * @param baseId
+     */
     public void setBaseId(String baseId) {
         this.baseId=baseId;
     }

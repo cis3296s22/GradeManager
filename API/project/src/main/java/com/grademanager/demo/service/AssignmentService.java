@@ -14,10 +14,17 @@ public class AssignmentService {
     @Autowired
     AssignmentRepository assignmentRepository;
 
+    /**
+     * @param assignment - an assignment object that would is to be saved in the assignmentRepository
+     * @return assignment - the assignment object that is now saved in the assignmentRepository
+     */
     public Assignment createAssignment(Assignment assignment){
         return assignmentRepository.save(assignment);
     }
-    
+    /**
+     * @param id - the unique ID associated to the assignment object
+     * @return an optional assignment object if found with the associated id
+     */
     public Assignment getAssignment(Long id){        
         Optional<Assignment> optionalAssignment = assignmentRepository.findById(id);
         if(!optionalAssignment.isPresent()){
@@ -27,15 +34,21 @@ public class AssignmentService {
         }
         return optionalAssignment.get();
     }
-
+    /**
+     * @return list of assignment associated to the user
+     */
     public List<Assignment> getAllAssignments(){
         List<Assignment> assignments = new ArrayList<>();
         assignmentRepository.findAll().forEach(assignments::add);
         return assignments;
     }
+    
 
-
-// name, grade
+    // name, grade
+    /**
+     * @param assignment, id - the assignment object, the unique ID associated to the assignment object
+     * @return the assignment object that is now saved in the assignmentRepository
+     */
     public Assignment updateAssignment(Assignment assignment, Long id){
         if(this.getAssignment(id).getId() == id){
         // if(assignmentRepository.findById(id).isPresent()){
@@ -54,6 +67,9 @@ public class AssignmentService {
     }
 
     // Could delete by entity
+    /**
+     * @param id - the unique ID associated to the assignment object
+     */ 
     public void deleteAssignment(Long id) {
         assignmentRepository.deleteById(id);        
     }

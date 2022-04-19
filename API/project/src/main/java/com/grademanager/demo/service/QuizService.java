@@ -17,12 +17,25 @@ public class QuizService  {
 
     public Quiz createQuiz(Quiz quiz) {
         return quizRepository.save(quiz);
-    }
-
-    public void updateQuiz(Quiz quiz) {
+    /**
+     * @param Quiz - an Quiz object that would is to be saved in the QuizRepository
+     * @return Quiz - the Quiz object that is now saved in the QuizRepository
+     */
+    public void createQuiz(Quiz quiz) {
         quizRepository.save(quiz);
     }
 
+    /**
+     * @param Quiz, id - the Quiz object, the unique ID associated to the Quiz object
+     * @return the Quiz object that is now saved in the QuizRepository
+     */
+    public void updateQuiz(Quiz quiz) {
+        quizRepository.save(quiz);
+    }
+/**
+ * @param id - the unique ID associated to the Quiz object
+ * @return an Quiz object if found with the associated id
+ */
     public Quiz getQuiz(Long id) {
         Optional<Quiz> optionalQuiz = quizRepository.findById(id);
         if(!optionalQuiz.isPresent()){
@@ -30,18 +43,29 @@ public class QuizService  {
             System.out.println(err);
         }
        return optionalQuiz.get();
+    
     }
 
+    /**
+     * @return list of Quiz associated to the user
+     */
     public List<Quiz> getAllQuizzes(){
         List<Quiz> quizzes = new ArrayList<>();
         quizRepository.findAll().forEach(quizzes::add);
         return quizzes;
     }
 
+    /**
+     * @param id - the unique ID associated to the Quiz object
+     */ 
     public void deleteQuiz(Long id) {
         quizRepository.deleteById(id);
     }
 
+    /**
+     * @param Quiz, id - the Quiz object, the unique ID associated to the Quiz object
+     * @return the Quiz object that is now saved in the QuizRepository
+     */
     public Quiz updateQuiz(Quiz quiz, Long id){
         if(quizRepository.findById(id).isPresent()){
             Quiz oldQuiz = quizRepository.findById(id).get();

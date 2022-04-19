@@ -4,11 +4,6 @@ The Grade Manager web application allows users to keep track of their grades.
 Users will be able to add courses and their assignments.
 Grades attached to those classes will be calculated.
 
-#Adding an screenshot or a mockup of your application in action would be nice. 
-
-
-![This is a screenshot.](images.png)
-
 
 # Getting Started with Create React App
 

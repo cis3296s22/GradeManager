@@ -1,5 +1,5 @@
 import '../Style/SignUpPageLayout.css';
-import {Navigate} from "react-router-dom";
+import {Navigate, Link} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import React from "react";
 
@@ -24,16 +24,7 @@ const initialState = {
 var isSignedIn = false;
 var isSelected = false;
 
-
 export default class Signup extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSignedIn: true,
-      isSelected: true
-    };
-  }
      
   state = initialState
 
@@ -69,7 +60,7 @@ export default class Signup extends React.Component {
         this.state.emailError = "Invalid Email, missing '@' or '.' ";
       }     
       
-    if (!this.state.student.checked && !this.state.teacher.checked){
+    if (!this.state.student || !this.state.teacher){
         this.state.studentError = "Select One Of The Above";
     }
 
@@ -81,7 +72,7 @@ export default class Signup extends React.Component {
         this.state.password_2Error = "Please Enter A Password";
       }
 
-      if (this.state.password != this.state.password_2){
+      if (this.state.password.toString != this.state.password_2.toString){
         this.state.passwordError = "Passwords Do Not Match!";
         this.state.password_2Error = "Passwords Do Not Match!";      
       }
@@ -90,7 +81,7 @@ export default class Signup extends React.Component {
         this.state.passwordError = "Password must be at least 8 characters long!";
       }
 
-      if (this.state.password_2.length() < 8){ 
+      if (this.state.password_2.length < 8){ 
         this.state.password_2Error = "Password must be at least 8 characters long!";
       }
 
@@ -137,9 +128,9 @@ export default class Signup extends React.Component {
     };
 
     launchLogin = event => {
-      if (true){
       this.setState(initialState);
-      isSelected = true;
+      if (true){
+        isSelected = true;
       }
 
   };
@@ -147,6 +138,7 @@ export default class Signup extends React.Component {
   
 
   render() {
+
   return (
     <div className = "SignUpPageLayout">
       <div className = "SignUpFormat">
@@ -200,7 +192,7 @@ export default class Signup extends React.Component {
           </label>
           
 
-          <label>Teacher</label>
+          <label className="passText">Teacher</label>
           <input
           className = "InputText"
           type = "radio"
@@ -210,7 +202,7 @@ export default class Signup extends React.Component {
           /> 
 
 
-          <label>Student</label>
+          <label className="passText">Student</label>
           <input
           className = "InputText"
           type = "radio"
@@ -253,26 +245,32 @@ export default class Signup extends React.Component {
           </div>
           </label>
 
+          <div className="passText">
           <p>Passwords Must Be At Least 8 Characters Long</p>
+          </div>
 
           <button 
+          className="HomeButton"
           type="button"
           onClick={this.handleButtonClicked}>
 
           Sign Up</button> 
           <Container>
-           {isSignedIn ? <Navigate to = "/Home"></Navigate> : <Navigate to = "/"></Navigate>}
+           {isSignedIn ? <Navigate replace to = "/Home"></Navigate> : <></>}
           </Container>
 
+          <Container>
               <button
+                  className="BackButton"
                   type="button"
                   onClick={this.launchLogin}>
                   <h6>Login If You Already Have An Account</h6>
               </button>
+
+          
+            {isSelected ? <Navigate replace to = "/"></Navigate> : <></>}
+          </Container>
                         
-            <Container>
-              {isSelected ? <Navigate to = "/"></Navigate> : <Navigate to = "/Signup"></Navigate>}
-           </Container>
         </form>
 
       </div>

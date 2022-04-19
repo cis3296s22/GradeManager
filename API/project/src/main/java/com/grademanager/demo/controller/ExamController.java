@@ -1,5 +1,4 @@
 package com.grademanager.demo.controller;
-import java.util.Optional;
 import com.grademanager.demo.model.Exam;
 import com.grademanager.demo.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class ExamController {
     private ExamService examService;
 
     @GetMapping("{id}")
-    public ResponseEntity<Optional<Exam>> getExam(@PathVariable Long id){
+    public ResponseEntity<Exam> getExam(@PathVariable Long id){
         return ResponseEntity.ok(examService.getExam(id));
     }
 

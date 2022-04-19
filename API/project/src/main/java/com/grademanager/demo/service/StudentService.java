@@ -75,7 +75,7 @@ public class StudentService {
         return ResponseEntity.ok(studentRepository.save(student));
         
     }
-    }    
+    
 
     /**
      * @return list of Student associated to the user

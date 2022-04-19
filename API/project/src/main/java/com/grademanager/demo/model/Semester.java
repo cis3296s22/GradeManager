@@ -50,7 +50,7 @@ public class Semester implements Serializable{
     }
 
     
-    private int semesterScore = 0;
+    // private int semesterScore = 0;
 
     
     /** 
@@ -63,12 +63,12 @@ public class Semester implements Serializable{
      * calculates the grade for an entire semester based on the courses from the courseList
      * @return double - the weighted semester result for a student
      */
-    public double calculateSemesterGrade(){
-        for(int i = 0; i < courseList.size(); i++){
-            semesterScore += courseList.get(i).getCourseGrade();
-        }
-        return semesterScore;
-    }
+    // public double calculateSemesterGrade(){
+    //     for(int i = 0; i < courseList.size(); i++){
+    //         semesterScore += courseList.get(i).getCourseGrade();
+    //     }
+    //     return semesterScore;
+    // }
 
     /**
      * calculates the LetterGrade based on the semesterScore

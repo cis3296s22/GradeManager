@@ -15,15 +15,15 @@ public class QuizService  {
     @Autowired
     QuizRepository quizRepository;
 
-    public Quiz createQuiz(Quiz quiz) {
-        return quizRepository.save(quiz);
-    /**
+     /**
      * @param Quiz - an Quiz object that would is to be saved in the QuizRepository
      * @return Quiz - the Quiz object that is now saved in the QuizRepository
      */
-    public void createQuiz(Quiz quiz) {
-        quizRepository.save(quiz);
+    public Quiz createQuiz(Quiz quiz) {
+        return quizRepository.save(quiz);
     }
+   
+   
 
     /**
      * @param Quiz, id - the Quiz object, the unique ID associated to the Quiz object

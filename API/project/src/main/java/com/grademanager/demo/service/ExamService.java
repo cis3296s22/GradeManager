@@ -53,6 +53,10 @@ public class ExamService {
         examRepository.deleteById(id);
     }
 
+     /**
+     * @param id - the unique ID associated to the Exam object
+     * @return an Exam object if found with the associated id
+     */
     public Exam getExam(Long id) {
         Optional<Exam> optionalExam = examRepository.findById(id);
         if(!optionalExam.isPresent()){
@@ -61,13 +65,9 @@ public class ExamService {
             System.out.println(err);
         }
         return optionalExam.get();
-    /**
-     * @param id - the unique ID associated to the Exam object
-     * @return an optional Exam object if found with the associated id
-     */
-    public Optional<Exam> getExam(Long id) {
-        return examRepository.findById(id);
+
     }
+   
 
     /**
      * @return list of Exam associated to the user

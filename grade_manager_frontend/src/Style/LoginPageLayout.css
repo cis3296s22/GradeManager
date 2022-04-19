@@ -2,57 +2,63 @@ input:focus, button:focus{
     outline: none;
 }
 
-.Login{
-    width: 200vw;
-    height: 200vh;
+.LoginPageLayout{
+    position: absolute;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-}
-
-.LoginFormat{
-    width: auto;
-    height: auto;
-    padding: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #859aa9;
-    box-shadow: 0px 0px 20px 0px #0F4CB2;
-    color: antiquewhite;
+    align-items: center;
+    height: 100%;
+    color:#986060;
+    font-weight: bold;
+    font-size: 30px;
+    z-index: 2;
+    width: 80%;
+    left: 10%;
+    transition: all .8s ease-in-out;
+    font-family: 'Quicksand-Bold';
+    background-color: #ffe7e7;
 
 }
 
 .GradeHeader{
-    text-align: center;
-    color: #4c26bc;
-    font-weight: 100;
+    font-size: 40px;
+}
+
+.LoginFormat{
+    display: flex;
+    justify-content: center;
+    margin-top: 0%;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    font-family: 'Quicksand-Bold';
+    font-size: 30px;
+    color: #986060;
+
 }
 
 .LoginHeading{
     text-align: center;
-    color: whitesmoke;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 600;
+    color: rgb(190, 95, 95);
+    font-family: 'Quicksand-Bold';
+    font-weight: 400;
 }
 
-.LoginForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-}
 
 .NameInputText{
-    height: auto;
+    height: 40px;
     padding-left: 10px;
     margin-bottom: 30px;
     align-self: stretch;
 
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: antiquewhite;
-    background-color: transparent;
+    font-family: 'Quicksand-Bold';
+    font-size: medium;
+    color: rgb(0, 0, 0);
+    background-color:#937a7a84;
 
-    border-style: none;
+    border-style:solid;
     border-bottom: solid;
     border-bottom-width: 3px;
     border-bottom-color: rgba(255, 255, 255, 0.7)
@@ -60,11 +66,11 @@ input:focus, button:focus{
 
 .NameInputText::placeholder{
     color: rgba(255, 255, 255, 0.7);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Quicksand-Bold';
 }
 
 .InputText{
-    height: auto;
+    height: 35px;
     padding-left: 20px;
 
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -77,35 +83,35 @@ input:focus, button:focus{
     border-bottom-color: rgba(255, 255, 255, 0.7)
 }
 
-.InstructText{
-    height: auto;
-    padding-left: 20px;
-
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: antiquewhite;
-    background-color: transparent;
-
-    border-style: none;
-    border-bottom-width: 3px;
-    border-bottom-color: rgba(255, 255, 255, 0.7)
+.LogButton{
+        height: 80px;
+        width: 100%;
+        padding: 15px 32px;
+        margin-top: 0px;
+        color: white;
+        background-color: #986060;
+        border: solid 2px white;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 40px;
+        font-size: 18px;
 }
 
-.LoginForm button{
-    height: 80px;
-    width: 100%;
-    padding: 15px 32px;
-    margin-top: 40px;
-    display: inline-block;
-
-    text-align: center;
-    text-decoration: none;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 600;
-    font-size: 26px;
-
-    border: none;
-    border-radius: 40px;
-    color: whitesmoke;
-    background-color: #3fcea8;
-    box-shadow: 0px 0px 20px rgba(0, 0, 255, 0.7);
+.SignupButton{
+        border: solid 2px white;
+        border-radius: 30px;
+        width: 17.5%;
+        height: auto;
+        left: 41.5%;
+        margin-top: 10px;
+        position: absolute;
+        z-index: 2;
+        background-color: #986060;
+        transition: all .8s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        font-family: 'Quicksand-Bold';
 }

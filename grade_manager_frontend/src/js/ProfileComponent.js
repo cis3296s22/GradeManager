@@ -22,6 +22,19 @@ function ProfileComponent() {
             </div>
         </div>
         )
+
+        /*getDataFromSignup = () => {
+            fetch("https://facebook.github.io/react-native/")
+              .then(response => response.text())
+              .then(data => {
+                const $ = cheerio.load(data);
+                this.setState({ logos: $(".logos").html() });
+              })
+              .catch(error => {
+                this.setState({ error: error });
+              });
+            }; */
 }
 
-export default ProfileComponent
+
+export default ProfileComponent;

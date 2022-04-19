@@ -53,6 +53,14 @@ public class ExamService {
         examRepository.deleteById(id);
     }
 
+    public Exam getExam(Long id) {
+        Optional<Exam> optionalExam = examRepository.findById(id);
+        if(!optionalExam.isPresent()){
+            String err = String.format("The exam %s was not found", id);
+            
+            System.out.println(err);
+        }
+        return optionalExam.get();
     /**
      * @param id - the unique ID associated to the Exam object
      * @return an optional Exam object if found with the associated id

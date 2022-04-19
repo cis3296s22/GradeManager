@@ -17,12 +17,13 @@ public class SemesterService {
     @Autowired
     SemesterRepository semesterRepository;
 
-    /**
+   /**
      * @param Semester - an Semester object that would is to be saved in the SemesterRepository
      * @return Semester - the Semester object that is now saved in the SemesterRepository
      */
-    public void createSemester(Semester semester){
-        semesterRepository.save(semester);
+    public Semester createSemester(Semester semester){
+        return semesterRepository.save(semester);
+
     }
     /**
      * @param id - the unique ID associated to the Semester object
@@ -40,12 +41,18 @@ public class SemesterService {
         semesterRepository.save(semester);
     }
 
-    /**
+   /**
      * @param id - the unique ID associated to the Semester object
      * @return an optional Semester object if found with the associated id
      */
-    public Optional<Semester> getSemester(Long id){
-        return semesterRepository.findById(id);
+    public Semester getSemester(Long id){
+        Optional<Semester> optionalSemester = semesterRepository.findById(id);
+        if(!optionalSemester.isPresent()){
+             String err = String.format("The semester %s was not found", id);            
+            System.out.println(err);
+        }
+        return optionalSemester.get();
+
     }
     /**
      * @return list of assignment associated to the user

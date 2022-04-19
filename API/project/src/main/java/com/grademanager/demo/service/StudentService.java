@@ -4,6 +4,7 @@ import com.grademanager.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,16 @@ public class StudentService {
      */
     public ResponseEntity<Student> createStudent(Student student) {
         return ResponseEntity.ok(studentRepository.save(student));
+    }
+
+    public ResponseEntity<Student> getStudent(Long id){
+        Optional<Student> optionalStudent = studentRepository.findById(id);
+        if(!optionalStudent.isPresent()){
+            String err = String.format("The student %s was not found", id);
+            System.out.println(err);
+        }
+        // not actuall handling when there is no student (use response entity )
+        return ResponseEntity.ok(optionalStudent.get());
     }
 
     /**
@@ -60,21 +71,11 @@ public class StudentService {
 
             student.setStudentId(id);
         }
+
+        return ResponseEntity.ok(studentRepository.save(student));
+        
+    }
     }    
-
-    
-
-
-/** 
- * @return ResponseEntity<List<Student>>
- */
-//unfinished
-//    public Student getstudentWithEmailPassword(String email, String password){
-//        Student matchingStudent = (Student) studentRepository.findAll().stream().filter(student -> student.getEmail().equals(email));
-////        check if password matches?
-//        return new Student("firstname", "lastname", 80, "string", LocalDate.of(2011, 12, 12));
-//    }
-
 
     /**
      * @return list of Student associated to the user

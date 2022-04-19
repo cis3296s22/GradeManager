@@ -1,5 +1,4 @@
 package com.grademanager.demo.controller;
-import java.util.Optional;
 import com.grademanager.demo.model.Quiz;
 import com.grademanager.demo.service.QuizService;
 
@@ -48,7 +47,7 @@ public class QuizController {
      * @return a HTTP response with the status code, Quiz object, and header
      */
     @GetMapping("{id}")
-    public ResponseEntity<Optional<Quiz>> getQuiz(@PathVariable Long id){
+    public ResponseEntity<Quiz> getQuiz(@PathVariable Long id){
        return ResponseEntity.ok(quizService.getQuiz(id));
     }
 

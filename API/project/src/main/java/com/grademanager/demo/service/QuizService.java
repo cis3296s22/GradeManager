@@ -15,6 +15,8 @@ public class QuizService  {
     @Autowired
     QuizRepository quizRepository;
 
+    public Quiz createQuiz(Quiz quiz) {
+        return quizRepository.save(quiz);
     /**
      * @param Quiz - an Quiz object that would is to be saved in the QuizRepository
      * @return Quiz - the Quiz object that is now saved in the QuizRepository
@@ -30,13 +32,18 @@ public class QuizService  {
     public void updateQuiz(Quiz quiz) {
         quizRepository.save(quiz);
     }
-
-    /**
-     * @param id - the unique ID associated to the Quiz object
-     * @return an optional Quiz object if found with the associated id
-     */
-    public Optional<Quiz> getQuiz(Long id) {
-       return quizRepository.findById(id);
+/**
+ * @param id - the unique ID associated to the Quiz object
+ * @return an Quiz object if found with the associated id
+ */
+    public Quiz getQuiz(Long id) {
+        Optional<Quiz> optionalQuiz = quizRepository.findById(id);
+        if(!optionalQuiz.isPresent()){
+             String err = String.format("The quiz %s was not found", id);            
+            System.out.println(err);
+        }
+       return optionalQuiz.get();
+    
     }
 
     /**
@@ -74,5 +81,5 @@ public class QuizService  {
 
         return quizRepository.save(quiz);
     }
-    
+  
 }

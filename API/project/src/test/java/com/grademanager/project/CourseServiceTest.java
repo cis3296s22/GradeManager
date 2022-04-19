@@ -13,12 +13,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+@SpringBootTest(classes = CourseServiceTest.class)
 @RunWith(MockitoJUnitRunner.class)
 public class CourseServiceTest {
 
@@ -81,7 +82,7 @@ public class CourseServiceTest {
         course.setId(Long.valueOf(892));
         course.setDept("ART");
         course.setName("Painting");
-
+        Assert.assertEquals(true, false);
 
 
         // Mockito.when(courseRepository.

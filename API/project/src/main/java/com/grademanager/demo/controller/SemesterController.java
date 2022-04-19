@@ -52,14 +52,9 @@ public class SemesterController {
      */
     @GetMapping("{semester}")
     public Semester getSemester(Long id){
-        Optional<Semester> optionalSemester = semesterService.getSemester(id);
-        if(!optionalSemester.isPresent()){
-            String ErrMsg = String.format("The semester having ID %s was not found", id);
-//            USE LOGGER? and throw an exception?
-            System.out.println(ErrMsg);
-        }
+        Semester semester = semesterService.getSemester(id);       
         // going to crash if semester isn't returned bc exception isn't thrown above
-        return optionalSemester.get();
+        return semester;
     }
 
 }

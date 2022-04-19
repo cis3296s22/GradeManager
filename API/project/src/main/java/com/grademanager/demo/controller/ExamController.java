@@ -1,5 +1,4 @@
 package com.grademanager.demo.controller;
-import java.util.Optional;
 import com.grademanager.demo.model.Exam;
 import com.grademanager.demo.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class ExamController {
      * @return a HTTP response with the status code, exam object, and header
      */
     @GetMapping("{id}")
-    public ResponseEntity<Optional<Exam>> getExam(@PathVariable Long id){
+    public ResponseEntity<Exam> getExam(@PathVariable Long id){
         return ResponseEntity.ok(examService.getExam(id));
     }
 

@@ -14,7 +14,7 @@ public class Semester implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
     @Column(name="semesterId")
-    private Integer id;
+    private Long id;
     @Column(name="number")
     private int number; // Semester 1
     @Column(name="name")
@@ -24,6 +24,32 @@ public class Semester implements Serializable{
     @OneToMany(mappedBy="semester",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public Set<Course> courseList;
 
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public int getNumber() {
+        return number;
+    }
+    public void setNumber(int number) {
+        this.number = number;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public Student getStudent() {
+        return student;
+    }
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    
     private int semesterScore = 0;
 
     

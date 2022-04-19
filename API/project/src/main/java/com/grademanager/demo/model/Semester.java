@@ -24,12 +24,15 @@ public class Semester implements Serializable{
     @OneToMany(mappedBy="semester",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public Set<Course> courseList;
 
-    //private int semesterScore = 0;
+    private int semesterScore = 0;
 
-    /*public void addCourse(Course course){
+    public void addCourse(Course course){
         courseList.add(course);
     }
-
+    /**
+     * calculates the grade for an entire semester based on the courses from the courseList
+     * @return double - the weighted semester result for a student
+     */
     public double calculateSemesterGrade(){
         for(int i = 0; i < courseList.size(); i++){
             semesterScore += courseList.get(i).getCourseGrade();
@@ -37,6 +40,11 @@ public class Semester implements Serializable{
         return semesterScore;
     }
 
+    /**
+     * calculates the LetterGrade based on the semesterScore
+     * @param semesterScore - a double representing the SemesterScore
+     * @return String - representing the Letter Grade of the student
+     */
     public String calculateLetterGrade(double semesterScore){
         if (semesterScore >= 93.00){
             return "A";
@@ -73,7 +81,7 @@ public class Semester implements Serializable{
         }
 
         return "F";
-    }
     
-}*/
+    
+}
 }

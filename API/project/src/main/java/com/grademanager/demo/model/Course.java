@@ -1,8 +1,7 @@
 package com.grademanager.demo.model;
 import javax.persistence.Id;
-
 import lombok.Data;
-
+import java.util.List;
 import javax.persistence.*;
 
 @Data
@@ -38,24 +37,30 @@ public class Course {
         this.dept = dept;        
         this.name = name;
     }
-        // public double calculateGrade(List<Quiz> quizList, List<Assignment> assignmentList, List<Exam> finalList){
-        // double quizScore = 0;
-        // double assignmentScore = 0;
-        // double examScore = 0;
+    /**
+     *  calculates the grade for a course via the quizList, assignmentList and finalList 
+     * @param quizList - An array List consisting of Quiz Objects
+     * @param assignmentList - An array List consisting of Assignment Objects
+     * @param finalList - An array List consisting of Final Objects
+     * @return double - a final grade associated tos weights
+     */
+    public double calculateGrade(List<Quiz> quizList, List<Assignment> assignmentList, List<Exam> finalList){
+        double quizScore = 0;
+        double assignmentScore = 0;
+        double examScore = 0;
 
-
-        // for(int i = 0; i < quizList.size(); i++){
-        //     quizScore += quizList.get(i).getGrade();
-        // }
-        // for(int i = 0; i < assignmentList.size(); i++){
-        //     assignmentScore += assignmentList.get(i).getGrade();
-        // }
-        // for(int i = 0; i < finalList.size(); i++){
-        //     examScore += finalList.get(i).getGrade();
-        // }
-        // totalGrade = quizScore * quizList.get(0).getWeight()  + assignmentScore * assignmentList.get(0).getWeight() + examScore * finalList.get(0).getWeight();
-        // return totalGrade;
-    // }
+        for (int i = 0; i < quizList.size(); i++){
+            quizScore += quizList.get(i).getGrade();
+        }
+        for(int i = 0; i < assignmentList.size(); i++){
+            assignmentScore += assignmentList.get(i).getGrade();
+        }
+        for(int i = 0; i < finalList.size(); i++){
+            examScore += finalList.get(i).getGrade();
+        }
+        totalGrade = quizScore * quizList.get(0).getWeight()  + assignmentScore * assignmentList.get(0).getWeight() + examScore * finalList.get(0).getWeight();
+        return totalGrade;
+    }
 
     // public void addQuiz(Quiz quiz){
     //     quizList.add(quiz);
@@ -66,6 +71,7 @@ public class Course {
     // public void addFinal(Exam finalExam){
     //     examList.add(finalExam);
     // }
+
     public String getDept() {
         return dept;
     }
@@ -96,7 +102,7 @@ public class Course {
     
     public void setTotalGrade(Double totalGrade) {
         this.totalGrade = totalGrade;
-    }
+    }    
 }
 
 

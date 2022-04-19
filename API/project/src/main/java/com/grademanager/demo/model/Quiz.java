@@ -41,6 +41,9 @@ public class Quiz {
         this.id = id;
     }
 
+    public int getWeight(){
+        return weight;
+    }
     
 
 

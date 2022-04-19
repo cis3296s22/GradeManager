@@ -1,8 +1,6 @@
 package com.grademanager.demo.model;
-
 import javax.persistence.*;
 import javax.persistence.Id;
-
 import lombok.Data;
 
 @Data
@@ -38,10 +36,6 @@ public class Assignment {
         this.grade = grade;
     }
 
-    // public double getWeight() {
-    //     return 0;
-    // }
-
     public String getName(){
         return this.name;
     }
@@ -54,5 +48,9 @@ public class Assignment {
     }
     public Long getId(){
         return this.id;
+    }
+    
+    public int getWeight(){
+        return this.weight;
     }
 }

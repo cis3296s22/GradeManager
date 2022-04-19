@@ -52,7 +52,6 @@ public class  StudentController {
     public ResponseEntity<Student> getStudent(Long studentId){
         return studentService.getStudent(studentId);
         }
-
     }
 
 //    get student ID from email and password

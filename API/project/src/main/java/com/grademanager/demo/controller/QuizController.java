@@ -26,8 +26,8 @@ public class QuizController {
      * @return a HTTP response with the status code, Quiz object, and header
      */
     @PostMapping("/createQuiz")
-    public void createNewQuiz(@RequestBody Quiz quiz){
-        quizService.createQuiz(quiz);
+    public Quiz createNewQuiz(@RequestBody Quiz quiz){
+        return quizService.createQuiz(quiz);
     }
 
     /**

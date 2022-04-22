@@ -26,14 +26,20 @@ function Profile() {
       // HARD CODED STUDENT ID HERE
       const studentId = encodeURIComponent("8207732286254237848");
       const data = await fetch(
-        `http://localhost:8086/api/v1/Student/getStudent?studentId=${studentId}`,
+        `http://localhost:8086/api/v1/Student/getStudent?studentId=1217145871618558908`,
+
         {
-          mode: "no-cors", //stack over flow says that's a server issue (remove this line?)
+          // mode: "no-cors", //stack over flow says that's a server issue (remove this line?)
+
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            AccessControlAllowOrigin: "*",
+          },
         }
       ); //replace URL here with student
       if (data.ok) {
         const json = await data.json();
-        console.log(json);
         setProfileInfo(json);
         // setProfileInfo({
         //   firstName: "removeadf",
@@ -45,7 +51,7 @@ function Profile() {
     };
     fetchData();
   }, []);
-  console.log("will continue to get errors without the URL above");
+
   console.log(profileInfo);
   // {"studentId":8403576665033886403,"email":"hi","birthday":null,"age":1,"semesterList":[],"name":"022078925508001002461285"}
   return (
@@ -59,7 +65,7 @@ function Profile() {
           <Row>{profileInfo.name}</Row>
           <Row>{profileInfo.email}</Row>
           <Row>{profileInfo.age} Years Old</Row>
-          <Row>{profileInfo.studentId}</Row>
+          {/* <Row>{profileInfo.studentId}</Row> */}
         </Col>
       </Row>
     </Container>

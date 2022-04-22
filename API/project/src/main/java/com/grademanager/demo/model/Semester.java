@@ -5,24 +5,24 @@ import javax.persistence.Id;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Set;
+// import java.util.ArrayList;
 
 @Data
 @Entity
 @Table(name="semesters")
 public class Semester implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database
-    @Column(name="semesterId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  //Assuming ID is auto incremented by database    
     private Long id;
     @Column(name="number")
-    private int number; // Semester 1
+    private Integer number; // Semester 1
     @Column(name="name")
     private String name; // Fall 2022
+    
     @ManyToOne
     private Student student;          //Cascade to propagate changes from any related antities to Semester, to automatically remove orphaned entities.
-    @OneToMany(mappedBy="semester",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    public Set<Course> courseList;
+    // @OneToMany(mappedBy="semester",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    // public ArrayList<Course> courseList;
 
     public Long getId() {
         return id;
@@ -30,10 +30,10 @@ public class Semester implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
     public String getName() {
@@ -53,12 +53,12 @@ public class Semester implements Serializable{
     // private int semesterScore = 0;
 
     
-    /** 
-     * @param course
-     */
-    public void addCourse(Course course){
-        courseList.add(course);
-    }
+    // /** 
+    //  * @param course
+    //  */
+    // public void addCourse(Course course){
+    //     courseList.add(course);
+    // }
     /**
      * calculates the grade for an entire semester based on the courses from the courseList
      * @return double - the weighted semester result for a student

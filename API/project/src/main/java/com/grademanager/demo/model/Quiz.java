@@ -20,8 +20,11 @@ public class Quiz {
     @Column(name="weight")
     public Integer weight = 20;
 
+    @ManyToOne
+    private Course course;
 
-    
+
+
     /** 
      * @return Integer
      */

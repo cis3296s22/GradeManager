@@ -18,6 +18,7 @@ public class Exam {
     private String name;
 
     @ManyToOne
+    @JoinColumn(name="course_id")    
     private Course course;
 
     public Exam(){}
@@ -79,5 +80,9 @@ public class Exam {
      */
     public void setName(String name){
         this.name = name;
+    }
+
+    public void setCourse(Course course){
+        this.course = course;
     }
 }

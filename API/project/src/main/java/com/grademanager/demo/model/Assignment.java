@@ -19,6 +19,7 @@ public class Assignment {
 
 
     @ManyToOne
+    @JoinColumn(name="course_id")
     private Course course;
 
     public Assignment(){}
@@ -80,5 +81,9 @@ public class Assignment {
      */
     public int getWeight(){
         return this.weight;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

@@ -8,14 +8,11 @@ import image from "../icon/profileImage.png";
 
 function Profile() {
   const styles = {
-    profileDistance: {
-      //   position: "absolute",
-      //   width: "75%",
-      //   justifyContent: "center",
-      //   top: "5rem",
-      //   left: "25rem",
-
-      backgroundColor: "grey",
+    profileBackground: {
+      backgroundColor: "#f9e0e3",
+    },
+    profileDistancing: {
+      margin: "4px",
     },
   };
   const [profileInfo, setProfileInfo] = useState({});
@@ -24,9 +21,12 @@ function Profile() {
     const fetchData = async () => {
       //   STUDENT PROFILE URL BELOW
       // HARD CODED STUDENT ID HERE
-      const studentId = encodeURIComponent("8207732286254237848");
+      const studentId = encodeURIComponent("6444407856832004412");
+      const URL =
+        `http://localhost:8086/api/v1/Student/getStudent?studentId=` +
+        studentId;
       const data = await fetch(
-        `http://localhost:8086/api/v1/Student/getStudent?studentId=1217145871618558908`,
+        URL,
 
         {
           // mode: "no-cors", //stack over flow says that's a server issue (remove this line?)
@@ -56,15 +56,16 @@ function Profile() {
   // {"studentId":8403576665033886403,"email":"hi","birthday":null,"age":1,"semesterList":[],"name":"022078925508001002461285"}
   return (
     <Container>
-      <Row style={styles.profileDistance}>
+      <Row style={styles.profileBackground}>
         <Col>
-          {/* "src/icon/profileImage.png" */}
-          <Image src={image} rounded></Image>
+          <Image src={image}></Image>
         </Col>
         <Col>
-          <Row>{profileInfo.name}</Row>
-          <Row>{profileInfo.email}</Row>
-          <Row>{profileInfo.age} Years Old</Row>
+          <Row style={styles.profileDistancing}>{profileInfo.name}</Row>
+          <Row style={styles.profileDistancing}>{profileInfo.email}</Row>
+          <Row style={styles.profileDistancing}>
+            {profileInfo.age} Years Old
+          </Row>
           {/* <Row>{profileInfo.studentId}</Row> */}
         </Col>
       </Row>

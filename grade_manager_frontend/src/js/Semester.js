@@ -15,7 +15,7 @@ function Semester() {
       paddingRight: 0,
       position: "absolute", //change this later
       marginTop: "5rem",
-      top: "20rem",
+      top: "10rem",
       left: "10rem",
       width: "75%",
     },

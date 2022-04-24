@@ -1,7 +1,9 @@
 package com.grademanager.demo.controller;
 import org.springframework.http.ResponseEntity;
 import com.grademanager.demo.model.Assignment;
+import com.grademanager.demo.model.Course;
 import com.grademanager.demo.service.AssignmentService;
+import com.grademanager.demo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,9 @@ public class AssignmentController{
     
     @Autowired
     private AssignmentService assignmentService;
+
+    @Autowired
+    private CourseService courseService;
 
     /**
      * Handles the GET REQUESTS for the Assignment Objects
@@ -56,5 +61,14 @@ public class AssignmentController{
     @DeleteMapping("{id}")
     public void deleteAssignment(@PathVariable Long id){
         assignmentService.deleteAssignment(id);
+    }
+
+    @PostMapping("/courses/{courseId}/assignments")
+    public void createQuizAccordingToCourse(@PathVariable (value = "courseId") Long courseId,
+    @RequestBody Assignment assignment ){
+        Course course = courseService.getCourse(courseId);
+        assignment.setCourse(course);
+
+        assignmentService.createAssignment(assignment);
     }
 }

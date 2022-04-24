@@ -1,16 +1,15 @@
 package com.grademanager.demo.controller;
 
 import com.grademanager.demo.model.Course;
+import com.grademanager.demo.model.Semester;
 import com.grademanager.demo.service.CourseService;
+import com.grademanager.demo.service.SemesterService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/course")
@@ -18,6 +17,9 @@ public class CourseController {
 
     @Autowired
     CourseService courseService;
+
+    @Autowired
+    SemesterService semesterService;
 
     public CourseController(CourseService courseService){
         this.courseService = courseService;
@@ -62,4 +64,15 @@ public class CourseController {
     public void deleteCourse(@PathVariable Long id){
         courseService.deleteCourse(id);
     }
+
+    @PostMapping("/semesters/{semesterId}/courses")
+    public void createCourseAccordingToSemester(@PathVariable (value = "semesterId") Long semesterId,
+    @RequestBody Course course){
+        Semester semester = semesterService.getSemester(semesterId);
+        course.setSemester(semester);
+
+        courseService.createCourse(course);
+    }
+
+
 }

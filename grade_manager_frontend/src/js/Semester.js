@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 
 import Course from "./Course";
 
-function Semester() {
+function Semester(semesterList) {
   const styles = {
     grid: {
       paddingLeft: 0,
@@ -56,15 +56,21 @@ function Semester() {
     "Semester 7",
     "Semester 8",
   ]);
+  // const [semesters, setSemesters] = useState([]);
 
-  const listItems = semesterNames.map((semester) => (
+  console.log(semesterList);
+
+  const [semesterCourses, setsemesterCourses] = useState([]);
+  // console.log(semesterCourses);
+  const listItems = semesterList.semesterList.map((semester, index) => (
     <ListGroup.Item
       action
-      eventKey={semester}
-      key={semester}
+      eventKey={semester.number}
+      key={semester.number}
+      onClick={() => setsemesterCourses(semester.courseList)}
       // onClick display the associated courses
     >
-      {semester}
+      {semester.name}
     </ListGroup.Item>
   ));
 
@@ -83,7 +89,9 @@ function Semester() {
             </ListGroupItem>
           </ListGroup>
         </Col>
-        <Col style={styles.col}>{<Course></Course>}</Col>
+        <Col style={styles.col}>
+          {<Course courses={semesterCourses}></Course>}
+        </Col>
       </Row>
     </Container>
   );

@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Data
 @Entity //annotation specifies that this Java class is mapped to the database table.
 @Table(name="quizzes")
-
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -21,7 +20,9 @@ public class Quiz {
     public Integer weight = 20;
 
     @ManyToOne
+    @JoinColumn(name="course_id")
     private Course course;
+
 
 
 
@@ -74,6 +75,10 @@ public class Quiz {
      */
     public int getWeight(){
         return weight;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
     
 

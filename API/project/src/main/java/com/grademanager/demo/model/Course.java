@@ -19,16 +19,18 @@ public class Course {
     @Column(name="totalGrade")
     private Double totalGrade;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "semester_id")
     private Semester semester;
 
-    /*@OneToMany(mappedBy="courses", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Quiz.class)
-    private Set<Quiz> quizList;
-    @OneToMany(targetEntity = Assignment.class)
-    private Set<Assignment> assignmentList;
-    @OneToMany(targetEntity = Exam.class)
-    private Set<Exam> examList;*/
+    @OneToMany(mappedBy = "course",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public List<Quiz> quizList;
 
+    @OneToMany(mappedBy = "course",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public List<Assignment> assignmentList;
+
+    @OneToMany(mappedBy = "course",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public List<Exam> examList;
 
  
     public Course(){}
@@ -38,13 +40,13 @@ public class Course {
         this.name = name;
     }
     /**
-     *  calculates the grade for a course via the quizList, assignmentList and finalList 
+     *  calculates the grade for a course via the quizList, assignmentList and examList 
      * @param quizList - An array List consisting of Quiz Objects
      * @param assignmentList - An array List consisting of Assignment Objects
-     * @param finalList - An array List consisting of Final Objects
-     * @return double - a final grade associated tos weights
+     * @param examList - An array List consisting of Exam Objects
+     * @return double - a exam grade associated tos weights
      */
-    public double calculateGrade(List<Quiz> quizList, List<Assignment> assignmentList, List<Exam> finalList){
+    public double calculateGrade(List<Quiz> quizList, List<Assignment> assignmentList, List<Exam> examList){
         double quizScore = 0;
         double assignmentScore = 0;
         double examScore = 0;
@@ -55,10 +57,10 @@ public class Course {
         for(int i = 0; i < assignmentList.size(); i++){
             assignmentScore += assignmentList.get(i).getGrade();
         }
-        for(int i = 0; i < finalList.size(); i++){
-            examScore += finalList.get(i).getGrade();
+        for(int i = 0; i < examList.size(); i++){
+            examScore += examList.get(i).getGrade();
         }
-        totalGrade = quizScore * quizList.get(0).getWeight()  + assignmentScore * assignmentList.get(0).getWeight() + examScore * finalList.get(0).getWeight();
+        totalGrade = quizScore * quizList.get(0).getWeight()  + assignmentScore * assignmentList.get(0).getWeight() + examScore * examList.get(0).getWeight();
         return totalGrade;
     }
 
@@ -120,7 +122,11 @@ public class Course {
         this.name = name;
     }
     
-    
+
+    public void setSemester(Semester semester) {
+        this.semester = semester;
+    }
+
     /** 
      * @return Double
      */
@@ -135,6 +141,18 @@ public class Course {
     public void setTotalGrade(Double totalGrade) {
         this.totalGrade = totalGrade;
     }    
+
+    public void addQuiz(Quiz quiz){
+        quizList.add(quiz);
+    }
+
+    public void addAssignment(Assignment assignment){
+        assignmentList.add(assignment);
+    }
+    public void addExam(Exam exam){
+        examList.add(exam);
+    }
+    
 }
 
 

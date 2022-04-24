@@ -1,6 +1,8 @@
 package com.grademanager.demo.controller;
 import com.grademanager.demo.model.Exam;
+import com.grademanager.demo.model.Course;
 import com.grademanager.demo.service.ExamService;
+import com.grademanager.demo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,6 +19,9 @@ public class ExamController {
     
     @Autowired
     private ExamService examService;
+
+    @Autowired
+    private CourseService courseService;
 
     /**
      * Handles the GET REQUESTS for the Exam Objects
@@ -56,5 +61,15 @@ public class ExamController {
     @DeleteMapping("{id}")
     public void deleteExam(@PathVariable Long id){
         examService.deleteExam(id);
+    }
+
+
+    @PostMapping("/courses/{courseId}/exams")
+    public void createExamAccordingToCourse(@PathVariable (value = "courseId") Long courseId,
+    @RequestBody Exam exam ){
+        Course course = courseService.getCourse(courseId);
+        exam.setCourse(course);
+
+        examService.createExam(exam);
     }
 }

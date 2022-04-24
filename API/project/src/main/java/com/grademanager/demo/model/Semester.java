@@ -2,10 +2,11 @@ package com.grademanager.demo.model;
 import javax.persistence.*;
 import javax.persistence.Id;
 
+
 import lombok.Data;
 
 import java.io.Serializable;
-// import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -19,10 +20,13 @@ public class Semester implements Serializable{
     @Column(name="name")
     private String name; // Fall 2022
     
-    @ManyToOne
+    @ManyToOne  
+    @JoinColumn(name="student_id")  
     private Student student;          //Cascade to propagate changes from any related antities to Semester, to automatically remove orphaned entities.
-    // @OneToMany(mappedBy="semester",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    // public ArrayList<Course> courseList;
+    
+
+    @OneToMany(mappedBy = "semester",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public List<Course> courseList;
 
     public Long getId() {
         return id;
@@ -42,11 +46,13 @@ public class Semester implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-    public Student getStudent() {
-        return student;
-    }
+    
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public void addCourse(Course course){
+        courseList.add(course);
     }
 
     

@@ -1,8 +1,10 @@
 package com.grademanager.demo.controller;
 import com.grademanager.demo.model.Quiz;
+import com.grademanager.demo.model.Course;
+import com.grademanager.demo.service.CourseService;
 import com.grademanager.demo.service.QuizService;
 
-// import org.apache.catalina.connector.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +21,9 @@ public class QuizController {
 
     @Autowired
     private QuizService quizService;
+
+    @Autowired
+    private CourseService courseService;
 
     /**
      * Handles the POST REQUEST for the Course Objects
@@ -59,4 +64,16 @@ public class QuizController {
     public void deleteQuiz(@PathVariable Long id){
         quizService.deleteQuiz(id);
     }
+
+    @PostMapping("/courses/{courseId}/quizzes")
+    public void createQuizAccordingToCourse(@PathVariable (value = "courseId") Long courseId,
+    @RequestBody Quiz quiz ){
+        Course course = courseService.getCourse(courseId);
+        quiz.setCourse(course);
+
+        quizService.createQuiz(quiz);
+    }
+
+    
+
 }

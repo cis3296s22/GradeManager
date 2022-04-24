@@ -76,12 +76,13 @@ export default class Login extends React.Component {
     render() {
 
         return (
+            <div className = "LoginFormat">
             <div className = "LoginPageLayout">
-                <div className = "LoginFormat">
+                
                 <h2 className = "GradeHeader"> 
                     Grade Manager </h2>
                     <h2 className = "LoginHeading">
-                        Login!</h2>
+                        Welcome!</h2>
                     <form className = "LoginForm">
 
                         <input
@@ -108,7 +109,7 @@ export default class Login extends React.Component {
                             {this.state.passwordError}
                         </div>
 
-                            
+                        <div> 
                         <button
                             className= "LogButton"
                             type="button"
@@ -118,19 +119,21 @@ export default class Login extends React.Component {
                         <Container>
                             {isLoggedIn ? <Navigate replace to = "/Home"></Navigate> : <></>}
                         </Container>
+                        </div> 
 
 
-                        
-                        <button
+                        <div>                        
+                        <p
                             className= "SignupButton"
-                            type="button"
+                            type = "button"
                             onClick={this.launchSign}>
                             <h6>Don't have an account? Sign up</h6>
-                            </button>
+                            </p>
                         
                         <Container>
                             {isClicked ? <Navigate replace to = "/Signup"></Navigate> : <></>}
-                        </Container>     
+                        </Container> 
+                        </div>    
                 
 
                     </form>

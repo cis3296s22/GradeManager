@@ -2,7 +2,16 @@ input:focus, button:focus{
     outline: none;
 }
 
+.LoginFormat{
+    background-image: url(https://djkeating.com/wp-content/uploads/2019/12/20190912_Charles_EAM_035-1024x692.jpg);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    
+}
+
 .LoginPageLayout{
+    
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -13,36 +22,28 @@ input:focus, button:focus{
     font-weight: bold;
     font-size: 30px;
     z-index: 2;
-    width: 80%;
-    left: 10%;
+    width: 40%;
+    left: 60%;
     transition: all .8s ease-in-out;
     font-family: 'Quicksand-Bold';
-    background-color: #ffe7e7;
+    background-color: #eadcd1;
 
 }
 
 .GradeHeader{
-    font-size: 40px;
-}
-
-.LoginFormat{
-    display: flex;
-    justify-content: center;
-    margin-top: 0%;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
+    padding-bottom: 8%;
+    font-size: 44px;
+    color: rgb(141, 66, 66);
+    font-weight: bolder;
     font-family: 'Quicksand-Bold';
-    font-size: 30px;
-    color: #986060;
-
 }
 
 .LoginHeading{
     text-align: center;
-    color: rgb(190, 95, 95);
+    color: rgb(141, 66, 66);
     font-family: 'Quicksand-Bold';
-    font-weight: 400;
+    font-weight: bold;
+    padding-bottom: 5%;
 }
 
 
@@ -99,19 +100,16 @@ input:focus, button:focus{
 }
 
 .SignupButton{
-        border: solid 2px white;
-        border-radius: 30px;
-        width: 17.5%;
-        height: auto;
-        left: 41.5%;
+        width: 33.30%;
+        height: 70px;
+        text-shadow: rgb(129, 33, 33);
+        text-align: center;
         margin-top: 10px;
         position: absolute;
         z-index: 2;
-        background-color: #986060;
-        transition: all .8s ease-in-out;
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: white;
+        color: rgb(141, 66, 66);
         font-family: 'Quicksand-Bold';
 }

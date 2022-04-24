@@ -9,7 +9,8 @@
 /* @media (prefers-reduced-motion: no-preference) {
 } */
 
-.App h1 {
+.background{
+  background-image: url(https://www.temple.edu/sites/www/files/styles/tu_is_image_embedded/public/images_embedded/20190828_CharlesLibraryEvening_030_0.JPG?itok=6iFNhTh0);
   color: #63a375;
   font-weight: 600;
 }

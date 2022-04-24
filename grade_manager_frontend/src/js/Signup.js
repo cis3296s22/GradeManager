@@ -1,5 +1,5 @@
 import '../Style/SignUpPageLayout.css';
-import {Navigate, Link} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import React from "react";
 
@@ -115,10 +115,11 @@ export default class Signup extends React.Component {
         this.state.date = "";
         this.state.email = "";
         this.state.password = "";
-        this.state.password_2 = "";
+        this.state.password2 = "";
         this.state.nameError = "";
         this.state.dateError = "";
         this.state.emailError = "";
+        this.state.studentError = "";
         this.state.passwordError = "";
         this.state.password_2Error = "";
         this.setState(initialState);
@@ -192,7 +193,7 @@ export default class Signup extends React.Component {
           </label>
           
 
-          <label className="passText">Teacher</label>
+          <label className="pass2Text">Teacher</label>
           <input
           className = "InputText"
           type = "radio"
@@ -202,7 +203,7 @@ export default class Signup extends React.Component {
           /> 
 
 
-          <label className="passText">Student</label>
+          <label className="pass2Text">Student</label>
           <input
           className = "InputText"
           type = "radio"
@@ -234,14 +235,13 @@ export default class Signup extends React.Component {
           <input
           className = "NameInputText"
           type = "password"
-          name = "re-password"
           value = {this.state.password2}
           onChange = {this.handleChange}
           placeholder = "Enter Password Again"
           />
           <label className="ErrorMessages">
           <div style = {{ fontSize: 12, color: "red"}}>
-            {this.state.password2Error}
+            {this.state.password_2Error}
           </div>
           </label>
 
@@ -259,17 +259,20 @@ export default class Signup extends React.Component {
            {isSignedIn ? <Navigate replace to = "/Home"></Navigate> : <></>}
           </Container>
 
-          <Container>
-              <button
+
+          <div>
+              <p
                   className="BackButton"
                   type="button"
                   onClick={this.launchLogin}>
                   <h6>Login If You Already Have An Account</h6>
-              </button>
-
+              </p>
           
+
+          <Container>          
             {isSelected ? <Navigate replace to = "/"></Navigate> : <></>}
           </Container>
+          </div>
                         
         </form>
 

@@ -1,12 +1,11 @@
 package com.grademanager.demo.controller;
 import com.grademanager.demo.model.*;
 import com.grademanager.demo.service.SemesterService;
-// import com.grademanager.demo.service.StudentService;
+import com.grademanager.demo.service.StudentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-// import java.util.Optional;
 
 
 @RestController
@@ -16,8 +15,8 @@ public class SemesterController {
     @Autowired
     private SemesterService semesterService;
 
-    // @Autowired
-    // private StudentService studentService;
+    @Autowired
+    private StudentService studentService;
 
     /**
      * Handles the DELETE REQUEST for the Semester Objects
@@ -64,14 +63,19 @@ public class SemesterController {
 
 
 
-    // @PostMapping("/posts/{postId}/comments")
-    // public Semester createComment(@PathVariable (value = "postId") Long postId,
-    //                              @Valid @RequestBody Semester semester) {
-    //     return studentService.getStudent(postId).map(student -> )
-    //     // return semesterService.getSemester(postId).map(post -> {
-    //         // comment.setPost(post);
-    //         return commentRepository.save(comment);
-    //     }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
-    // }
+    @PostMapping("/students/{studentId}/sems")
+    public void createSemesterAccordingToStudent(@PathVariable (value = "studentId") Long studentId,
+                                  @RequestBody Semester semester) {
+// ********************************************************************************************************                                    
+// According to how the post set to make the student, but I think only ID is necessary???
+        Student student = studentService.getStudent(studentId).getBody();
+        // semester.setId(studentId);
+        semester.setStudent(student);
+// ********************************************************************************************************
+        // ASSUMING studentID is PRESENT in the database
+        semesterService.createSemester(semester);
+
+        
+    }
 
 }

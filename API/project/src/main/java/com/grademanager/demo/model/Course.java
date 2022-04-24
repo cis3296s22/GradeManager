@@ -19,7 +19,8 @@ public class Course {
     @Column(name="totalGrade")
     private Double totalGrade;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "semester_id")
     private Semester semester;
 
     /*@OneToMany(mappedBy="courses", cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Quiz.class)
@@ -120,7 +121,11 @@ public class Course {
         this.name = name;
     }
     
-    
+
+    public void setSemester(Semester semester) {
+        this.semester = semester;
+    }
+
     /** 
      * @return Double
      */

@@ -59,4 +59,7 @@ public class QuizController {
     public void deleteQuiz(@PathVariable Long id){
         quizService.deleteQuiz(id);
     }
+
+    
+
 }

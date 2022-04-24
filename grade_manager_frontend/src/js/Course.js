@@ -20,18 +20,13 @@ function Course(courses) {
   });
   // setSemsCourses(courses.courses);
   console.log(semsCourses);
-  const [courseNames, setCourseNames] = useState([
-    "Software Design",
-    "Intellectual Heritage",
-    "Calculus I",
-  ]);
 
   const CourseTabs = semsCourses.map((eachCourse, index) => (
     <Tab eventKey={index} title={eachCourse.name} key={index}>
       <Card border="primary">
         <Card.Header>{eachCourse.name}</Card.Header>
         <Card.Body>
-          <Assignment ifAddAssignmentDiv={true} />
+          <Assignment ifAddAssignmentDiv={true} assignmentList={eachCourse.assignmentList} />
         </Card.Body>
       </Card>
     </Tab>
@@ -43,8 +38,7 @@ function Course(courses) {
   });
 
   function applyNewCourse(e) {
-    setCourseNames((prevState) => [...prevState, newCourse.CourseName]);
-
+    // setCourseNames((prevState) => [...prevState, newCourse.CourseName]);
     // SEND TO DATABASE HERE
   }
   const addCourseDiv = (

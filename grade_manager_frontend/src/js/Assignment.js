@@ -8,6 +8,20 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { useState } from "react";
 function Assignment(props) {
   const ifAddAssignmentDiv = props.ifAddAssignmentDiv;
+  const assignmentList = props.assignmentList;
+
+  // const [allAssignments, setallAssignments] = useState([]);
+  const allAssignments = assignmentList.map((eachAssignment) => (
+    <ListGroup horizontal style={{ width: "100%" }}>
+      <ListGroup.Item style={{ width: "33.33%" }}>
+        {eachAssignment.name}
+      </ListGroup.Item>
+      <ListGroup.Item style={{ width: "33.33%" }}>Assignment</ListGroup.Item>
+      <ListGroup.Item style={{ width: "33.33%" }}>
+        {eachAssignment.grade}
+      </ListGroup.Item>
+    </ListGroup>
+  ));
 
   const [newAssignment, setNewAssignment] = useState({
     name: null,
@@ -108,6 +122,7 @@ function Assignment(props) {
 
   return (
     <div style={{ maxWidth: "100%" }}>
+      {allAssignments}
       {newAssignment.container}
       {ifAddAssignmentDiv && addAssignmentDiv}
     </div>

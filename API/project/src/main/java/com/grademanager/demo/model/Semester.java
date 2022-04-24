@@ -19,10 +19,10 @@ public class Semester implements Serializable{
     @Column(name="name")
     private String name; // Fall 2022
     
-    @ManyToOne
+    @ManyToOne  
+    @JoinColumn(name="student_id")  
     private Student student;          //Cascade to propagate changes from any related antities to Semester, to automatically remove orphaned entities.
-    // @OneToMany(mappedBy="semester",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    // public ArrayList<Course> courseList;
+    
 
     public Long getId() {
         return id;

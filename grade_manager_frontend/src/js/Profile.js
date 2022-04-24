@@ -21,7 +21,7 @@ function Profile() {
     const fetchData = async () => {
       //   STUDENT PROFILE URL BELOW
       // HARD CODED STUDENT ID HERE
-      const studentId = encodeURIComponent("5915333688306650392");
+      const studentId = encodeURIComponent("6444407856832004412");
       const URL =
         `http://localhost:8086/api/v1/Student/getStudent?studentId=` +
         studentId;

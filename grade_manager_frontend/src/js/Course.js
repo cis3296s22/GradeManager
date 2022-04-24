@@ -5,44 +5,31 @@ import Button from "react-bootstrap/Button";
 import { FaPlus } from "react-icons/fa";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Assignment from "./Assignment";
 
 // import "../Style/Course.css";
 
-function Course() {
-  // const styles = {
-  //   grid: {
-  //     paddingLeft: 0,
-  //     paddingRight: 0,
-  //     position: "absolute", //change this later
-  //     top: "10rem",
-  //     left: "10rem",
-  //     width: "75%",
-  //   },
-  //   row: {
-  //     marginLeft: 0,
-  //     marginRight: 0,
-  //     //  the rows is already taking up the whole height, need the ListGroup Items to expand/shrink
-  //     // in response to the available size
-  //   },
-  //   col: {
-  //     paddingLeft: 0,
-  //     paddingRight: 0,
-  //   },
-  // };
+function Course(courses) {
+  console.log(courses.courses);
 
+  const [semsCourses, setSemsCourses] = useState([]);
+  useEffect(() => {
+    setSemsCourses(courses.courses);
+  });
+  // setSemsCourses(courses.courses);
+  console.log(semsCourses);
   const [courseNames, setCourseNames] = useState([
     "Software Design",
     "Intellectual Heritage",
     "Calculus I",
   ]);
 
-  const CourseTabs = courseNames.map((eachCourseName) => (
-    <Tab eventKey={eachCourseName} title={eachCourseName} key={eachCourseName}>
+  const CourseTabs = semsCourses.map((eachCourse, index) => (
+    <Tab eventKey={index} title={eachCourse.name} key={index}>
       <Card border="primary">
-        <Card.Header>{eachCourseName}</Card.Header>
+        <Card.Header>{eachCourse.name}</Card.Header>
         <Card.Body>
           <Assignment ifAddAssignmentDiv={true} />
         </Card.Body>
